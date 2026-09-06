@@ -1,0 +1,4893 @@
+[
+  {
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7675161 cohort_02781_91d1681c1afc G C . . .",
+    "vcf_string": "17-7675161-G-C",
+    "strand": 1,
+    "start": 7675161,
+    "end": 7675161,
+    "id": "cohort_02781_91d1681c1afc",
+    "colocated_variants": [
+      {
+        "end": 7675161,
+        "id": "CM012662",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675161,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7675161,
+        "allele_string": "HGMD_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7675161,
+        "id": "CM120847"
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7675161,
+        "allele_string": "HGMD_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "id": "CM941326",
+        "end": 7675161
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675161,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7675161,
+        "id": "COSV52661698",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10905"
+          ]
+        }
+      },
+      {
+        "somatic": 1,
+        "end": 7675161,
+        "id": "COSV52676321",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43911"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675161,
+        "seq_region_name": "17"
+      },
+      {
+        "somatic": 1,
+        "end": 7675161,
+        "id": "COSV52676982",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43792"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675161
+      },
+      {
+        "somatic": 1,
+        "end": 7675161,
+        "id": "COSV52701855",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44944"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675161,
+        "seq_region_name": "17"
+      },
+      {
+        "allele_string": "G/A/C/T",
+        "start": 7675161,
+        "clin_sig_allele": "A:likely_pathogenic;T:likely_pathogenic;C:pathogenic;A:pathogenic;A:pathogenic/likely_pathogenic;T:pathogenic/likely_pathogenic;T:pathogenic",
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "G",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV000130617",
+            "RCV000013168",
+            "VCV000012369",
+            "RCV000459465",
+            "RCV000443817",
+            "RCV000443386",
+            "RCV000443299",
+            "RCV000442802",
+            "RCV000441351",
+            "RCV000440812",
+            "RCV000439740",
+            "RCV000438632",
+            "RCV000437544",
+            "RCV000437396",
+            "RCV000436762",
+            "RCV000435159",
+            "RCV000434485",
+            "RCV000433405",
+            "RCV000432886",
+            "RCV000431789",
+            "RCV000431059",
+            "RCV000429500",
+            "RCV000428836",
+            "RCV000428384",
+            "RCV000428371",
+            "RCV000426471",
+            "RCV000426064",
+            "RCV000425371",
+            "RCV000425139",
+            "RCV000424222",
+            "RCV000423161",
+            "RCV000422094",
+            "RCV000420971",
+            "RCV000420838",
+            "RCV000419693",
+            "RCV000418145",
+            "RCV000418125",
+            "VCV000376641",
+            "RCV000417493",
+            "RCV000520731",
+            "RCV001257524",
+            "RCV000691152",
+            "RCV002338981",
+            "RCV002288486",
+            "RCV002288487",
+            "RCV001257523",
+            "RCV000633355",
+            "RCV000785532",
+            "RCV000013169",
+            "VCV000012370",
+            "RCV000079203",
+            "RCV000219702",
+            "RCV000443379",
+            "RCV000443020",
+            "RCV000440887",
+            "RCV000440140",
+            "RCV000438074",
+            "RCV000435681",
+            "RCV000433689",
+            "RCV000432585",
+            "RCV000431507",
+            "RCV000429847",
+            "RCV000427411",
+            "RCV000426058",
+            "RCV000424996",
+            "RCV000422996",
+            "RCV000421928",
+            "RCV000420869",
+            "RCV000420199",
+            "RCV004566739"
+          ],
+          "OMIM": [
+            191170.0026,
+            191170.0025
+          ],
+          "UniProt": [
+            "VAR_005894"
+          ]
+        },
+        "id": "rs28934874",
+        "end": 7675161,
+        "pubmed": [
+          32728337,
+          23757202,
+          26619011,
+          25105660,
+          34529667,
+          31216622,
+          1673792,
+          8364550,
+          11479205,
+          30833416,
+          37304756,
+          38156855,
+          39590369
+        ],
+        "clin_sig": [
+          "likely_pathogenic",
+          "pathogenic"
+        ]
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "G/C",
+    "transcript_consequences": [
+      {
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.451C>G",
+        "hgvsp": "ENSP00000269305.4:p.Pro151Ala",
+        "revel": 0.889,
+        "cds_end": 451,
+        "cadd_raw": 3.670789,
+        "amino_acids": "P/A",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.6047
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "strand": -1,
+        "cds_start": 451,
+        "protein_end": 151,
+        "cadd_phred": 23.2,
+        "cdna_end": 593,
+        "conservation": 2.4,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Ccc/Gcc",
+        "gene_symbol": "TP53",
+        "variant_allele": "C",
+        "canonical": 1,
+        "cdna_start": 593,
+        "protein_start": 151,
+        "sift_score": 0
+      }
+    ]
+  },
+  {
+    "transcript_consequences": [
+      {
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9245
+        },
+        "amino_acids": "V/A",
+        "sift_prediction": "deleterious",
+        "hgvsc": "ENST00000269305.9:c.428T>C",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "cds_end": 428,
+        "cadd_raw": 3.891699,
+        "revel": 0.574,
+        "hgvsp": "ENSP00000269305.4:p.Val143Ala",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "sift_score": 0,
+        "protein_start": 143,
+        "gene_symbol": "TP53",
+        "variant_allele": "G",
+        "canonical": 1,
+        "cdna_start": 570,
+        "codons": "gTg/gCg",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "strand": -1,
+        "conservation": 1.46,
+        "cadd_phred": 23.8,
+        "cdna_end": 570,
+        "cds_start": 428,
+        "protein_end": 143
+      }
+    ],
+    "allele_string": "A/G",
+    "most_severe_consequence": "missense_variant",
+    "colocated_variants": [
+      {
+        "id": "CM1511132",
+        "end": 7675184,
+        "seq_region_name": "17",
+        "start": 7675184,
+        "allele_string": "HGMD_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675184,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675184,
+        "id": "COSV52737174",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45382"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675184,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675184,
+        "id": "COSV52760297",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11306"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675184,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675184,
+        "id": "COSV52868891",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44573"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044785"
+          ],
+          "ClinVar": [
+            "RCV003484951",
+            "VCV002687706",
+            "RCV004719887",
+            "RCV004030120",
+            "RCV002526919",
+            "RCV000991143",
+            "VCV000804214",
+            "RCV000562247",
+            "VCV000486556",
+            "RCV005286262"
+          ]
+        },
+        "id": "rs1555526241",
+        "end": 7675184,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "A",
+        "start": 7675184,
+        "allele_string": "A/C/G/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:likely_pathogenic;T:uncertain_significance;G:pathogenic;C:uncertain_significance;C:likely_pathogenic"
+      }
+    ],
+    "end": 7675184,
+    "start": 7675184,
+    "id": "cohort_02782_04f4fd8fa5d6",
+    "strand": 1,
+    "vcf_string": "17-7675184-A-G",
+    "input": "17 7675184 cohort_02782_04f4fd8fa5d6 A G . . .",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "colocated_variants": [
+      {
+        "end": 7675189,
+        "id": "COSV52671863",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44927"
+          ]
+        },
+        "somatic": 1,
+        "seq_region_name": "17",
+        "start": 7675189,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675189,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44204"
+          ]
+        },
+        "id": "COSV52706449",
+        "end": 7675189,
+        "somatic": 1
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675189,
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44611"
+          ]
+        },
+        "id": "COSV52741627",
+        "end": 7675189
+      },
+      {
+        "somatic": 1,
+        "end": 7675189,
+        "id": "COSV52827803",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45102"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675189,
+        "seq_region_name": "17"
+      },
+      {
+        "clin_sig_ref_allele": "G",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "C:pathogenic;C:likely_pathogenic;A:benign;A:likely_benign",
+        "start": 7675189,
+        "allele_string": "G/A/C/T",
+        "clin_sig": [
+          "benign",
+          "likely_benign",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "pubmed": [
+          26619011
+        ],
+        "end": 7675189,
+        "id": "rs1057519977",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044777"
+          ],
+          "ClinVar": [
+            "RCV000492201",
+            "RCV000467641",
+            "RCV000445034",
+            "RCV000444942",
+            "RCV000442353",
+            "RCV000440499",
+            "RCV000434797",
+            "RCV000434169",
+            "RCV000431589",
+            "RCV000430241",
+            "RCV000425931",
+            "RCV000424802",
+            "RCV000423924",
+            "RCV000422816",
+            "VCV000376564",
+            "RCV002881459",
+            "VCV002032821",
+            "RCV005621222"
+          ]
+        }
+      }
+    ],
+    "start": 7675189,
+    "end": 7675189,
+    "id": "cohort_02783_00ebc07bf56b",
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "protein_start": 141,
+        "sift_score": 0,
+        "variant_allele": "C",
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "cdna_start": 565,
+        "codons": "tgC/tgG",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "conservation": -4.94,
+        "cdna_end": 565,
+        "cadd_phred": 23.2,
+        "protein_end": 141,
+        "cds_start": 423,
+        "strand": -1,
+        "sift_prediction": "deleterious",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9877
+        },
+        "amino_acids": "C/W",
+        "cadd_raw": 3.658815,
+        "cds_end": 423,
+        "revel": 0.808,
+        "hgvsp": "ENSP00000269305.4:p.Cys141Trp",
+        "hgvsc": "ENST00000269305.9:c.423C>G",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE"
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "G/C",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "vcf_string": "17-7675189-G-C",
+    "input": "17 7675189 cohort_02783_00ebc07bf56b G C . . ."
+  },
+  {
+    "vcf_string": "17-7675199-G-A",
+    "input": "17 7675199 cohort_02784_0d25df077a2f G A . . .",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "G/A",
+    "transcript_consequences": [
+      {
+        "cdna_end": 555,
+        "cadd_phred": 25.8,
+        "conservation": 2.47,
+        "protein_end": 138,
+        "cds_start": 413,
+        "strand": -1,
+        "variant_allele": "A",
+        "gene_symbol": "TP53",
+        "cdna_start": 555,
+        "canonical": 1,
+        "protein_start": 138,
+        "sift_score": 0,
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "gCc/gTc",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "cds_end": 413,
+        "cadd_raw": 4.564608,
+        "hgvsp": "ENSP00000269305.4:p.Ala138Val",
+        "revel": 0.87,
+        "hgvsc": "ENST00000269305.9:c.413C>T",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "sift_prediction": "deleterious",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9331
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "A/V"
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675199,
+        "allele_string": "HGMD_MUTATION",
+        "id": "CM123559",
+        "end": 7675199
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675199,
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43818"
+          ]
+        },
+        "id": "COSV52661339",
+        "end": 7675199
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675199,
+        "somatic": 1,
+        "end": 7675199,
+        "id": "COSV52708439",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM18594"
+          ]
+        }
+      },
+      {
+        "start": 7675199,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7675199,
+        "id": "COSV53502932",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM5346977"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "G",
+        "frequencies": {
+          "A": {
+            "gnomadg_sas": 0,
+            "gnomadg_remaining": 0,
+            "gnomadg_afr": 0,
+            "gnomadg_eas": 0,
+            "gnomadg_fin": 0,
+            "gnomadg_asj": 0,
+            "gnomadg_mid": 0,
+            "gnomadg": 0,
+            "gnomadg_nfe": 0,
+            "gnomadg_ami": 0,
+            "gnomadg_amr": 0
+          }
+        },
+        "allele_string": "G/A/C/T",
+        "start": 7675199,
+        "clin_sig_allele": "T:uncertain_significance;A:likely_pathogenic;A:uncertain_significance;A:pathogenic;C:uncertain_significance",
+        "seq_region_name": "17",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "end": 7675199,
+        "id": "rs750600586",
+        "var_synonyms": {
+          "PhenCode": [
+            "TP53_g.12401C>T"
+          ],
+          "ClinVar": [
+            "RCV000633392",
+            "VCV000528270",
+            "RCV001871102",
+            "VCV001375764",
+            "RCV004019963",
+            "RCV003995323",
+            "RCV003483847",
+            "RCV003474852",
+            "RCV000164195",
+            "VCV000184863",
+            "RCV000813957"
+          ],
+          "UniProt": [
+            "VAR_033034"
+          ]
+        },
+        "pubmed": [
+          9569035,
+          37159554
+        ]
+      }
+    ],
+    "id": "cohort_02784_0d25df077a2f",
+    "end": 7675199,
+    "start": 7675199
+  },
+  {
+    "allele_string": "C/G",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "hgvsp": "ENSP00000269305.4:p.Ala138Pro",
+        "revel": 0.949,
+        "cds_end": 412,
+        "cadd_raw": 4.858785,
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.412G>C",
+        "sift_prediction": "deleterious",
+        "amino_acids": "A/P",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9887
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "protein_end": 138,
+        "cds_start": 412,
+        "cdna_end": 554,
+        "cadd_phred": 27.1,
+        "conservation": 2.47,
+        "strand": -1,
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Gcc/Ccc",
+        "variant_allele": "G",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "cdna_start": 554,
+        "protein_start": 138,
+        "sift_score": 0,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305"
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675200,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675200,
+        "id": "CM942116"
+      },
+      {
+        "id": "CM983475",
+        "end": 7675200,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675200,
+        "seq_region_name": "17"
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7675200,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11188"
+          ]
+        },
+        "id": "COSV52661607",
+        "end": 7675200,
+        "somatic": 1
+      },
+      {
+        "somatic": 1,
+        "end": 7675200,
+        "id": "COSV52839281",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44821"
+          ]
+        },
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675200,
+        "allele_string": "COSMIC_MUTATION"
+      },
+      {
+        "start": 7675200,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7675200,
+        "id": "COSV53396164",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44508"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "pubmed": [
+          25105660,
+          9569035
+        ],
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV004719641",
+            "RCV005023085",
+            "RCV001361534",
+            "VCV001053218",
+            "RCV002326677",
+            "RCV000013175",
+            "VCV000012376",
+            "RCV000461233"
+          ],
+          "UniProt": [
+            "VAR_005881"
+          ],
+          "OMIM": [
+            191170.0032
+          ],
+          "PhenCode": [
+            "TP53_g.12400G>C"
+          ]
+        },
+        "id": "rs28934875",
+        "end": 7675200,
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:uncertain_significance;G:pathogenic;G:likely_pathogenic",
+        "start": 7675200,
+        "allele_string": "C/A/G/T",
+        "clin_sig_ref_allele": "C",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      }
+    ],
+    "end": 7675200,
+    "id": "cohort_02785_4022de4228f8",
+    "start": 7675200,
+    "vcf_string": "17-7675200-C-G",
+    "input": "17 7675200 cohort_02785_4022de4228f8 C G . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38"
+  },
+  {
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "vcf_string": "17-7675208-C-G",
+    "input": "17 7675208 cohort_02786_5f1721dddd86 C G . . .",
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10801"
+          ]
+        },
+        "id": "COSV52675774",
+        "end": 7675208,
+        "somatic": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675208,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675208,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10647"
+          ]
+        },
+        "id": "COSV52680475",
+        "end": 7675208
+      },
+      {
+        "end": 7675208,
+        "id": "COSV52702460",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44643"
+          ]
+        },
+        "somatic": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675208,
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "somatic": 1,
+        "end": 7675208,
+        "id": "COSV53452020",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM5369713"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675208
+      },
+      {
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_005877"
+          ],
+          "ClinVar": [
+            "RCV000130396",
+            "VCV000141762",
+            "RCV000581322",
+            "RCV000444676",
+            "RCV000439440",
+            "RCV000438381",
+            "RCV000437052",
+            "RCV000431855",
+            "RCV000430048",
+            "RCV000429447",
+            "RCV000428748",
+            "RCV000423651",
+            "RCV000422242",
+            "RCV000421166",
+            "RCV000419825",
+            "RCV000419337",
+            "RCV001203469",
+            "RCV000444605",
+            "RCV000444308",
+            "RCV000438861",
+            "RCV000436707",
+            "RCV000436440",
+            "RCV000435797",
+            "RCV000434318",
+            "RCV000428180",
+            "RCV000427781",
+            "RCV000426876",
+            "RCV000425788",
+            "RCV000418582",
+            "RCV000417503",
+            "VCV000376559",
+            "RCV000492398",
+            "RCV001069143",
+            "RCV004019738",
+            "RCV004022199",
+            "RCV005402362",
+            "VCV003893309"
+          ],
+          "PhenCode": [
+            "TP53_g.12392G>A"
+          ]
+        },
+        "id": "rs587781991",
+        "end": 7675208,
+        "pubmed": [
+          26619011,
+          40725116
+        ],
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "allele_string": "C/A/G/T",
+        "start": 7675208,
+        "clin_sig_allele": "T:pathogenic/likely_pathogenic;T:pathogenic;G:likely_pathogenic;T:conflicting_classifications_of_pathogenicity;A:likely_pathogenic;A:pathogenic;T:likely_pathogenic",
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "C"
+      }
+    ],
+    "start": 7675208,
+    "end": 7675208,
+    "id": "cohort_02786_5f1721dddd86",
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "C/G",
+    "transcript_consequences": [
+      {
+        "sift_prediction": "deleterious",
+        "amino_acids": "C/S",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.958,
+          "am_class": "likely_pathogenic"
+        },
+        "revel": 0.954,
+        "hgvsp": "ENSP00000269305.4:p.Cys135Ser",
+        "cds_end": 404,
+        "cadd_raw": 4.528677,
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.404G>C",
+        "gene_symbol_source": "HGNC",
+        "codons": "tGc/tCc",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "protein_start": 135,
+        "sift_score": 0,
+        "variant_allele": "G",
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "cdna_start": 546,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "cds_start": 404,
+        "protein_end": 135,
+        "conservation": 2.47,
+        "cadd_phred": 25.6,
+        "cdna_end": 546,
+        "strand": -1
+      }
+    ]
+  },
+  {
+    "start": 7675209,
+    "end": 7675209,
+    "id": "cohort_02787_229e2fad4a18",
+    "colocated_variants": [
+      {
+        "end": 7675209,
+        "id": "COSV52674321",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44910"
+          ]
+        },
+        "somatic": 1,
+        "seq_region_name": "17",
+        "start": 7675209,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675209,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7675209,
+        "id": "COSV52706302",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10684"
+          ]
+        }
+      },
+      {
+        "start": 7675209,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44829"
+          ]
+        },
+        "id": "COSV52827707",
+        "end": 7675209,
+        "somatic": 1
+      },
+      {
+        "clin_sig_ref_allele": "A",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:likely_pathogenic;T:pathogenic;C:likely_pathogenic;C:pathogenic;T:uncertain_significance;G:pathogenic",
+        "start": 7675209,
+        "allele_string": "A/C/G/T",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "pubmed": [
+          26619011
+        ],
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_005876"
+          ],
+          "ClinVar": [
+            "RCV000445231",
+            "RCV000444995",
+            "RCV000444883",
+            "RCV000444857",
+            "RCV000444598",
+            "RCV000444209",
+            "RCV000443653",
+            "RCV000441192",
+            "RCV000440105",
+            "RCV000439732",
+            "RCV000438642",
+            "RCV000438245",
+            "RCV000437581",
+            "RCV000437180",
+            "RCV000434656",
+            "RCV000433604",
+            "RCV000433361",
+            "RCV000432917",
+            "RCV000432610",
+            "RCV000432330",
+            "RCV000431837",
+            "RCV000430830",
+            "RCV000430504",
+            "RCV000429525",
+            "RCV000428411",
+            "RCV000426947",
+            "RCV000426276",
+            "RCV000426036",
+            "RCV000425388",
+            "RCV000424613",
+            "RCV000423943",
+            "RCV000423071",
+            "RCV000422903",
+            "RCV000422226",
+            "RCV000422074",
+            "RCV000420954",
+            "RCV000420576",
+            "VCV000376562",
+            "RCV000418158",
+            "VCV000376563",
+            "RCV000418091",
+            "VCV000376560",
+            "RCV000814994",
+            "RCV000785515",
+            "RCV000570655",
+            "RCV001383908",
+            "RCV000991142",
+            "RCV005502792",
+            "RCV004022200",
+            "RCV004022201"
+          ]
+        },
+        "id": "rs1057519975",
+        "end": 7675209
+      }
+    ],
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "variant_allele": "C",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "cdna_start": 545,
+        "protein_start": 135,
+        "sift_score": 0,
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Tgc/Ggc",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "cdna_end": 545,
+        "cadd_phred": 26.8,
+        "conservation": 2.47,
+        "cds_start": 403,
+        "protein_end": 135,
+        "strand": -1,
+        "sift_prediction": "deleterious",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9352
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "C/G",
+        "cadd_raw": 4.798758,
+        "cds_end": 403,
+        "hgvsp": "ENSP00000269305.4:p.Cys135Gly",
+        "revel": 0.965,
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.403T>G",
+        "impact": "MODERATE"
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/C",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7675209 cohort_02787_229e2fad4a18 A C . . .",
+    "vcf_string": "17-7675209-A-C"
+  },
+  {
+    "transcript_consequences": [
+      {
+        "amino_acids": "F/C",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9992
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.401T>G",
+        "hgvsp": "ENSP00000269305.4:p.Phe134Cys",
+        "revel": 0.949,
+        "cadd_raw": 4.638087,
+        "cds_end": 401,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "tTt/tGt",
+        "cdna_start": 543,
+        "variant_allele": "C",
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 134,
+        "strand": -1,
+        "cds_start": 401,
+        "protein_end": 134,
+        "cadd_phred": 26.1,
+        "cdna_end": 543,
+        "conservation": 0.264
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/C",
+    "end": 7675211,
+    "start": 7675211,
+    "id": "cohort_02788_fed6521ff85b",
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675211,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17",
+        "end": 7675211,
+        "id": "CM083195"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675211,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44506"
+          ]
+        },
+        "id": "COSV52669400",
+        "end": 7675211
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675211,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43949"
+          ]
+        },
+        "id": "COSV52722353",
+        "end": 7675211
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic"
+        ],
+        "end": 7675211,
+        "id": "rs780442292",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV000214547",
+            "VCV000230477",
+            "RCV000656580",
+            "RCV005600832",
+            "RCV002040663",
+            "VCV001509393",
+            "RCV002043745",
+            "VCV001519634"
+          ],
+          "UniProt": [
+            "VAR_044749"
+          ],
+          "PhenCode": [
+            "TP53_g.12389T>G"
+          ]
+        },
+        "frequencies": {
+          "C": {
+            "gnomade_afr": 0,
+            "gnomade_sas": 0,
+            "gnomade": 1.368e-06,
+            "gnomade_nfe": 1.799e-06,
+            "gnomade_amr": 0,
+            "gnomade_fin": 0,
+            "gnomade_remaining": 0,
+            "gnomade_asj": 0,
+            "gnomade_mid": 0,
+            "gnomade_eas": 0
+          }
+        },
+        "clin_sig_ref_allele": "A",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:uncertain_significance;T:uncertain_significance;C:likely_pathogenic",
+        "start": 7675211,
+        "allele_string": "A/C/G/T"
+      }
+    ],
+    "strand": 1,
+    "input": "17 7675211 cohort_02788_fed6521ff85b A C . . .",
+    "vcf_string": "17-7675211-A-C",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675214,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "end": 7675214,
+        "id": "CM910373"
+      },
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "end": 7675214,
+        "id": "CM973400",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675214
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675214,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1,
+        "end": 7675214,
+        "id": "COSV52744834",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43730"
+          ]
+        }
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675214,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "id": "COSV52795528",
+        "end": 7675214,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43723"
+          ]
+        }
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7675214,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11781"
+          ]
+        },
+        "id": "COSV52821486",
+        "end": 7675214,
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)"
+      },
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM132890"
+          ]
+        },
+        "end": 7675214,
+        "id": "COSV52852024",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675214
+      },
+      {
+        "var_synonyms": {
+          "PhenCode": [
+            "TP53_g.12386T>C"
+          ],
+          "ClinVar": [
+            "RCV000492130",
+            "RCV000013151",
+            "VCV000012357",
+            "RCV001383051",
+            "RCV004786255",
+            "RCV004673840",
+            "RCV003484944",
+            "VCV002687699",
+            "RCV003128121",
+            "VCV002430159",
+            "RCV005099271"
+          ],
+          "UniProt": [
+            "VAR_005875"
+          ],
+          "OMIM": [
+            191170.0011
+          ]
+        },
+        "end": 7675214,
+        "id": "rs28934873",
+        "pubmed": [
+          25105660,
+          1933902,
+          2531845,
+          11050162,
+          10477429,
+          24681953
+        ],
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "start": 7675214,
+        "allele_string": "A/C/G/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "C:uncertain_significance;T:likely_pathogenic;G:pathogenic;T:uncertain_significance",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "A"
+      }
+    ],
+    "id": "cohort_02789_d6c2318a0b7b",
+    "end": 7675214,
+    "start": 7675214,
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "cds_start": 398,
+        "protein_end": 133,
+        "cdna_end": 540,
+        "cadd_phred": 23.9,
+        "conservation": 2.47,
+        "strand": -1,
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "aTg/aCg",
+        "variant_allele": "G",
+        "gene_symbol": "TP53",
+        "cdna_start": 540,
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 133,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "hgvsp": "ENSP00000269305.4:p.Met133Thr",
+        "revel": 0.78,
+        "cadd_raw": 3.952499,
+        "cds_end": 398,
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.398T>C",
+        "sift_prediction": "deleterious",
+        "amino_acids": "M/T",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9114
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ]
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/G",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "vcf_string": "17-7675214-A-G",
+    "input": "17 7675214 cohort_02789_d6c2318a0b7b A G . . ."
+  },
+  {
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7675216 cohort_02790_2ab8e540d364 C G . . .",
+    "vcf_string": "17-7675216-C-G",
+    "strand": 1,
+    "end": 7675216,
+    "id": "cohort_02790_2ab8e540d364",
+    "start": 7675216,
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675216,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43963"
+          ]
+        },
+        "end": 7675216,
+        "id": "COSV52688381"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675216,
+        "seq_region_name": "17",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1,
+        "id": "COSV52705927",
+        "end": 7675216,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10991"
+          ]
+        }
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675216,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44632"
+          ]
+        },
+        "end": 7675216,
+        "id": "COSV52891203"
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675216,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45680"
+          ]
+        },
+        "id": "COSV53339296",
+        "end": 7675216,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1
+      },
+      {
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:likely_pathogenic;G:pathogenic;A:likely_pathogenic;A:pathogenic",
+        "start": 7675216,
+        "allele_string": "C/A/G/T",
+        "clin_sig_ref_allele": "C",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "pubmed": [
+          26619011,
+          39880909,
+          31637714,
+          30224644
+        ],
+        "end": 7675216,
+        "id": "rs866775781",
+        "var_synonyms": {
+          "PhenCode": [
+            "TP53_g.12384G>T"
+          ],
+          "ClinVar": [
+            "RCV000709407",
+            "RCV000442734",
+            "RCV000442346",
+            "RCV000440843",
+            "RCV000439834",
+            "RCV000439586",
+            "RCV000437720",
+            "RCV000434424",
+            "RCV000432417",
+            "RCV000432219",
+            "RCV000430184",
+            "RCV000430063",
+            "RCV000427056",
+            "RCV000424592",
+            "RCV000422634",
+            "RCV000421516",
+            "RCV000419339",
+            "VCV000376624",
+            "RCV003238212",
+            "RCV004719814",
+            "RCV005230306",
+            "RCV001772041",
+            "RCV000785513",
+            "VCV000634773",
+            "RCV000795096",
+            "RCV004027350",
+            "RCV004022223"
+          ],
+          "UniProt": [
+            "VAR_044741"
+          ]
+        },
+        "clin_sig": [
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)"
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "C/G",
+    "transcript_consequences": [
+      {
+        "protein_end": 132,
+        "cds_start": 396,
+        "conservation": -1.91,
+        "cdna_end": 538,
+        "cadd_phred": 23.6,
+        "strand": -1,
+        "codons": "aaG/aaC",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "sift_score": 0,
+        "protein_start": 132,
+        "canonical": 1,
+        "variant_allele": "G",
+        "gene_symbol": "TP53",
+        "cdna_start": 538,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "revel": 0.895,
+        "hgvsp": "ENSP00000269305.4:p.Lys132Asn",
+        "cadd_raw": 3.813409,
+        "cds_end": 396,
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.396G>C",
+        "gene_symbol_source": "HGNC",
+        "sift_prediction": "deleterious",
+        "amino_acids": "K/N",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9987
+        }
+      }
+    ]
+  },
+  {
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "input": "17 7675221 cohort_02791_a122b66b0f5b T G . . .",
+    "vcf_string": "17-7675221-T-G",
+    "start": 7675221,
+    "end": 7675221,
+    "id": "cohort_02791_a122b66b0f5b",
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43533"
+          ]
+        },
+        "id": "COSV52788120",
+        "end": 7675221,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675221,
+        "seq_region_name": "17"
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675221,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675221,
+        "id": "COSV53200449",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45882"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "end": 7675221,
+        "id": "COSV53325650",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43535"
+          ]
+        },
+        "somatic": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675221,
+        "phenotype_or_disease": 1,
+        "strand": 1
+      }
+    ],
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "strand": -1,
+        "protein_end": 131,
+        "cds_start": 391,
+        "cdna_end": 533,
+        "cadd_phred": 24.5,
+        "conservation": 2.47,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Aac/Cac",
+        "variant_allele": "G",
+        "gene_symbol": "TP53",
+        "cdna_start": 533,
+        "canonical": 1,
+        "protein_start": 131,
+        "sift_score": 0,
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.391A>C",
+        "hgvsp": "ENSP00000269305.4:p.Asn131His",
+        "revel": 0.82,
+        "cds_end": 391,
+        "cadd_raw": 4.169276,
+        "amino_acids": "N/H",
+        "alphamissense": {
+          "am_pathogenicity": 0.1721,
+          "am_class": "likely_benign"
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious"
+      }
+    ],
+    "allele_string": "T/G",
+    "most_severe_consequence": "missense_variant"
+  },
+  {
+    "transcript_consequences": [
+      {
+        "amino_acids": "L/P",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.9844,
+          "am_class": "likely_pathogenic"
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.389T>C",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.927,
+        "hgvsp": "ENSP00000269305.4:p.Leu130Pro",
+        "cds_end": 389,
+        "cadd_raw": 4.685612,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "cTc/cCc",
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "sift_score": 0,
+        "protein_start": 130,
+        "gene_symbol": "TP53",
+        "variant_allele": "G",
+        "cdna_start": 531,
+        "canonical": 1,
+        "strand": -1,
+        "protein_end": 130,
+        "cds_start": 389,
+        "conservation": 2.47,
+        "cadd_phred": 26.3,
+        "cdna_end": 531
+      }
+    ],
+    "allele_string": "A/G",
+    "most_severe_consequence": "missense_variant",
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675223,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17",
+        "end": 7675223,
+        "id": "CM120849"
+      },
+      {
+        "end": 7675223,
+        "id": "CM134998",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675223,
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM46114"
+          ]
+        },
+        "id": "COSV52681833",
+        "end": 7675223
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44063"
+          ]
+        },
+        "id": "COSV52696302",
+        "end": 7675223
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7675223,
+        "id": "COSV52721346",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45481"
+          ]
+        }
+      },
+      {
+        "end": 7675223,
+        "id": "COSV53165479",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM49016"
+          ]
+        },
+        "somatic": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "clin_sig": [
+          "pathogenic"
+        ],
+        "end": 7675223,
+        "id": "rs1131691013",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044733"
+          ],
+          "ClinVar": [
+            "RCV002475970",
+            "RCV000492142",
+            "VCV000428873",
+            "RCV001021383",
+            "VCV000824351"
+          ]
+        },
+        "clin_sig_ref_allele": "A",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:pathogenic;T:pathogenic",
+        "start": 7675223,
+        "allele_string": "A/G/T"
+      }
+    ],
+    "id": "cohort_02792_ef65374a5035",
+    "end": 7675223,
+    "start": 7675223,
+    "strand": 1,
+    "vcf_string": "17-7675223-A-G",
+    "input": "17 7675223 cohort_02792_ef65374a5035 A G . . .",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "transcript_consequences": [
+      {
+        "amino_acids": "L/H",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.916,
+          "am_class": "likely_pathogenic"
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.389T>A",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.924,
+        "hgvsp": "ENSP00000269305.4:p.Leu130His",
+        "cadd_raw": 4.641235,
+        "cds_end": 389,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "cTc/cAc",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "sift_score": 0,
+        "protein_start": 130,
+        "variant_allele": "T",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "cdna_start": 531,
+        "strand": -1,
+        "protein_end": 130,
+        "cds_start": 389,
+        "conservation": 2.47,
+        "cadd_phred": 26.1,
+        "cdna_end": 531
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/T",
+    "colocated_variants": [
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675223,
+        "id": "CM120849",
+        "end": 7675223
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17",
+        "id": "CM134998",
+        "end": 7675223
+      },
+      {
+        "start": 7675223,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7675223,
+        "id": "COSV52681833",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM46114"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7675223,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7675223,
+        "id": "COSV52696302",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44063"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675223,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45481"
+          ]
+        },
+        "id": "COSV52721346",
+        "end": 7675223
+      },
+      {
+        "end": 7675223,
+        "id": "COSV53165479",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM49016"
+          ]
+        },
+        "somatic": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675223,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "start": 7675223,
+        "allele_string": "A/G/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:pathogenic;T:pathogenic",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "A",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044733"
+          ],
+          "ClinVar": [
+            "RCV002475970",
+            "RCV000492142",
+            "VCV000428873",
+            "RCV001021383",
+            "VCV000824351"
+          ]
+        },
+        "id": "rs1131691013",
+        "end": 7675223,
+        "clin_sig": [
+          "pathogenic"
+        ]
+      }
+    ],
+    "start": 7675223,
+    "end": 7675223,
+    "id": "cohort_02793_f8df33d005e5",
+    "strand": 1,
+    "vcf_string": "17-7675223-A-T",
+    "input": "17 7675223 cohort_02793_f8df33d005e5 A T . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38"
+  },
+  {
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "G/C",
+    "transcript_consequences": [
+      {
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.380C>G",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.916,
+        "hgvsp": "ENSP00000269305.4:p.Ser127Cys",
+        "cds_end": 380,
+        "cadd_raw": 4.37858,
+        "amino_acids": "S/C",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.8325
+        },
+        "sift_prediction": "deleterious",
+        "strand": -1,
+        "cds_start": 380,
+        "protein_end": 127,
+        "conservation": 2.47,
+        "cdna_end": 522,
+        "cadd_phred": 25.1,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "tCc/tGc",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "sift_score": 0,
+        "protein_start": 127,
+        "gene_symbol": "TP53",
+        "cdna_start": 522,
+        "variant_allele": "C",
+        "canonical": 1
+      }
+    ],
+    "strand": 1,
+    "end": 7675232,
+    "id": "cohort_02794_9e4a98b10424",
+    "start": 7675232,
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44226"
+          ]
+        },
+        "id": "COSV52666031",
+        "end": 7675232,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675232,
+        "id": "COSV52675881",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44396"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43970"
+          ]
+        },
+        "id": "COSV52731113",
+        "end": 7675232,
+        "somatic": 1,
+        "seq_region_name": "17",
+        "start": 7675232,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675232,
+        "id": "COSV52828604",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45483"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV003474836",
+            "RCV003162681",
+            "RCV002298488",
+            "RCV000785332",
+            "RCV000633384",
+            "RCV000606528",
+            "RCV000161024",
+            "VCV000182928",
+            "RCV004019945",
+            "RCV000813247",
+            "VCV000656751",
+            "RCV000205404",
+            "VCV000219532",
+            "RCV001527086",
+            "RCV002352420"
+          ],
+          "UniProt": [
+            "VAR_005867"
+          ]
+        },
+        "id": "rs730881999",
+        "end": 7675232,
+        "clin_sig_ref_allele": "G",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:pathogenic;A:pathogenic/likely_pathogenic;C:pathogenic;A:pathogenic;T:uncertain_significance;T:conflicting_classifications_of_pathogenicity;A:likely_pathogenic",
+        "start": 7675232,
+        "allele_string": "G/A/C/T"
+      }
+    ],
+    "input": "17 7675232 cohort_02794_9e4a98b10424 G C . . .",
+    "vcf_string": "17-7675232-G-C",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38"
+  },
+  {
+    "allele_string": "G/T",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "cdna_start": 522,
+        "gene_symbol": "TP53",
+        "variant_allele": "T",
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 127,
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "codons": "tCc/tAc",
+        "strand": -1,
+        "cdna_end": 522,
+        "cadd_phred": 25.3,
+        "conservation": 2.47,
+        "protein_end": 127,
+        "cds_start": 380,
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9839
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "S/Y",
+        "sift_prediction": "deleterious",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.380C>A",
+        "impact": "MODERATE",
+        "cadd_raw": 4.449021,
+        "cds_end": 380,
+        "hgvsp": "ENSP00000269305.4:p.Ser127Tyr",
+        "revel": 0.918
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232,
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44226"
+          ]
+        },
+        "id": "COSV52666031",
+        "end": 7675232
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44396"
+          ]
+        },
+        "id": "COSV52675881",
+        "end": 7675232
+      },
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43970"
+          ]
+        },
+        "id": "COSV52731113",
+        "end": 7675232,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675232
+      },
+      {
+        "somatic": 1,
+        "end": 7675232,
+        "id": "COSV52828604",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45483"
+          ]
+        },
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675232,
+        "allele_string": "COSMIC_MUTATION"
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "end": 7675232,
+        "id": "rs730881999",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_005867"
+          ],
+          "ClinVar": [
+            "RCV003474836",
+            "RCV003162681",
+            "RCV002298488",
+            "RCV000785332",
+            "RCV000633384",
+            "RCV000606528",
+            "RCV000161024",
+            "VCV000182928",
+            "RCV004019945",
+            "RCV000813247",
+            "VCV000656751",
+            "RCV000205404",
+            "VCV000219532",
+            "RCV001527086",
+            "RCV002352420"
+          ]
+        },
+        "clin_sig_ref_allele": "G",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:pathogenic;A:pathogenic/likely_pathogenic;C:pathogenic;A:pathogenic;T:uncertain_significance;T:conflicting_classifications_of_pathogenicity;A:likely_pathogenic",
+        "start": 7675232,
+        "allele_string": "G/A/C/T"
+      }
+    ],
+    "id": "cohort_02795_06306daf7381",
+    "end": 7675232,
+    "start": 7675232,
+    "vcf_string": "17-7675232-G-T",
+    "input": "17 7675232 cohort_02795_06306daf7381 G T . . .",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "vcf_string": "17-7675233-A-G",
+    "input": "17 7675233 cohort_02796_7cd3bd2cd091 A G . . .",
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675233,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44687"
+          ]
+        },
+        "end": 7675233,
+        "id": "COSV52667433"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7675233,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM53285"
+          ]
+        },
+        "id": "COSV52678360",
+        "end": 7675233
+      },
+      {
+        "start": 7675233,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45619"
+          ]
+        },
+        "end": 7675233,
+        "id": "COSV52751962",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)"
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "id": "rs1597371694",
+        "end": 7675233,
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV004671246",
+            "RCV004033549",
+            "RCV001202791",
+            "VCV000934410",
+            "RCV001038263",
+            "RCV001021179",
+            "VCV000824232",
+            "RCV002365911",
+            "RCV002290541"
+          ]
+        },
+        "pubmed": [
+          12826609,
+          17311302,
+          18410249
+        ],
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "A",
+        "start": 7675233,
+        "allele_string": "A/G/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "G:likely_pathogenic;T:conflicting_classifications_of_pathogenicity;T:uncertain_significance;G:pathogenic"
+      }
+    ],
+    "id": "cohort_02796_7cd3bd2cd091",
+    "end": 7675233,
+    "start": 7675233,
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/G",
+    "transcript_consequences": [
+      {
+        "sift_prediction": "deleterious",
+        "amino_acids": "S/P",
+        "alphamissense": {
+          "am_pathogenicity": 0.9962,
+          "am_class": "likely_pathogenic"
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "hgvsp": "ENSP00000269305.4:p.Ser127Pro",
+        "revel": 0.957,
+        "cadd_raw": 4.446847,
+        "cds_end": 379,
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.379T>C",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Tcc/Ccc",
+        "variant_allele": "G",
+        "gene_symbol": "TP53",
+        "cdna_start": 521,
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 127,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "protein_end": 127,
+        "cds_start": 379,
+        "cadd_phred": 25.3,
+        "cdna_end": 521,
+        "conservation": 2.47,
+        "strand": -1
+      }
+    ]
+  },
+  {
+    "allele_string": "A/T",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "amino_acids": "S/T",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.8718,
+          "am_class": "likely_pathogenic"
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.379T>A",
+        "revel": 0.924,
+        "hgvsp": "ENSP00000269305.4:p.Ser127Thr",
+        "cadd_raw": 4.033809,
+        "cds_end": 379,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "Tcc/Acc",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "sift_score": 0,
+        "protein_start": 127,
+        "variant_allele": "T",
+        "cdna_start": 521,
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "strand": -1,
+        "protein_end": 127,
+        "cds_start": 379,
+        "conservation": 2.47,
+        "cadd_phred": 24.1,
+        "cdna_end": 521
+      }
+    ],
+    "strand": 1,
+    "start": 7675233,
+    "end": 7675233,
+    "id": "cohort_02797_9773d422ff4f",
+    "colocated_variants": [
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44687"
+          ]
+        },
+        "end": 7675233,
+        "id": "COSV52667433",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675233
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675233,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7675233,
+        "id": "COSV52678360",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM53285"
+          ]
+        },
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1
+      },
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45619"
+          ]
+        },
+        "id": "COSV52751962",
+        "end": 7675233,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675233,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "pubmed": [
+          12826609,
+          17311302,
+          18410249
+        ],
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV004671246",
+            "RCV004033549",
+            "RCV001202791",
+            "VCV000934410",
+            "RCV001038263",
+            "RCV001021179",
+            "VCV000824232",
+            "RCV002365911",
+            "RCV002290541"
+          ]
+        },
+        "end": 7675233,
+        "id": "rs1597371694",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "clin_sig_allele": "G:likely_pathogenic;T:conflicting_classifications_of_pathogenicity;T:uncertain_significance;G:pathogenic",
+        "seq_region_name": "17",
+        "allele_string": "A/G/T",
+        "start": 7675233,
+        "clin_sig_ref_allele": "A",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      }
+    ],
+    "input": "17 7675233 cohort_02797_9773d422ff4f A T . . .",
+    "vcf_string": "17-7675233-A-T",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "transcript_consequences": [
+      {
+        "strand": -1,
+        "cadd_phred": 28.6,
+        "cdna_end": 516,
+        "conservation": 2.21,
+        "cds_start": 374,
+        "protein_end": 125,
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "gene_symbol": "TP53",
+        "variant_allele": "T",
+        "canonical": 1,
+        "cdna_start": 516,
+        "sift_score": 0,
+        "protein_start": 125,
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "aCg/aAg",
+        "hgvsc": "ENST00000269305.9:c.374C>A",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "cds_end": 374,
+        "cadd_raw": 5.108848,
+        "hgvsp": "ENSP00000269305.4:p.Thr125Lys",
+        "revel": 0.963,
+        "alphamissense": {
+          "am_pathogenicity": 0.9893,
+          "am_class": "likely_pathogenic"
+        },
+        "consequence_terms": [
+          "missense_variant",
+          "splice_region_variant"
+        ],
+        "amino_acids": "T/K",
+        "sift_prediction": "deleterious"
+      }
+    ],
+    "allele_string": "G/T",
+    "most_severe_consequence": "missense_variant",
+    "id": "cohort_02798_2d4086052d52",
+    "end": 7675995,
+    "start": 7675995,
+    "colocated_variants": [
+      {
+        "id": "CM102351",
+        "end": 7675995,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7675995,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "start": 7675995,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "id": "CM157948",
+        "end": 7675995,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675995,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44073"
+          ]
+        },
+        "end": 7675995,
+        "id": "COSV52667346"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675995,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44988"
+          ]
+        },
+        "end": 7675995,
+        "id": "COSV52673504"
+      },
+      {
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45243"
+          ]
+        },
+        "end": 7675995,
+        "id": "COSV52688693",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7675995,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17"
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675995,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM7346236"
+          ]
+        },
+        "end": 7675995,
+        "id": "COSV99037266",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic);Neoplasm(oncogenicity:Likely oncogenic)",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV005365056",
+            "RCV003462117",
+            "RCV004719815",
+            "RCV004668962",
+            "RCV004797602",
+            "RCV004668821",
+            "RCV000576336",
+            "RCV000457119",
+            "RCV000443535",
+            "RCV000442735",
+            "RCV000441098",
+            "RCV000439150",
+            "RCV000438666",
+            "RCV000438105",
+            "RCV000436631",
+            "RCV000433024",
+            "RCV000432405",
+            "RCV000431915",
+            "RCV000430781",
+            "RCV000428519",
+            "RCV000427448",
+            "RCV000426825",
+            "RCV000425628",
+            "RCV000421688",
+            "RCV000421040",
+            "RCV000420028",
+            "RCV000419372",
+            "RCV000417610",
+            "RCV000237013",
+            "RCV000162461",
+            "VCV000183748",
+            "RCV003165469",
+            "RCV000197507",
+            "VCV000216465",
+            "RCV000443320",
+            "RCV000443241",
+            "RCV000442723",
+            "RCV000441651",
+            "RCV000438784",
+            "RCV000437594",
+            "RCV000436943",
+            "RCV000433745",
+            "RCV000433115",
+            "RCV000431571",
+            "RCV000430953",
+            "RCV000430716",
+            "RCV000427801",
+            "RCV000426240",
+            "RCV000425663",
+            "RCV000423507",
+            "RCV000422366",
+            "RCV000421753",
+            "RCV000420607",
+            "RCV000420405",
+            "RCV000442833",
+            "RCV000442755",
+            "RCV000442028",
+            "RCV000440628",
+            "RCV000440402",
+            "RCV000436638",
+            "RCV000436286",
+            "RCV000436088",
+            "RCV000434737",
+            "RCV000432131",
+            "RCV000430321",
+            "RCV000429727",
+            "RCV000428977",
+            "RCV000425385",
+            "RCV000424710",
+            "RCV000424026",
+            "RCV000423812",
+            "RCV000423368",
+            "RCV000419630",
+            "RCV000419385",
+            "VCV000376667",
+            "RCV000524926",
+            "RCV000492090",
+            "RCV002289540"
+          ]
+        },
+        "end": 7675995,
+        "id": "rs786201057",
+        "pubmed": [
+          26619011,
+          26845104,
+          20127978,
+          12826609,
+          20407015,
+          35893037,
+          39457600,
+          16508005,
+          28369373,
+          16687402,
+          35352025,
+          34675114
+        ],
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "G",
+        "start": 7675995,
+        "allele_string": "G/A/C/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:pathogenic;C:pathogenic/likely_pathogenic;A:likely_pathogenic;A:pathogenic/likely_pathogenic;A:conflicting_classifications_of_pathogenicity;C:pathogenic;A:pathogenic"
+      }
+    ],
+    "strand": 1,
+    "input": "17 7675995 cohort_02798_2d4086052d52 G T . . .",
+    "vcf_string": "17-7675995-G-T",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17"
+  },
+  {
+    "vcf_string": "17-7675999-A-G",
+    "input": "17 7675999 cohort_02799_db2cbf9088c5 A G . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/G",
+    "transcript_consequences": [
+      {
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "variant_allele": "G",
+        "cdna_start": 512,
+        "protein_start": 124,
+        "sift_score": 0,
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "codons": "Tgc/Cgc",
+        "strand": -1,
+        "cadd_phred": 23.8,
+        "cdna_end": 512,
+        "conservation": 2.21,
+        "protein_end": 124,
+        "cds_start": 370,
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9764
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "C/R",
+        "sift_prediction": "deleterious",
+        "hgvsc": "ENST00000269305.9:c.370T>C",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "cadd_raw": 3.911821,
+        "cds_end": 370,
+        "hgvsp": "ENSP00000269305.4:p.Cys124Arg",
+        "revel": 0.883
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "start": 7675999,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43569"
+          ]
+        },
+        "id": "COSV52680549",
+        "end": 7675999,
+        "somatic": 1
+      },
+      {
+        "somatic": 1,
+        "end": 7675999,
+        "id": "COSV52752618",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11147"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7675999,
+        "seq_region_name": "17"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "A",
+        "allele_string": "A/C/G/T",
+        "start": 7675999,
+        "clin_sig_allele": "T:conflicting_classifications_of_pathogenicity;T:uncertain_significance;C:uncertain_significance;T:likely_benign;G:likely_pathogenic",
+        "seq_region_name": "17",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_benign",
+          "likely_pathogenic"
+        ],
+        "end": 7675999,
+        "id": "rs730881997",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV001048454",
+            "RCV000574455",
+            "RCV000161022",
+            "VCV000182926",
+            "RCV001527099",
+            "RCV005600511",
+            "VCV004056245",
+            "RCV000217878",
+            "VCV000230661"
+          ],
+          "UniProt": [
+            "VAR_044707"
+          ]
+        }
+      }
+    ],
+    "start": 7675999,
+    "end": 7675999,
+    "id": "cohort_02799_db2cbf9088c5"
+  },
+  {
+    "vcf_string": "17-7676030-G-C",
+    "input": "17 7676030 cohort_02800_3cb716e32bd1 G C . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "transcript_consequences": [
+      {
+        "strand": -1,
+        "cds_start": 339,
+        "protein_end": 113,
+        "cadd_phred": 22.5,
+        "cdna_end": 481,
+        "conservation": 0.1,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "ttC/ttG",
+        "variant_allele": "C",
+        "gene_symbol": "TP53",
+        "cdna_start": 481,
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 113,
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.339C>G",
+        "gene_symbol_source": "HGNC",
+        "hgvsp": "ENSP00000269305.4:p.Phe113Leu",
+        "revel": 0.783,
+        "cds_end": 339,
+        "cadd_raw": 3.442354,
+        "amino_acids": "F/L",
+        "alphamissense": {
+          "am_pathogenicity": 0.9964,
+          "am_class": "likely_pathogenic"
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious"
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "G/C",
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM5414807"
+          ]
+        },
+        "id": "COSV104369596",
+        "end": 7676030,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676030,
+        "seq_region_name": "17"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676030,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "end": 7676030,
+        "id": "COSV52785566",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44942"
+          ]
+        }
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7676030,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7676030,
+        "id": "COSV53679279",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM6949561"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "allele_string": "G/A/C",
+        "start": 7676030,
+        "clin_sig_allele": "C:pathogenic;T:likely_pathogenic",
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "G",
+        "end": 7676030,
+        "id": "rs2151038938",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV003510559",
+            "VCV002702402",
+            "RCV003049541",
+            "VCV002125367"
+          ]
+        },
+        "clin_sig": [
+          "likely_pathogenic",
+          "pathogenic"
+        ]
+      }
+    ],
+    "id": "cohort_02800_3cb716e32bd1",
+    "end": 7676030,
+    "start": 7676030,
+    "strand": 1
+  },
+  {
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "input": "17 7676031 cohort_02801_8c44626fd48d A C . . .",
+    "vcf_string": "17-7676031-A-C",
+    "strand": 1,
+    "end": 7676031,
+    "start": 7676031,
+    "id": "cohort_02801_8c44626fd48d",
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10717"
+          ]
+        },
+        "id": "COSV52680942",
+        "end": 7676031,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676031,
+        "seq_region_name": "17"
+      },
+      {
+        "somatic": 1,
+        "end": 7676031,
+        "id": "COSV52985275",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11780"
+          ]
+        },
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676031,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17"
+      },
+      {
+        "clin_sig_allele": "C:likely_pathogenic;C:pathogenic;G:uncertain_significance",
+        "seq_region_name": "17",
+        "allele_string": "A/C/G/T",
+        "start": 7676031,
+        "clin_sig_ref_allele": "A",
+        "frequencies": {
+          "C": {
+            "gnomade_asj": 0,
+            "gnomade_eas": 0,
+            "gnomade_mid": 0,
+            "gnomade_amr": 0,
+            "gnomade_remaining": 0,
+            "gnomade_fin": 0,
+            "gnomade": 0,
+            "gnomade_sas": 0,
+            "gnomade_nfe": 0,
+            "gnomade_afr": 0
+          }
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV003141933",
+            "RCV001020171",
+            "VCV000823709",
+            "RCV001318208",
+            "RCV000785288",
+            "VCV000634690"
+          ]
+        },
+        "id": "rs1567555667",
+        "end": 7676031,
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ]
+      }
+    ],
+    "allele_string": "A/C",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "tTc/tGc",
+        "variant_allele": "C",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "cdna_start": 480,
+        "protein_start": 113,
+        "sift_score": 0,
+        "strand": -1,
+        "protein_end": 113,
+        "cds_start": 338,
+        "cdna_end": 480,
+        "cadd_phred": 25.8,
+        "conservation": 2.21,
+        "amino_acids": "F/C",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9677
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.338T>G",
+        "hgvsp": "ENSP00000269305.4:p.Phe113Cys",
+        "revel": 0.952,
+        "cadd_raw": 4.570393,
+        "cds_end": 338
+      }
+    ]
+  },
+  {
+    "strand": 1,
+    "start": 7676032,
+    "end": 7676032,
+    "id": "cohort_02802_018220835eef",
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "end": 7676032,
+        "id": "COSV52677695",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11498"
+          ]
+        },
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676032,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676032,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7676032,
+        "id": "COSV52712393",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM1386859"
+          ]
+        }
+      },
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM3773317"
+          ]
+        },
+        "id": "COSV53351693",
+        "end": 7676032,
+        "somatic": 1,
+        "start": 7676032,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/G",
+    "transcript_consequences": [
+      {
+        "amino_acids": "F/L",
+        "alphamissense": {
+          "am_pathogenicity": 0.9964,
+          "am_class": "likely_pathogenic"
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.337T>C",
+        "gene_symbol_source": "HGNC",
+        "hgvsp": "ENSP00000269305.4:p.Phe113Leu",
+        "revel": 0.879,
+        "cadd_raw": 4.367453,
+        "cds_end": 337,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Ttc/Ctc",
+        "gene_symbol": "TP53",
+        "variant_allele": "G",
+        "cdna_start": 479,
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 113,
+        "strand": -1,
+        "protein_end": 113,
+        "cds_start": 337,
+        "cdna_end": 479,
+        "cadd_phred": 25.1,
+        "conservation": 2.21
+      }
+    ],
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7676032 cohort_02802_018220835eef A G . . .",
+    "vcf_string": "17-7676032-A-G"
+  },
+  {
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7676037 cohort_02803_1a6dc67f9ef8 A C . . .",
+    "vcf_string": "17-7676037-A-C",
+    "end": 7676037,
+    "id": "cohort_02803_1a6dc67f9ef8",
+    "start": 7676037,
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "end": 7676037,
+        "id": "COSV52676090",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44570"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676037
+      },
+      {
+        "end": 7676037,
+        "id": "COSV52699193",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44630"
+          ]
+        },
+        "somatic": 1,
+        "seq_region_name": "17",
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44045"
+          ]
+        },
+        "id": "COSV52985195",
+        "end": 7676037,
+        "somatic": 1,
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676037,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "id": "CX942126",
+        "end": 7676037
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "A",
+        "allele_string": "A/C/G/T",
+        "start": 7676037,
+        "clin_sig_allele": "T:likely_pathogenic;C:uncertain_significance;T:pathogenic;G:likely_pathogenic;G:uncertain_significance",
+        "seq_region_name": "17",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "end": 7676037,
+        "id": "rs1057519997",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044680"
+          ],
+          "ClinVar": [
+            "RCV004791445",
+            "RCV003509528",
+            "RCV004022227",
+            "RCV004022228",
+            "RCV000785496",
+            "RCV000480700",
+            "RCV000459042",
+            "RCV000442239",
+            "RCV000441916",
+            "RCV000435918",
+            "RCV000435274",
+            "RCV000428739",
+            "RCV000425862",
+            "RCV000425579",
+            "RCV000417617",
+            "VCV000376630",
+            "RCV001041362",
+            "RCV000443054",
+            "RCV000442462",
+            "RCV000442091",
+            "RCV000441661",
+            "RCV000440112",
+            "RCV000435486",
+            "RCV000434970",
+            "RCV000433598",
+            "RCV000433045",
+            "RCV000430499",
+            "RCV000429869",
+            "RCV000424730",
+            "RCV000423948",
+            "RCV000423328",
+            "RCV000421931",
+            "VCV000376632",
+            "RCV000420444",
+            "VCV000376631"
+          ]
+        },
+        "pubmed": [
+          26619011
+        ]
+      }
+    ],
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "cds_end": 332,
+        "cadd_raw": 4.270044,
+        "hgvsp": "ENSP00000269305.4:p.Leu111Arg",
+        "revel": 0.862,
+        "hgvsc": "ENST00000269305.9:c.332T>G",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "sift_prediction": "deleterious",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9601
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "L/R",
+        "cdna_end": 474,
+        "cadd_phred": 24.8,
+        "conservation": 2.21,
+        "protein_end": 111,
+        "cds_start": 332,
+        "strand": -1,
+        "variant_allele": "C",
+        "canonical": 1,
+        "gene_symbol": "TP53",
+        "cdna_start": 474,
+        "sift_score": 0,
+        "protein_start": 111,
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "codons": "cTg/cGg",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998"
+      }
+    ],
+    "allele_string": "A/C",
+    "most_severe_consequence": "missense_variant"
+  },
+  {
+    "strand": 1,
+    "end": 7676037,
+    "id": "cohort_02804_1feec48b3657",
+    "start": 7676037,
+    "colocated_variants": [
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44570"
+          ]
+        },
+        "id": "COSV52676090",
+        "end": 7676037,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION"
+      },
+      {
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44630"
+          ]
+        },
+        "id": "COSV52699193",
+        "end": 7676037,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION"
+      },
+      {
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7676037,
+        "id": "COSV52985195",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44045"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "end": 7676037,
+        "id": "CX942126",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676037,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_044680"
+          ],
+          "ClinVar": [
+            "RCV004791445",
+            "RCV003509528",
+            "RCV004022227",
+            "RCV004022228",
+            "RCV000785496",
+            "RCV000480700",
+            "RCV000459042",
+            "RCV000442239",
+            "RCV000441916",
+            "RCV000435918",
+            "RCV000435274",
+            "RCV000428739",
+            "RCV000425862",
+            "RCV000425579",
+            "RCV000417617",
+            "VCV000376630",
+            "RCV001041362",
+            "RCV000443054",
+            "RCV000442462",
+            "RCV000442091",
+            "RCV000441661",
+            "RCV000440112",
+            "RCV000435486",
+            "RCV000434970",
+            "RCV000433598",
+            "RCV000433045",
+            "RCV000430499",
+            "RCV000429869",
+            "RCV000424730",
+            "RCV000423948",
+            "RCV000423328",
+            "RCV000421931",
+            "VCV000376632",
+            "RCV000420444",
+            "VCV000376631"
+          ]
+        },
+        "id": "rs1057519997",
+        "end": 7676037,
+        "pubmed": [
+          26619011
+        ],
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "A",
+        "allele_string": "A/C/G/T",
+        "start": 7676037,
+        "clin_sig_allele": "T:likely_pathogenic;C:uncertain_significance;T:pathogenic;G:likely_pathogenic;G:uncertain_significance",
+        "seq_region_name": "17"
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/G",
+    "transcript_consequences": [
+      {
+        "cadd_phred": 24.6,
+        "cdna_end": 474,
+        "conservation": 2.21,
+        "protein_end": 111,
+        "cds_start": 332,
+        "strand": -1,
+        "gene_symbol": "TP53",
+        "cdna_start": 474,
+        "variant_allele": "G",
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 111,
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "codons": "cTg/cCg",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "cadd_raw": 4.20094,
+        "cds_end": 332,
+        "hgvsp": "ENSP00000269305.4:p.Leu111Pro",
+        "revel": 0.864,
+        "hgvsc": "ENST00000269305.9:c.332T>C",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE",
+        "sift_prediction": "deleterious",
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9584
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "L/P"
+      }
+    ],
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "input": "17 7676037 cohort_02804_1feec48b3657 A G . . .",
+    "vcf_string": "17-7676037-A-G"
+  },
+  {
+    "colocated_variants": [
+      {
+        "start": 7676037,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44570"
+          ]
+        },
+        "id": "COSV52676090",
+        "end": 7676037,
+        "somatic": 1
+      },
+      {
+        "somatic": 1,
+        "end": 7676037,
+        "id": "COSV52699193",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44630"
+          ]
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676037
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676037,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7676037,
+        "id": "COSV52985195",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM44045"
+          ]
+        }
+      },
+      {
+        "id": "CX942126",
+        "end": 7676037,
+        "seq_region_name": "17",
+        "start": 7676037,
+        "allele_string": "HGMD_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "pubmed": [
+          26619011
+        ],
+        "end": 7676037,
+        "id": "rs1057519997",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV004791445",
+            "RCV003509528",
+            "RCV004022227",
+            "RCV004022228",
+            "RCV000785496",
+            "RCV000480700",
+            "RCV000459042",
+            "RCV000442239",
+            "RCV000441916",
+            "RCV000435918",
+            "RCV000435274",
+            "RCV000428739",
+            "RCV000425862",
+            "RCV000425579",
+            "RCV000417617",
+            "VCV000376630",
+            "RCV001041362",
+            "RCV000443054",
+            "RCV000442462",
+            "RCV000442091",
+            "RCV000441661",
+            "RCV000440112",
+            "RCV000435486",
+            "RCV000434970",
+            "RCV000433598",
+            "RCV000433045",
+            "RCV000430499",
+            "RCV000429869",
+            "RCV000424730",
+            "RCV000423948",
+            "RCV000423328",
+            "RCV000421931",
+            "VCV000376632",
+            "RCV000420444",
+            "VCV000376631"
+          ],
+          "UniProt": [
+            "VAR_044680"
+          ]
+        },
+        "clin_sig_ref_allele": "A",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:likely_pathogenic;C:uncertain_significance;T:pathogenic;G:likely_pathogenic;G:uncertain_significance",
+        "start": 7676037,
+        "allele_string": "A/C/G/T"
+      }
+    ],
+    "end": 7676037,
+    "id": "cohort_02805_545a48698c96",
+    "start": 7676037,
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "amino_acids": "L/Q",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9593
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.332T>A",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.869,
+        "hgvsp": "ENSP00000269305.4:p.Leu111Gln",
+        "cds_end": 332,
+        "cadd_raw": 4.060884,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "cTg/cAg",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "protein_start": 111,
+        "sift_score": 0,
+        "gene_symbol": "TP53",
+        "cdna_start": 474,
+        "variant_allele": "T",
+        "canonical": 1,
+        "strand": -1,
+        "cds_start": 332,
+        "protein_end": 111,
+        "conservation": 2.21,
+        "cdna_end": 474,
+        "cadd_phred": 24.2
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/T",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "vcf_string": "17-7676037-A-T",
+    "input": "17 7676037 cohort_02805_545a48698c96 A T . . ."
+  },
+  {
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "input": "17 7676039 cohort_02806_dbbbff0c99df AC GG . . .",
+    "vcf_string": "17-7676039-AC-GG",
+    "end": 7676040,
+    "id": "cohort_02806_dbbbff0c99df",
+    "start": 7676039,
+    "colocated_variants": [
+      {
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV000794759",
+            "VCV000641505"
+          ]
+        },
+        "id": "rs1597373700",
+        "end": 7676040,
+        "clin_sig": [
+          "pathogenic"
+        ],
+        "seq_region_name": "17",
+        "clin_sig_allele": "GG:pathogenic",
+        "start": 7676039,
+        "allele_string": "AC/GG",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      }
+    ],
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "cGT/cCC",
+        "variant_allele": "GG",
+        "gene_symbol": "TP53",
+        "cdna_start": 471,
+        "canonical": 1,
+        "protein_start": 110,
+        "sift_score": 0.03,
+        "strand": -1,
+        "cds_start": 329,
+        "protein_end": 110,
+        "cdna_end": 472,
+        "conservation": -4.42,
+        "amino_acids": "R/P",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.329_330delinsCC",
+        "hgvsp": "ENSP00000269305.4:p.Arg110Pro",
+        "cds_end": 330
+      }
+    ],
+    "allele_string": "AC/GG",
+    "most_severe_consequence": "missense_variant"
+  },
+  {
+    "input": "17 7676040 cohort_02807_bf1d2a7d8d4a C A . . .",
+    "vcf_string": "17-7676040-C-A",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "transcript_consequences": [
+      {
+        "strand": -1,
+        "cdna_end": 471,
+        "cadd_phred": 14.83,
+        "conservation": -4.42,
+        "cds_start": 329,
+        "protein_end": 110,
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "cdna_start": 471,
+        "gene_symbol": "TP53",
+        "variant_allele": "A",
+        "canonical": 1,
+        "protein_start": 110,
+        "sift_score": 0.08,
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "codons": "cGt/cTt",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.329G>T",
+        "impact": "MODERATE",
+        "cadd_raw": 1.614133,
+        "cds_end": 329,
+        "hgvsp": "ENSP00000269305.4:p.Arg110Leu",
+        "revel": 0.632,
+        "alphamissense": {
+          "am_class": "likely_benign",
+          "am_pathogenicity": 0.2152
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "amino_acids": "R/L",
+        "sift_prediction": "tolerated"
+      }
+    ],
+    "allele_string": "C/A",
+    "most_severe_consequence": "missense_variant",
+    "id": "cohort_02807_bf1d2a7d8d4a",
+    "end": 7676040,
+    "start": 7676040,
+    "colocated_variants": [
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "id": "CM115383",
+        "end": 7676040,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "HGMD_MUTATION"
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676040,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7676040,
+        "id": "CM134053",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)"
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676040,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "end": 7676040,
+        "id": "CM984590"
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676040,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "id": "COSV52662399",
+        "end": 7676040,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10716"
+          ]
+        },
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11250"
+          ]
+        },
+        "id": "COSV52668419",
+        "end": 7676040
+      },
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43805"
+          ]
+        },
+        "end": 7676040,
+        "id": "COSV52680444",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676040
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676040,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "id": "COSV53132492",
+        "end": 7676040,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM46115"
+          ]
+        },
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1
+      },
+      {
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_benign",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "pubmed": [
+          24728327,
+          26206375,
+          18798306,
+          25105660,
+          12726864,
+          23580068,
+          24113472,
+          31216622,
+          30755224,
+          37342358,
+          40699691,
+          24076587
+        ],
+        "end": 7676040,
+        "id": "rs11540654",
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_005861"
+          ],
+          "ClinVar": [
+            "RCV005230382",
+            "RCV004745188",
+            "RCV003462528",
+            "RCV000228299",
+            "RCV000409407",
+            "RCV000589869",
+            "RCV000122182",
+            "RCV000115719",
+            "VCV000127808",
+            "RCV004999438",
+            "RCV001358219",
+            "RCV000222678",
+            "VCV000233627",
+            "RCV000231991",
+            "RCV000492590",
+            "RCV000473145",
+            "VCV000406597",
+            "RCV002289602",
+            "RCV002288889",
+            "RCV000785348",
+            "RCV004698486",
+            "RCV004000748"
+          ]
+        },
+        "clin_sig_ref_allele": "C",
+        "frequencies": {
+          "A": {
+            "gnomade": 6.849e-07,
+            "gnomade_afr": 0,
+            "gnomadg_sas": 0,
+            "gnomadg_remaining": 0,
+            "gnomade_mid": 0,
+            "gnomade_eas": 0,
+            "gnomade_fin": 0,
+            "gnomade_sas": 0,
+            "gnomadg_mid": 0,
+            "gnomade_nfe": 8.993e-07,
+            "gnomadg": 6.571e-06,
+            "gnomadg_eas": 0,
+            "gnomadg_fin": 0,
+            "gnomadg_afr": 0,
+            "gnomadg_asj": 0,
+            "gnomadg_ami": 0,
+            "gnomade_asj": 0,
+            "gnomadg_amr": 0,
+            "gnomade_amr": 0,
+            "gnomadg_nfe": 1.47e-05,
+            "gnomade_remaining": 0
+          }
+        },
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_allele": "A:likely_pathogenic;G:pathogenic;T:uncertain_significance;A:pathogenic;T:likely_benign;G:pathogenic/likely_pathogenic",
+        "seq_region_name": "17",
+        "allele_string": "C/A/G/T",
+        "start": 7676040
+      }
+    ],
+    "strand": 1
+  },
+  {
+    "start": 7676040,
+    "end": 7676040,
+    "id": "cohort_02808_523ae9adfea8",
+    "colocated_variants": [
+      {
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676040,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "id": "CM115383",
+        "end": 7676040,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "HGMD_MUTATION",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "id": "CM134053",
+        "end": 7676040
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676040,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "id": "CM984590",
+        "end": 7676040
+      },
+      {
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "end": 7676040,
+        "id": "COSV52662399",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM10716"
+          ]
+        },
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)"
+      },
+      {
+        "end": 7676040,
+        "id": "COSV52668419",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM11250"
+          ]
+        },
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "somatic": 1,
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676040,
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43805"
+          ]
+        },
+        "id": "COSV52680444",
+        "end": 7676040,
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "COSMIC_MUTATION",
+        "strand": 1,
+        "phenotype_or_disease": 1
+      },
+      {
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM46115"
+          ]
+        },
+        "id": "COSV53132492",
+        "end": 7676040,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676040,
+        "allele_string": "COSMIC_MUTATION"
+      },
+      {
+        "var_synonyms": {
+          "UniProt": [
+            "VAR_005861"
+          ],
+          "ClinVar": [
+            "RCV005230382",
+            "RCV004745188",
+            "RCV003462528",
+            "RCV000228299",
+            "RCV000409407",
+            "RCV000589869",
+            "RCV000122182",
+            "RCV000115719",
+            "VCV000127808",
+            "RCV004999438",
+            "RCV001358219",
+            "RCV000222678",
+            "VCV000233627",
+            "RCV000231991",
+            "RCV000492590",
+            "RCV000473145",
+            "VCV000406597",
+            "RCV002289602",
+            "RCV002288889",
+            "RCV000785348",
+            "RCV004698486",
+            "RCV004000748"
+          ]
+        },
+        "id": "rs11540654",
+        "end": 7676040,
+        "pubmed": [
+          24728327,
+          26206375,
+          18798306,
+          25105660,
+          12726864,
+          23580068,
+          24113472,
+          31216622,
+          30755224,
+          37342358,
+          40699691,
+          24076587
+        ],
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Oncogenic)",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_benign",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "allele_string": "C/A/G/T",
+        "start": 7676040,
+        "clin_sig_allele": "A:likely_pathogenic;G:pathogenic;T:uncertain_significance;A:pathogenic;T:likely_benign;G:pathogenic/likely_pathogenic",
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "C"
+      }
+    ],
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "cGt/cCt",
+        "biotype": "protein_coding",
+        "gene_id": "ENSG00000141510",
+        "sift_score": 0.03,
+        "protein_start": 110,
+        "gene_symbol": "TP53",
+        "variant_allele": "G",
+        "canonical": 1,
+        "cdna_start": 471,
+        "strand": -1,
+        "protein_end": 110,
+        "cds_start": 329,
+        "conservation": -4.42,
+        "cadd_phred": 17.49,
+        "cdna_end": 471,
+        "amino_acids": "R/P",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.9045,
+          "am_class": "likely_pathogenic"
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.329G>C",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.593,
+        "hgvsp": "ENSP00000269305.4:p.Arg110Pro",
+        "cds_end": 329,
+        "cadd_raw": 2.160893
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "C/G",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "input": "17 7676040 cohort_02808_523ae9adfea8 C G . . .",
+    "vcf_string": "17-7676040-C-G"
+  },
+  {
+    "vcf_string": "17-7676041-G-C",
+    "input": "17 7676041 cohort_02809_260e247f5db9 G C . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "allele_string": "G/C",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "codons": "Cgt/Ggt",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "sift_score": 0.04,
+        "protein_start": 110,
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "variant_allele": "C",
+        "cdna_start": 470,
+        "strand": -1,
+        "cds_start": 328,
+        "protein_end": 110,
+        "conservation": -0.106,
+        "cadd_phred": 22.5,
+        "cdna_end": 470,
+        "amino_acids": "R/G",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_pathogenicity": 0.2211,
+          "am_class": "likely_benign"
+        },
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.328C>G",
+        "gene_symbol_source": "HGNC",
+        "revel": 0.577,
+        "hgvsp": "ENSP00000269305.4:p.Arg110Gly",
+        "cds_end": 328,
+        "cadd_raw": 3.448344
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "end": 7676041,
+        "id": "CD136796",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "seq_region_name": "17",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676041,
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "id": "CD1617859",
+        "end": 7676041,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "allele_string": "HGMD_MUTATION",
+        "start": 7676041,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676041,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM9999920"
+          ]
+        },
+        "end": 7676041,
+        "id": "COSV105873667",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1
+      },
+      {
+        "seq_region_name": "17",
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676041,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7676041,
+        "id": "COSV52684761",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM43682"
+          ]
+        },
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "somatic": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676041,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "end": 7676041,
+        "id": "COSV53551526",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45604"
+          ]
+        }
+      },
+      {
+        "clin_sig_allele": "T:uncertain_significance;A:uncertain_significance;C:likely_pathogenic;C:uncertain_significance",
+        "seq_region_name": "17",
+        "allele_string": "G/A/C/T",
+        "start": 7676041,
+        "clin_sig_ref_allele": "G",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "pubmed": [
+          25741868,
+          36353970,
+          37352403,
+          31081129
+        ],
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV005606750",
+            "RCV003149906",
+            "RCV002288646",
+            "RCV002267879",
+            "RCV001704056",
+            "RCV001356391",
+            "RCV000195648",
+            "RCV000131196",
+            "VCV000142206",
+            "RCV001019706",
+            "VCV000823452",
+            "RCV002288623",
+            "RCV000461586",
+            "RCV000129184",
+            "VCV000140921",
+            "RCV004797599",
+            "RCV004668796",
+            "RCV003441748"
+          ],
+          "UniProt": [
+            "VAR_005860"
+          ]
+        },
+        "end": 7676041,
+        "id": "rs587781371",
+        "clinvar_somatic_classification": "Neoplasm(oncogenicity:Likely oncogenic)",
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic"
+        ]
+      }
+    ],
+    "start": 7676041,
+    "end": 7676041,
+    "id": "cohort_02809_260e247f5db9"
+  },
+  {
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/C",
+    "transcript_consequences": [
+      {
+        "revel": 0.965,
+        "hgvsp": "ENSP00000269305.4:p.Phe109Cys",
+        "cds_end": 326,
+        "cadd_raw": 4.620191,
+        "impact": "MODERATE",
+        "hgvsc": "ENST00000269305.9:c.326T>G",
+        "gene_symbol_source": "HGNC",
+        "sift_prediction": "deleterious",
+        "amino_acids": "F/C",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_pathogenic",
+          "am_pathogenicity": 0.9844
+        },
+        "cds_start": 326,
+        "protein_end": 109,
+        "conservation": 2.21,
+        "cdna_end": 468,
+        "cadd_phred": 26,
+        "strand": -1,
+        "codons": "tTc/tGc",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "protein_start": 109,
+        "sift_score": 0,
+        "canonical": 1,
+        "variant_allele": "C",
+        "gene_symbol": "TP53",
+        "cdna_start": 468,
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305"
+      }
+    ],
+    "strand": 1,
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676043,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "end": 7676043,
+        "id": "COSV52725602",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM78686"
+          ]
+        }
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676043,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7676043,
+        "id": "COSV52838438",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45169"
+          ]
+        }
+      },
+      {
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV002289656",
+            "RCV002289655",
+            "RCV001362473",
+            "VCV001054035",
+            "RCV001865485",
+            "RCV000484423",
+            "VCV000423970",
+            "RCV003478056",
+            "RCV004027354",
+            "RCV000785545",
+            "VCV000634784"
+          ],
+          "UniProt": [
+            "VAR_044675"
+          ]
+        },
+        "id": "rs1064796722",
+        "end": 7676043,
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic"
+        ],
+        "start": 7676043,
+        "allele_string": "A/C/G/T",
+        "seq_region_name": "17",
+        "clin_sig_allele": "T:uncertain_significance;C:likely_pathogenic;G:uncertain_significance",
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "clin_sig_ref_allele": "A"
+      }
+    ],
+    "end": 7676043,
+    "start": 7676043,
+    "id": "cohort_02810_c9cbecd91589",
+    "vcf_string": "17-7676043-A-C",
+    "input": "17 7676043 cohort_02810_c9cbecd91589 A C . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38"
+  },
+  {
+    "vcf_string": "17-7676044-A-T",
+    "input": "17 7676044 cohort_02811_170485f2d513 A T . . .",
+    "seq_region_name": "17",
+    "assembly_name": "GRCh38",
+    "transcript_consequences": [
+      {
+        "hgnc_id": "HGNC:11998",
+        "transcript_id": "ENST00000269305",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "codons": "Ttc/Atc",
+        "gene_symbol": "TP53",
+        "cdna_start": 467,
+        "variant_allele": "T",
+        "canonical": 1,
+        "sift_score": 0,
+        "protein_start": 109,
+        "strand": -1,
+        "protein_end": 109,
+        "cds_start": 325,
+        "cadd_phred": 32,
+        "cdna_end": 467,
+        "conservation": 2.21,
+        "amino_acids": "F/I",
+        "alphamissense": {
+          "am_pathogenicity": 0.9571,
+          "am_class": "likely_pathogenic"
+        },
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "sift_prediction": "deleterious",
+        "impact": "MODERATE",
+        "gene_symbol_source": "HGNC",
+        "hgvsc": "ENST00000269305.9:c.325T>A",
+        "hgvsp": "ENSP00000269305.4:p.Phe109Ile",
+        "revel": 0.837,
+        "cadd_raw": 5.553281,
+        "cds_end": 325
+      }
+    ],
+    "most_severe_consequence": "missense_variant",
+    "allele_string": "A/T",
+    "colocated_variants": [
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676044,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM48817"
+          ]
+        },
+        "id": "COSV52819746",
+        "end": 7676044
+      },
+      {
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676044,
+        "seq_region_name": "17",
+        "somatic": 1,
+        "end": 7676044,
+        "id": "COSV53616876",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM6914682"
+          ]
+        }
+      },
+      {
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic",
+          "pathogenic"
+        ],
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV003387704",
+            "VCV002627017",
+            "RCV004022449",
+            "RCV005090832",
+            "RCV004697289",
+            "RCV000434126",
+            "VCV000389644"
+          ]
+        },
+        "id": "rs1057523496",
+        "end": 7676044,
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "A",
+        "allele_string": "A/C/T",
+        "start": 7676044,
+        "clin_sig_allele": "C:likely_pathogenic;C:pathogenic;C:uncertain_significance;T:likely_pathogenic",
+        "seq_region_name": "17"
+      }
+    ],
+    "end": 7676044,
+    "start": 7676044,
+    "id": "cohort_02811_170485f2d513",
+    "strand": 1
+  },
+  {
+    "input": "17 7676051 cohort_02812_9147c33b9b55 G C . . .",
+    "vcf_string": "17-7676051-G-C",
+    "assembly_name": "GRCh38",
+    "seq_region_name": "17",
+    "allele_string": "G/C",
+    "most_severe_consequence": "missense_variant",
+    "transcript_consequences": [
+      {
+        "sift_score": 0.29,
+        "protein_start": 106,
+        "gene_symbol": "TP53",
+        "canonical": 1,
+        "variant_allele": "C",
+        "cdna_start": 460,
+        "codons": "agC/agG",
+        "gene_id": "ENSG00000141510",
+        "biotype": "protein_coding",
+        "transcript_id": "ENST00000269305",
+        "hgnc_id": "HGNC:11998",
+        "conservation": -1.06,
+        "cadd_phred": 24.1,
+        "cdna_end": 460,
+        "cds_start": 318,
+        "protein_end": 106,
+        "strand": -1,
+        "sift_prediction": "tolerated",
+        "consequence_terms": [
+          "missense_variant"
+        ],
+        "alphamissense": {
+          "am_class": "likely_benign",
+          "am_pathogenicity": 0.1535
+        },
+        "amino_acids": "S/R",
+        "cadd_raw": 4.017241,
+        "cds_end": 318,
+        "revel": 0.635,
+        "hgvsp": "ENSP00000269305.4:p.Ser106Arg",
+        "hgvsc": "ENST00000269305.9:c.318C>G",
+        "gene_symbol_source": "HGNC",
+        "impact": "MODERATE"
+      }
+    ],
+    "strand": 1,
+    "end": 7676051,
+    "start": 7676051,
+    "id": "cohort_02812_9147c33b9b55",
+    "colocated_variants": [
+      {
+        "id": "CM013441",
+        "end": 7676051,
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676051,
+        "allele_string": "HGMD_MUTATION",
+        "seq_region_name": "17"
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "seq_region_name": "17",
+        "start": 7676051,
+        "allele_string": "COSMIC_MUTATION",
+        "somatic": 1,
+        "end": 7676051,
+        "id": "COSV52748282",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM45944"
+          ]
+        }
+      },
+      {
+        "allele_string": "COSMIC_MUTATION",
+        "start": 7676051,
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "end": 7676051,
+        "id": "COSV52919256",
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM6474211"
+          ]
+        },
+        "somatic": 1
+      },
+      {
+        "strand": 1,
+        "phenotype_or_disease": 1,
+        "start": 7676051,
+        "allele_string": "COSMIC_MUTATION",
+        "seq_region_name": "17",
+        "somatic": 1,
+        "var_synonyms": {
+          "COSMIC": [
+            "COSM1735720"
+          ]
+        },
+        "id": "COSV53146850",
+        "end": 7676051
+      },
+      {
+        "allele_string": "G/A/C/T",
+        "start": 7676051,
+        "clin_sig_allele": "C:uncertain_significance;C:likely_pathogenic",
+        "seq_region_name": "17",
+        "phenotype_or_disease": 1,
+        "strand": 1,
+        "clin_sig_ref_allele": "G",
+        "end": 7676051,
+        "id": "rs1555526581",
+        "var_synonyms": {
+          "ClinVar": [
+            "RCV001055662",
+            "RCV000582529",
+            "VCV000492752",
+            "RCV004719895"
+          ],
+          "UniProt": [
+            "VAR_044667"
+          ]
+        },
+        "clin_sig": [
+          "uncertain_significance",
+          "likely_pathogenic"
+        ]
+      }
+    ]
+  }
+]
