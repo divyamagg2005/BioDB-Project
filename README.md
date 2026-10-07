@@ -46,6 +46,14 @@ This is a class project, not a research-grade clinical system. The implementatio
 └── requirements.txt
 ```
 
+## Project Status
+
+**Current scope:** 5 genes (BRCA1, COL2A1, GRIN2B, NSD1, TP53)  
+**Expansion target:** 100 distinct genes with balanced pathogenic/benign variants  
+**Feasibility:** Confirmed — 366 genes qualify, ~318 with AlphaFold structures
+
+See `docs/expansion_plan.md` for implementation roadmap.
+
 ## Phase 0: Environment Setup
 
 Create and activate a virtual environment from the project root:
