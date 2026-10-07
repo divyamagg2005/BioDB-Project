@@ -50,9 +50,19 @@ This is a class project, not a research-grade clinical system. The implementatio
 
 **Current scope:** 5 genes (BRCA1, COL2A1, GRIN2B, NSD1, TP53)  
 **Expansion target:** 100 distinct genes with balanced pathogenic/benign variants  
-**Feasibility:** Confirmed — 366 genes qualify, ~318 with AlphaFold structures
+**Feasibility:** Confirmed — 366 genes qualify, ~318 with AlphaFold structures  
+**Started:** 2026-10-07
 
 See `docs/expansion_plan.md` for implementation roadmap.
+
+### Progress
+
+- [x] Feasibility audit complete
+- [ ] Gene selection parameterized
+- [ ] AlphaFold acquisition updated
+- [ ] VEP pipeline scaled
+- [ ] FoldX integration
+- [ ] ML comparison
 
 ## Phase 0: Environment Setup
 
