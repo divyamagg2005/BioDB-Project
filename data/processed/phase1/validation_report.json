@@ -1,0 +1,98 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "gene_count",
+      "passed": true,
+      "detail": 100
+    },
+    {
+      "check": "genes_distinct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "cohort_genes_match_selected_genes",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "per_gene_class_counts",
+      "passed": true,
+      "detail": "25 pathogenic + 25 benign each"
+    },
+    {
+      "check": "total_variants",
+      "passed": true,
+      "detail": 5000
+    },
+    {
+      "check": "class_balance",
+      "passed": true,
+      "detail": {
+        "pathogenic": 2500,
+        "benign": 2500
+      }
+    },
+    {
+      "check": "unique_variant_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "unique_variation_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "unique_genomic_allele",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "unique_protein_change_per_gene",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "assembly_grch38_only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "missense_only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "labels_consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "review_stars_at_least_one",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "uniprot_accessions_distinct",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "alphafold_model_for_every_gene",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "protein_length_within_limit",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "reference_residue_matches_alphafold_sequence",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}
