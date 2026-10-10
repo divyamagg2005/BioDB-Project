@@ -29,42 +29,41 @@ This is a class project, not a research-grade clinical system. The implementatio
 
 ```text
 .
+├── src/biodb/          # pipeline package (config.py, common.py, one module per phase)
+├── tests/              # pytest suite
 ├── data/
-│   ├── raw/
-│   ├── processed/
+│   ├── raw/            # downloads and API caches (not versioned)
+│   ├── processed/      # phaseN/ outputs (small, versioned)
 │   └── final/
-├── docs/
+├── docs/               # per-phase reports
 ├── models/
-├── notebooks/
 ├── results/
-│   ├── figures/
-│   └── metrics/
-├── src/
-├── tests/
-├── .gitignore
-├── README.md
+├── legacy/             # archived 5-gene pilot and first 100-gene attempt (see legacy/README.md)
+├── pyproject.toml
 └── requirements.txt
 ```
 
-## Project Status
+## Phases
 
-**Current scope:** 5 genes (BRCA1, COL2A1, GRIN2B, NSD1, TP53)  
-**Expansion target:** 100 distinct genes with balanced pathogenic/benign variants  
-**Feasibility:** Confirmed — 366 genes qualify, ~318 with AlphaFold structures  
-**Started:** 2026-10-07
+Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 
-See `docs/expansion_plan.md` for implementation roadmap.
+| Phase | Objective | Status |
+|---|---|---|
+| 0 | Repository cleanup and shared configuration | Done |
+| 1 | 100-gene cohort (25 pathogenic + 25 benign missense per gene) | Not started |
+| 2 | VEP annotation | Not started |
+| 3 | AlphaFold structures and residue mapping | Not started |
+| 4 | FoldX ΔΔG | Not started |
+| 5 | Final ML dataset | Not started |
+| 6 | Baseline model (conventional features) | Not started |
+| 7 | Stability-enhanced model | Not started |
+| 8 | Scientific comparison | Not started |
+| 9 | Streamlit application | Not started |
+| 10 | Deployment and documentation | Not started |
 
-### Progress
+Shared settings (paths, random seed, assembly GRCh38, cohort size) live in `src/biodb/config.py`.
 
-- [x] Feasibility audit complete
-- [ ] Gene selection parameterized
-- [ ] AlphaFold acquisition updated
-- [ ] VEP pipeline scaled
-- [ ] FoldX integration
-- [ ] ML comparison
-
-## Phase 0: Environment Setup
+## Environment Setup
 
 Create and activate a virtual environment from the project root:
 
@@ -75,6 +74,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
 ### macOS/Linux
@@ -84,6 +84,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+python -m pip install -e .
 ```
 
 Verify the core imports:
@@ -92,4 +93,4 @@ Verify the core imports:
 python -c "import Bio, matplotlib, numpy, pandas, requests, scipy, seaborn, sklearn, xgboost; print('Core imports verified')"
 ```
 
-Phase 0 intentionally does not implement the machine learning pipeline. Data acquisition, preprocessing, feature engineering, model training, evaluation, and structural analysis will be added in later phases.
+Run the test suite with `python -m pytest`.

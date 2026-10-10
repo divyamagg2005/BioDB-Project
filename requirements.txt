@@ -14,3 +14,6 @@ seaborn>=0.13,<1
 # Bioinformatics and data access
 biopython>=1.83,<2
 requests>=2.31,<3
+
+# Testing
+pytest>=8,<10

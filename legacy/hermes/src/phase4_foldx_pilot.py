@@ -42,7 +42,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 # Project paths
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 STRUCTURE_DIR = PROJECT_ROOT / "data/raw/alphafold_phase3"
 PILOT_DIR = PROJECT_ROOT / "data/processed/phase4/pilot"
 CONFIG_FILE = PILOT_DIR / "pilot_config.json"

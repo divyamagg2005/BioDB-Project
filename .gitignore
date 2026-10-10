@@ -34,5 +34,8 @@ models/*
 results/figures/*
 results/metrics/*
 
+# Small derived phase outputs are versioned for review and reproducibility
+!data/processed/phase*/
+
 # Keep directory placeholders in version control
 !.gitkeep

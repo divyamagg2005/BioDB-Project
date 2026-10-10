@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-PROJECT_ROOT = Path("/home/ubuntu/BioDB-Project")
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 MAPPING_FILE = PROJECT_ROOT / "data/processed/phase3/phase3_variant_structure_mapping.csv"
 COHORT_FILE = PROJECT_ROOT / "data/processed/phase2/phase2_annotated_cohort.csv"
 GENE_FILE = PROJECT_ROOT / "data/processed/phase1/phase1_selected_genes.csv"

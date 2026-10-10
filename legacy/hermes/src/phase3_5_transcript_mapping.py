@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any
 
 # Project paths
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 COHORT_FILE = PROJECT_ROOT / "data/processed/phase2/phase2_annotated_cohort.csv"
 MAPPING_FILE = PROJECT_ROOT / "data/processed/phase3/phase3_variant_structure_mapping.csv"
 STRUCTURE_DIR = PROJECT_ROOT / "data/raw/alphafold_phase3"
