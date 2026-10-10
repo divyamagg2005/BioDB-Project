@@ -51,7 +51,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 |---|---|---|
 | 0 | Repository cleanup and shared configuration | Done |
 | 1 | 100-gene cohort (25 pathogenic + 25 benign missense per gene) | Done |
-| 2 | VEP annotation | Not started |
+| 2 | VEP annotation | Done |
 | 3 | AlphaFold structures and residue mapping | Not started |
 | 4 | FoldX ΔΔG | Not started |
 | 5 | Final ML dataset | Not started |

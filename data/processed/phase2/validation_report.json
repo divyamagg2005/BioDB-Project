@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "one_row_per_cohort_variant",
+      "passed": true,
+      "detail": 5000
+    },
+    {
+      "check": "no_duplicate_annotations",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "failure_rate_within_limit",
+      "passed": true,
+      "detail": {
+        "failed": 0,
+        "limit": 0.02
+      }
+    },
+    {
+      "check": "failures_have_reason",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "protein_change_matches_cohort",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "feature_values_in_range",
+      "passed": true,
+      "detail": {
+        "revel": 0,
+        "alphamissense": 0,
+        "sift_score": 0,
+        "polyphen_score": 0,
+        "gnomade_af": 0,
+        "gnomadg_af": 0,
+        "gnomad_af_max": 0,
+        "cadd_phred": 0
+      }
+    },
+    {
+      "check": "no_label_columns",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

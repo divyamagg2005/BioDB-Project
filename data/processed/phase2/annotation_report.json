@@ -1,0 +1,124 @@
+{
+  "phase": 2,
+  "created_utc": "2026-10-10T20:32:37+00:00",
+  "source": {
+    "vep_url": "https://rest.ensembl.org/vep/homo_sapiens/region",
+    "parameters": {
+      "CADD": "1",
+      "REVEL": "1",
+      "AlphaMissense": "1",
+      "Conservation": "1",
+      "canonical": "1",
+      "mane": "1",
+      "protein": "1",
+      "uniprot": "1",
+      "numbers": "1",
+      "variant_class": "1",
+      "af_gnomade": "1",
+      "af_gnomadg": "1"
+    },
+    "batch_size": 200
+  },
+  "input": {
+    "cohort": "data/processed/phase1/cohort.csv",
+    "cohort_sha256": "41b674ec82dda2f50e1551d7298cc7776b56ff4d6ed4efb2eb88b55da5c3af27"
+  },
+  "variants": 5000,
+  "annotated": 5000,
+  "failed": 0,
+  "failure_reasons": {},
+  "transcript_choice": {
+    "mane_select": 4998,
+    "other_matching": 2
+  },
+  "feature_coverage": {
+    "cadd_phred": {
+      "present": 5000,
+      "coverage": 1.0,
+      "coverage_pathogenic": 1.0,
+      "coverage_benign": 1.0
+    },
+    "cadd_raw": {
+      "present": 5000,
+      "coverage": 1.0,
+      "coverage_pathogenic": 1.0,
+      "coverage_benign": 1.0
+    },
+    "revel": {
+      "present": 4948,
+      "coverage": 0.9896,
+      "coverage_pathogenic": 0.9892,
+      "coverage_benign": 0.99
+    },
+    "alphamissense": {
+      "present": 4949,
+      "coverage": 0.9898,
+      "coverage_pathogenic": 0.9896,
+      "coverage_benign": 0.99
+    },
+    "sift_score": {
+      "present": 5000,
+      "coverage": 1.0,
+      "coverage_pathogenic": 1.0,
+      "coverage_benign": 1.0
+    },
+    "polyphen_score": {
+      "present": 4849,
+      "coverage": 0.9698,
+      "coverage_pathogenic": 0.9724,
+      "coverage_benign": 0.9672
+    },
+    "gerp_conservation": {
+      "present": 4970,
+      "coverage": 0.994,
+      "coverage_pathogenic": 0.9936,
+      "coverage_benign": 0.9944
+    },
+    "gnomade_af": {
+      "present": 2508,
+      "coverage": 0.5016,
+      "coverage_pathogenic": 0.174,
+      "coverage_benign": 0.8292
+    },
+    "gnomadg_af": {
+      "present": 1654,
+      "coverage": 0.3308,
+      "coverage_pathogenic": 0.0556,
+      "coverage_benign": 0.606
+    },
+    "gnomad_af_max": {
+      "present": 2585,
+      "coverage": 0.517,
+      "coverage_pathogenic": 0.1824,
+      "coverage_benign": 0.8516
+    }
+  },
+  "raw_response_sha256": {
+    "batch_001.json": "8c684d2551d98ff19350a77d6635707fd76c7ece25aaecd8b4fe3978cb9091c4",
+    "batch_002.json": "bf03a76bba3be1af5fdfd1f04faf0a558ded34a8de61b7e986586cc884e1ee0a",
+    "batch_003.json": "6f58e9651d4ca1e88dc95c4528f8f9e4988d1ca2b1b5b0cb6be09be77998ac9a",
+    "batch_004.json": "94c3403a30d51004bb61fffc066881034ca23cd023c72b7bdaa8010ec9242d5c",
+    "batch_005.json": "d34d574e7ea0d7ed8cb63bfccf8ee86161a458244f0d2949af4e38a20b9ba6e7",
+    "batch_006.json": "d85ab3e1325e0f89562198073eecff06e12295a2c98f1ddceea8f5b7a1120994",
+    "batch_007.json": "60ad2ccbf6c359bb9ede3a9a430bf8492322787b44fba8c7d2c80b885d1e8fb2",
+    "batch_008.json": "9db7d5a6e5132e3489ffffa45e0d6b3b804953f4160a19be4598b531a5fcccb1",
+    "batch_009.json": "6bab5e867fb93543708b871721c4f63f4d9a0074b8526e21d6b6b6df77bfd596",
+    "batch_010.json": "c08b727409e1368403ca2c04eb0af533da4746aa6d53664205815973843b7f03",
+    "batch_011.json": "860d4284c1cb4dcc19f3ef9a172e061f437bd291c0e47f54cf8fb97a78bb45c4",
+    "batch_012.json": "3fa0495b89f90e0b766325cb1b09ef763d4aae25027583205c704d7733963b60",
+    "batch_013.json": "bf52b7082043781b4288667c76710a4ff4a20199e2713a82dd81c369f959165d",
+    "batch_014.json": "695787721075633e17d29eec57632fd89f5b6e08c7a18802b0d8a10d06944ac4",
+    "batch_015.json": "b0c744cd9a0fda496f11909ac57b57b2f21faf39287418c2159297941d647f23",
+    "batch_016.json": "3b61cde2c7e057a6f5f9801a54dc11d4b6cb8704bdc5860e1f188ad4cb212067",
+    "batch_017.json": "135cc2a2b6ca7dc2b3138b48e12df27cc62b381e67c8e918746d422cd6b5c026",
+    "batch_018.json": "2443cc2e9af6ea77bf918529e766dd31246542c50d9ee13bd1c2222c7e81d51f",
+    "batch_019.json": "ddbc48050a67a0b867ead7d69995cb831720ca28a140f6f5d9dc100769011e89",
+    "batch_020.json": "be943a10768c995b5f06290f096e2e9d137050f19ffb2ec75b3c510a7d04c868",
+    "batch_021.json": "74e0f40eb7ea21a2e26088939a3fee04c01c649e7b2a67d51969fc7f176ae0c5",
+    "batch_022.json": "9b449a3e240719469e05c947bfdcd1d99f3c892cb368b6cd9822ef072545daf4",
+    "batch_023.json": "b0df5c7dab2a14e2d214e38d17935cfb801a42426a2e069a65aea246d0874064",
+    "batch_024.json": "f95e0a916f9988d64fe1d83d443c90f1fdbe4acbc236ad1af0a908ecabecf72c",
+    "batch_025.json": "f438850d9e2e4244471925b474bd9c64250e78f2033c943d23d6a9e482ac24c5"
+  },
+  "annotations_sha256": "a5f7d936414fca29f807f003b33888d257722831c09364e3e922dec7757dfb37"
+}
