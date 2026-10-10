@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "structure_per_gene",
+      "passed": true,
+      "detail": 100
+    },
+    {
+      "check": "structure_sequences_match_uniprot",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "one_row_per_cohort_variant",
+      "passed": true,
+      "detail": 5000
+    },
+    {
+      "check": "no_duplicate_rows",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "all_variants_mapped",
+      "passed": true,
+      "detail": {}
+    },
+    {
+      "check": "plddt_in_range",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "rsa_in_range",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "neighbor_count_positive",
+      "passed": true,
+      "detail": ""
+    }
+  ]
+}

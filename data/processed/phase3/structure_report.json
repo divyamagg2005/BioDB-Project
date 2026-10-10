@@ -1,0 +1,44 @@
+{
+  "phase": 3,
+  "created_utc": "2026-10-10T20:21:41+00:00",
+  "source": "AlphaFold Protein Structure Database (canonical full-length models)",
+  "input_cohort_sha256": "41b674ec82dda2f50e1551d7298cc7776b56ff4d6ed4efb2eb88b55da5c3af27",
+  "structures": 100,
+  "structures_ok": 100,
+  "structure_storage": "data/raw/alphafold (not versioned; checksums in structures.csv)",
+  "variants": 5000,
+  "mapped": 5000,
+  "failed": 0,
+  "parameters": {
+    "neighbor_radius_angstrom": 10.0,
+    "plddt_window": 5,
+    "max_asa": "Tien et al. 2013 theoretical",
+    "secondary_structure": "DSSP records in AlphaFold mmCIF"
+  },
+  "by_label": {
+    "pathogenic": {
+      "variants": 2500,
+      "median_plddt": 89.31,
+      "median_rsa": 0.1417,
+      "median_neighbor_count": 19,
+      "plddt_below_70": 446,
+      "secondary_structure": {
+        "helix": 1041,
+        "strand": 428,
+        "coil": 1031
+      }
+    },
+    "benign": {
+      "variants": 2500,
+      "median_plddt": 52.38,
+      "median_rsa": 0.6126,
+      "median_neighbor_count": 8,
+      "plddt_below_70": 1459,
+      "secondary_structure": {
+        "helix": 563,
+        "coil": 1720,
+        "strand": 217
+      }
+    }
+  }
+}
