@@ -4,8 +4,9 @@ pandas>=2.2,<3
 scipy>=1.12,<2
 
 # Machine learning
-scikit-learn>=1.4,<2
-xgboost>=2.0,<4
+# Pinned to the versions the saved models were trained with (pickle compatibility)
+scikit-learn>=1.8,<1.9
+xgboost>=3.2,<3.3
 
 # Visualization
 matplotlib>=3.8,<4
