@@ -9,8 +9,8 @@ import json
 import sys
 from pathlib import Path
 
+import pandas as pd
 import streamlit as st
-import streamlit.components.v1 as components
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
@@ -21,12 +21,14 @@ st.set_page_config(page_title="BioDB Variant Explorer", layout="wide")
 
 def structure_viewer(cif: str, position: int, height: int = 480) -> None:
     """3Dmol.js cartoon coloured by AlphaFold pLDDT, with the mutated residue highlighted."""
+    # Escape "</" so the structure text can never close the <script> element.
+    cif_json = json.dumps(cif).replace("</", "<\\/")
     html = f"""
     <div id="viewer" style="width:100%;height:{height}px;position:relative;"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js"></script>
     <script>
       const viewer = $3Dmol.createViewer("viewer", {{backgroundColor: "white"}});
-      viewer.addModel({json.dumps(cif)}, "cif");
+      viewer.addModel({cif_json}, "cif");
       const plddt = (atom) => atom.b > 90 ? "#0053D6" : atom.b > 70 ? "#65CBF3" : atom.b > 50 ? "#FFDB13" : "#FF7D45";
       viewer.setStyle({{}}, {{cartoon: {{colorfunc: plddt}}}});
       viewer.addStyle({{resi: {position}}}, {{stick: {{colorscheme: "magentaCarbon", radius: 0.3}}}});
@@ -34,7 +36,17 @@ def structure_viewer(cif: str, position: int, height: int = 480) -> None:
       viewer.zoomTo({{within: {{distance: 20, sel: {{resi: {position}}}}}}});
       viewer.render();
     </script>"""
-    components.html(html, height=height + 10)
+    if hasattr(st, "iframe"):  # Streamlit >= 1.5x; components.html is deprecated there
+        st.iframe(html, height=height + 10)
+    else:
+        import streamlit.components.v1 as components
+
+        components.html(html, height=height + 10)
+
+
+def show_table(values: dict) -> None:
+    """Two-column table with every value as text, so Arrow serialisation never sees mixed types."""
+    st.table(pd.DataFrame({"Value": [str(v) for v in values.values()]}, index=list(values)))
 
 
 st.title("BioDB Variant Explorer")
@@ -105,7 +117,7 @@ with right:
     if row["plddt"] < 70:
         st.warning(f"pLDDT {row['plddt']:.0f} < 70: the structure is low-confidence here, so ΔΔG is unreliable.")
     st.markdown("### Structural context")
-    st.table({
+    show_table({
         "pLDDT": f"{row['plddt']:.1f}",
         "Relative solvent accessibility": f"{row['rsa']:.2f}",
         "Neighbour count (10 Å)": int(row["neighbor_count"]),
@@ -119,7 +131,7 @@ def fmt(value, digits: int = 3) -> str:
     return "missing" if value != value else f"{value:.{digits}g}"
 
 
-st.table({
+show_table({
     "AlphaMissense": fmt(row["alphamissense"]),
     "REVEL": fmt(row["revel"]),
     "CADD (phred)": fmt(row["cadd_phred"]),
