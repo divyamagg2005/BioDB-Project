@@ -1,0 +1,530 @@
+{
+  "experiment": "baseline_ddg",
+  "features": [
+    "cadd_phred",
+    "revel",
+    "alphamissense",
+    "sift_score",
+    "polyphen_score",
+    "gerp_conservation",
+    "gnomad_af_max",
+    "gnomad_absent",
+    "blosum62",
+    "hydropathy_change",
+    "volume_change",
+    "abs_volume_change",
+    "charge_change",
+    "to_proline",
+    "from_proline",
+    "to_glycine",
+    "from_glycine",
+    "from_cysteine",
+    "to_cysteine",
+    "ddg"
+  ],
+  "n_features": 20,
+  "cv": "5-fold StratifiedGroupKFold by gene, seed 42",
+  "threshold": 0.5,
+  "model_params": {
+    "logistic_regression": {
+      "C": 1.0,
+      "max_iter": 5000
+    },
+    "random_forest": {
+      "n_estimators": 500,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt",
+      "n_jobs": 4
+    },
+    "xgboost": {
+      "n_estimators": 400,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "eval_metric": "logloss",
+      "n_jobs": 4
+    }
+  },
+  "best_model_by_roc_auc": "random_forest",
+  "results": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "features": [
+        "cadd_phred",
+        "revel",
+        "alphamissense",
+        "sift_score",
+        "polyphen_score",
+        "gerp_conservation",
+        "gnomad_af_max",
+        "gnomad_absent",
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "ddg"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.917,
+          "precision": 0.9048543689320389,
+          "recall": 0.932,
+          "f1": 0.9182266009852217,
+          "roc_auc": 0.9737840000000001,
+          "pr_auc": 0.9702228908371914,
+          "mcc": 0.8343755535176454,
+          "brier": 0.05905077702768238
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.939,
+          "precision": 0.9563409563409564,
+          "recall": 0.92,
+          "f1": 0.9378185524974516,
+          "roc_auc": 0.982304,
+          "pr_auc": 0.9837438227944071,
+          "mcc": 0.8786346033581988,
+          "brier": 0.0494759774108141
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.909,
+          "precision": 0.903353057199211,
+          "recall": 0.916,
+          "f1": 0.9096325719960278,
+          "roc_auc": 0.9730000000000001,
+          "pr_auc": 0.9724095714868035,
+          "mcc": 0.8180801757860331,
+          "brier": 0.06532546441506837
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.909,
+          "precision": 0.8940269749518305,
+          "recall": 0.928,
+          "f1": 0.9106967615309126,
+          "roc_auc": 0.973924,
+          "pr_auc": 0.9761793791209974,
+          "mcc": 0.8185912363861123,
+          "brier": 0.06395390394592454
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.903,
+          "precision": 0.907070707070707,
+          "recall": 0.898,
+          "f1": 0.9025125628140703,
+          "roc_auc": 0.9701839999999999,
+          "pr_auc": 0.9687957699505093,
+          "mcc": 0.8060403030227519,
+          "brier": 0.06854575918167925
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.9154,
+          "std": 0.01409964538561162
+        },
+        "precision": {
+          "mean": 0.9131292128989488,
+          "std": 0.02466222831426266
+        },
+        "recall": {
+          "mean": 0.9188000000000001,
+          "std": 0.013236313686219449
+        },
+        "f1": {
+          "mean": 0.9157774099647368,
+          "std": 0.013521637224303001
+        },
+        "roc_auc": {
+          "mean": 0.9746392,
+          "std": 0.004542241208918771
+        },
+        "pr_auc": {
+          "mean": 0.9742702868379818,
+          "std": 0.005983446498868748
+        },
+        "mcc": {
+          "mean": 0.8311443744141483,
+          "std": 0.028391157620495606
+        },
+        "brier": {
+          "mean": 0.06127037639623373,
+          "std": 0.0074264850772310835
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.9154,
+        "precision": 0.9125943583631307,
+        "recall": 0.9188,
+        "f1": 0.9156866653378513,
+        "roc_auc": 0.97428688,
+        "pr_auc": 0.973629140115656,
+        "mcc": 0.8308192087621624,
+        "brier": 0.06127037639623372
+      },
+      "confusion_matrix": {
+        "tn": 2280,
+        "fp": 220,
+        "fn": 203,
+        "tp": 2297
+      },
+      "feature_importance": {
+        "gnomad_absent": 1.304196530644336,
+        "gnomad_af_max": 1.2985530154567848,
+        "revel": 1.0993068846710308,
+        "alphamissense": 0.9974298745255814,
+        "cadd_phred": 0.7477218912651078,
+        "ddg": 0.6567474261253261,
+        "polyphen_score": 0.2423401852696212,
+        "volume_change": 0.16827395399972356,
+        "sift_score": 0.16762886507832525,
+        "to_cysteine": 0.1568286337500302,
+        "to_proline": 0.15055093107711676,
+        "gerp_conservation": 0.13274795425756408,
+        "hydropathy_change": 0.10785823251885135,
+        "abs_volume_change": 0.10390956161161302,
+        "to_glycine": 0.09715417510304375,
+        "from_proline": 0.09064554357481881,
+        "from_glycine": 0.07662556652951795,
+        "charge_change": 0.06622414188468044,
+        "blosum62": 0.021971360567019777,
+        "from_cysteine": 0.009759301084971568
+      }
+    },
+    "random_forest": {
+      "model": "random_forest",
+      "features": [
+        "cadd_phred",
+        "revel",
+        "alphamissense",
+        "sift_score",
+        "polyphen_score",
+        "gerp_conservation",
+        "gnomad_af_max",
+        "gnomad_absent",
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "ddg"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.93,
+          "precision": 0.9182879377431906,
+          "recall": 0.944,
+          "f1": 0.9309664694280079,
+          "roc_auc": 0.975904,
+          "pr_auc": 0.9668771438735114,
+          "mcc": 0.8603373183561569,
+          "brier": 0.054260999974697854
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.95,
+          "precision": 0.96875,
+          "recall": 0.93,
+          "f1": 0.9489795918367347,
+          "roc_auc": 0.98414,
+          "pr_auc": 0.9841444432701071,
+          "mcc": 0.9007208651536152,
+          "brier": 0.04697537845839789
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.915,
+          "precision": 0.9226069246435845,
+          "recall": 0.906,
+          "f1": 0.9142280524722503,
+          "roc_auc": 0.979128,
+          "pr_auc": 0.9792508683791684,
+          "mcc": 0.8301344926826044,
+          "brier": 0.05811185794921769
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.927,
+          "precision": 0.9097888675623801,
+          "recall": 0.948,
+          "f1": 0.9285014691478942,
+          "roc_auc": 0.978112,
+          "pr_auc": 0.9781606862854318,
+          "mcc": 0.8547542259877939,
+          "brier": 0.058161127027557866
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.909,
+          "precision": 0.9233954451345756,
+          "recall": 0.892,
+          "f1": 0.9074262461851476,
+          "roc_auc": 0.97308,
+          "pr_auc": 0.9702276628424,
+          "mcc": 0.8184732143163584,
+          "brier": 0.0648537259031758
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.9262,
+          "std": 0.01583350877095785
+        },
+        "precision": {
+          "mean": 0.928565835016746,
+          "std": 0.023104211406789414
+        },
+        "recall": {
+          "mean": 0.924,
+          "std": 0.02428991560298221
+        },
+        "f1": {
+          "mean": 0.9260203658140069,
+          "std": 0.016144239011169494
+        },
+        "roc_auc": {
+          "mean": 0.9780728,
+          "std": 0.0041096728823593965
+        },
+        "pr_auc": {
+          "mean": 0.9757321609301238,
+          "std": 0.007031293585670803
+        },
+        "mcc": {
+          "mean": 0.8528840232993058,
+          "std": 0.0318161029277465
+        },
+        "brier": {
+          "mean": 0.05647261786260942,
+          "std": 0.006535861711211909
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.9262,
+        "precision": 0.9280835676978706,
+        "recall": 0.924,
+        "f1": 0.926037282020445,
+        "roc_auc": 0.97738864,
+        "pr_auc": 0.9743613025419089,
+        "mcc": 0.8524082513518098,
+        "brier": 0.056472617862609424
+      },
+      "confusion_matrix": {
+        "tn": 2321,
+        "fp": 179,
+        "fn": 190,
+        "tp": 2310
+      },
+      "feature_importance": {
+        "alphamissense": 0.26577018554956927,
+        "revel": 0.18953930706441977,
+        "gnomad_absent": 0.14894959153491488,
+        "sift_score": 0.08100290953951576,
+        "cadd_phred": 0.07649515774573283,
+        "polyphen_score": 0.06958672296818867,
+        "gnomad_af_max": 0.05983627234596322,
+        "ddg": 0.04000280174905026,
+        "gerp_conservation": 0.023997894613060695,
+        "hydropathy_change": 0.011922823844265788,
+        "abs_volume_change": 0.010182194142794377,
+        "volume_change": 0.009217007544701832,
+        "blosum62": 0.0076936724287705585,
+        "charge_change": 0.0021944624401157267,
+        "from_glycine": 0.0020819870256948312,
+        "from_proline": 0.0005725305744349931,
+        "to_cysteine": 0.000400015209914024,
+        "to_proline": 0.00032132490809467384,
+        "to_glycine": 0.00013866564813628358,
+        "from_cysteine": 9.447312266165923e-05
+      }
+    },
+    "xgboost": {
+      "model": "xgboost",
+      "features": [
+        "cadd_phred",
+        "revel",
+        "alphamissense",
+        "sift_score",
+        "polyphen_score",
+        "gerp_conservation",
+        "gnomad_af_max",
+        "gnomad_absent",
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "ddg"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.928,
+          "precision": 0.9147286821705426,
+          "recall": 0.944,
+          "f1": 0.9291338582677166,
+          "roc_auc": 0.97656,
+          "pr_auc": 0.9723883547139024,
+          "mcc": 0.8564386088803796,
+          "brier": 0.05569024539917516
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.946,
+          "precision": 0.9626556016597511,
+          "recall": 0.928,
+          "f1": 0.945010183299389,
+          "roc_auc": 0.984708,
+          "pr_auc": 0.9853843286556478,
+          "mcc": 0.892578578439019,
+          "brier": 0.04221991213662748
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.908,
+          "precision": 0.8984375,
+          "recall": 0.92,
+          "f1": 0.9090909090909091,
+          "roc_auc": 0.9736,
+          "pr_auc": 0.9738622869837111,
+          "mcc": 0.8162351095722118,
+          "brier": 0.06593416650049505
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.912,
+          "precision": 0.8814814814814815,
+          "recall": 0.952,
+          "f1": 0.9153846153846154,
+          "roc_auc": 0.971548,
+          "pr_auc": 0.9708471581254202,
+          "mcc": 0.8266495245222819,
+          "brier": 0.06919992771515636
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.912,
+          "precision": 0.9291666666666667,
+          "recall": 0.892,
+          "f1": 0.9102040816326531,
+          "roc_auc": 0.973908,
+          "pr_auc": 0.9740351201615027,
+          "mcc": 0.8246599920961987,
+          "brier": 0.06554919848926917
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.9212,
+          "std": 0.01584929020492713
+        },
+        "precision": {
+          "mean": 0.9172939863956884,
+          "std": 0.030997258142334713
+        },
+        "recall": {
+          "mean": 0.9272,
+          "std": 0.023392306427541486
+        },
+        "f1": {
+          "mean": 0.9217647295350566,
+          "std": 0.01524496097186485
+        },
+        "roc_auc": {
+          "mean": 0.9760648,
+          "std": 0.005149724186789053
+        },
+        "pr_auc": {
+          "mean": 0.9753034497280367,
+          "std": 0.005780701594251159
+        },
+        "mcc": {
+          "mean": 0.8433123627020181,
+          "std": 0.03145710211643859
+        },
+        "brier": {
+          "mean": 0.05971869004814464,
+          "std": 0.01101086325630875
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.9212,
+        "precision": 0.916205533596838,
+        "recall": 0.9272,
+        "f1": 0.9216699801192842,
+        "roc_auc": 0.9752073599999999,
+        "pr_auc": 0.9735919395755701,
+        "mcc": 0.8424606593512886,
+        "brier": 0.05971869004814464
+      },
+      "confusion_matrix": {
+        "tn": 2288,
+        "fp": 212,
+        "fn": 182,
+        "tp": 2318
+      },
+      "feature_importance": {
+        "alphamissense": 0.3670828938484192,
+        "gnomad_absent": 0.14182408154010773,
+        "gnomad_af_max": 0.08452920615673065,
+        "revel": 0.07834884524345398,
+        "sift_score": 0.055938493460416794,
+        "polyphen_score": 0.029646754264831543,
+        "cadd_phred": 0.02905208244919777,
+        "ddg": 0.02612582966685295,
+        "charge_change": 0.023232171311974525,
+        "from_proline": 0.021739980205893517,
+        "from_glycine": 0.02065904624760151,
+        "gerp_conservation": 0.019371984526515007,
+        "blosum62": 0.01829896681010723,
+        "hydropathy_change": 0.016973236575722694,
+        "to_proline": 0.016704602167010307,
+        "abs_volume_change": 0.01670370064675808,
+        "volume_change": 0.01596752367913723,
+        "to_cysteine": 0.01229783520102501,
+        "to_glycine": 0.005502657499164343,
+        "from_cysteine": 0.0
+      }
+    }
+  }
+}

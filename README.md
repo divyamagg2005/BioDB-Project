@@ -56,7 +56,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 | 4 | FoldX ΔΔG | Done |
 | 5 | Final ML dataset | Done |
 | 6 | Baseline model (conventional features) | Done |
-| 7 | Stability-enhanced model | Not started |
+| 7 | Stability-enhanced model | Done |
 | 8 | Scientific comparison | Not started |
 | 9 | Streamlit application | Not started |
 | 10 | Deployment and documentation | Not started |

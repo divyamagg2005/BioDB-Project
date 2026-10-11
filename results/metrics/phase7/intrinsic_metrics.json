@@ -1,0 +1,509 @@
+{
+  "experiment": "intrinsic",
+  "features": [
+    "blosum62",
+    "hydropathy_change",
+    "volume_change",
+    "abs_volume_change",
+    "charge_change",
+    "to_proline",
+    "from_proline",
+    "to_glycine",
+    "from_glycine",
+    "from_cysteine",
+    "to_cysteine",
+    "plddt",
+    "plddt_window",
+    "rsa",
+    "neighbor_count",
+    "ss_helix",
+    "ss_strand"
+  ],
+  "n_features": 17,
+  "cv": "5-fold StratifiedGroupKFold by gene, seed 42",
+  "threshold": 0.5,
+  "model_params": {
+    "logistic_regression": {
+      "C": 1.0,
+      "max_iter": 5000
+    },
+    "random_forest": {
+      "n_estimators": 500,
+      "min_samples_leaf": 5,
+      "max_features": "sqrt",
+      "n_jobs": 4
+    },
+    "xgboost": {
+      "n_estimators": 400,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "min_child_weight": 5,
+      "eval_metric": "logloss",
+      "n_jobs": 4
+    }
+  },
+  "best_model_by_roc_auc": "xgboost",
+  "results": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "features": [
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "plddt",
+        "plddt_window",
+        "rsa",
+        "neighbor_count",
+        "ss_helix",
+        "ss_strand"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.801,
+          "precision": 0.8052738336713996,
+          "recall": 0.794,
+          "f1": 0.7995971802618328,
+          "roc_auc": 0.8773799999999999,
+          "pr_auc": 0.8728615064246203,
+          "mcc": 0.6020590046738288,
+          "brier": 0.141077289331001
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.809,
+          "precision": 0.8,
+          "recall": 0.824,
+          "f1": 0.8118226600985222,
+          "roc_auc": 0.8883,
+          "pr_auc": 0.885583382048672,
+          "mcc": 0.6182782878583991,
+          "brier": 0.13482144547343713
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.772,
+          "precision": 0.7369337979094077,
+          "recall": 0.846,
+          "f1": 0.7877094972067039,
+          "roc_auc": 0.850172,
+          "pr_auc": 0.8362016424150434,
+          "mcc": 0.5500575856808678,
+          "brier": 0.15985709367578574
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.803,
+          "precision": 0.8073022312373225,
+          "recall": 0.796,
+          "f1": 0.8016112789526687,
+          "roc_auc": 0.8869639999999999,
+          "pr_auc": 0.8845586171610156,
+          "mcc": 0.6060593967314621,
+          "brier": 0.13623534462683148
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.787,
+          "precision": 0.7819253438113949,
+          "recall": 0.796,
+          "f1": 0.7888999008919723,
+          "roc_auc": 0.8642920000000001,
+          "pr_auc": 0.8595152311708054,
+          "mcc": 0.5740930106021866,
+          "brier": 0.14911908774566446
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.7944,
+          "std": 0.014892951352905186
+        },
+        "precision": {
+          "mean": 0.7862870413259049,
+          "std": 0.029346842961030024
+        },
+        "recall": {
+          "mean": 0.8112,
+          "std": 0.02309112383579453
+        },
+        "f1": {
+          "mean": 0.79792810348234,
+          "std": 0.009941562485728264
+        },
+        "roc_auc": {
+          "mean": 0.8734216,
+          "std": 0.01615801512562722
+        },
+        "pr_auc": {
+          "mean": 0.8677440758440313,
+          "std": 0.020553568623166558
+        },
+        "mcc": {
+          "mean": 0.5901094571093489,
+          "std": 0.027619532265924736
+        },
+        "brier": {
+          "mean": 0.14422205217054396,
+          "std": 0.010374053176966111
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.7944,
+        "precision": 0.7848297213622291,
+        "recall": 0.8112,
+        "f1": 0.7977970102281668,
+        "roc_auc": 0.87237536,
+        "pr_auc": 0.8669335354030823,
+        "mcc": 0.589132647509813,
+        "brier": 0.14422205217054396
+      },
+      "confusion_matrix": {
+        "tn": 1944,
+        "fp": 556,
+        "fn": 472,
+        "tp": 2028
+      },
+      "feature_importance": {
+        "rsa": 0.7596617223922586,
+        "blosum62": 0.7200129903842208,
+        "from_glycine": 0.7074000139838376,
+        "plddt": 0.5821111573201616,
+        "neighbor_count": 0.44429707323779766,
+        "ss_strand": 0.18679532728187062,
+        "to_proline": 0.18046766027248337,
+        "from_proline": 0.17092228607034501,
+        "from_cysteine": 0.1614399841191807,
+        "volume_change": 0.12479024814725015,
+        "hydropathy_change": 0.08507021584398675,
+        "plddt_window": 0.0712631666122886,
+        "to_cysteine": 0.047090576450900846,
+        "charge_change": 0.04549381265802726,
+        "abs_volume_change": 0.04200162643007355,
+        "ss_helix": 0.011413662302344738,
+        "to_glycine": 0.005789264233837578
+      }
+    },
+    "random_forest": {
+      "model": "random_forest",
+      "features": [
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "plddt",
+        "plddt_window",
+        "rsa",
+        "neighbor_count",
+        "ss_helix",
+        "ss_strand"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.825,
+          "precision": 0.8421052631578947,
+          "recall": 0.8,
+          "f1": 0.8205128205128205,
+          "roc_auc": 0.892848,
+          "pr_auc": 0.8920888301877088,
+          "mcc": 0.6508140266182865,
+          "brier": 0.1321430041892334
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.823,
+          "precision": 0.8087954110898662,
+          "recall": 0.846,
+          "f1": 0.8269794721407625,
+          "roc_auc": 0.900628,
+          "pr_auc": 0.9030225920309762,
+          "mcc": 0.6466845545798877,
+          "brier": 0.12717234582632875
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.791,
+          "precision": 0.7593582887700535,
+          "recall": 0.852,
+          "f1": 0.8030160226201697,
+          "roc_auc": 0.856872,
+          "pr_auc": 0.8430588940740238,
+          "mcc": 0.5863802012901547,
+          "brier": 0.15571975722390335
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.81,
+          "precision": 0.81,
+          "recall": 0.81,
+          "f1": 0.81,
+          "roc_auc": 0.89682,
+          "pr_auc": 0.8879062345349992,
+          "mcc": 0.62,
+          "brier": 0.12809320441578834
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.795,
+          "precision": 0.7875243664717348,
+          "recall": 0.808,
+          "f1": 0.7976307996051333,
+          "roc_auc": 0.8804280000000001,
+          "pr_auc": 0.8812796162291635,
+          "mcc": 0.5901995211629301,
+          "brier": 0.1397689804179007
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.8088000000000001,
+          "std": 0.015594870951694302
+        },
+        "precision": {
+          "mean": 0.8015566658979099,
+          "std": 0.03060019003975572
+        },
+        "recall": {
+          "mean": 0.8231999999999999,
+          "std": 0.023941595602632634
+        },
+        "f1": {
+          "mean": 0.8116278229757772,
+          "std": 0.012117610011484536
+        },
+        "roc_auc": {
+          "mean": 0.8855192000000001,
+          "std": 0.01772200336305125
+        },
+        "pr_auc": {
+          "mean": 0.8814712334113743,
+          "std": 0.022880931961072173
+        },
+        "mcc": {
+          "mean": 0.6188156607302517,
+          "std": 0.030302292802027807
+        },
+        "brier": {
+          "mean": 0.13657945841463093,
+          "std": 0.011797420156473728
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.8088,
+        "precision": 0.8001555209953344,
+        "recall": 0.8232,
+        "f1": 0.8115141955835962,
+        "roc_auc": 0.88387472,
+        "pr_auc": 0.8769186202709042,
+        "mcc": 0.6178562905162289,
+        "brier": 0.1365794584146309
+      },
+      "confusion_matrix": {
+        "tn": 1986,
+        "fp": 514,
+        "fn": 442,
+        "tp": 2058
+      },
+      "feature_importance": {
+        "rsa": 0.21907319997145575,
+        "neighbor_count": 0.16304631281896392,
+        "plddt": 0.1283586903399324,
+        "plddt_window": 0.12661068272362808,
+        "blosum62": 0.08385153109155619,
+        "hydropathy_change": 0.06694365254864842,
+        "abs_volume_change": 0.06406675997816277,
+        "volume_change": 0.05639931253015372,
+        "from_glycine": 0.047733416796085136,
+        "charge_change": 0.013318748340751502,
+        "ss_helix": 0.012494534189496484,
+        "ss_strand": 0.0050531275813768955,
+        "to_proline": 0.00482508896625727,
+        "from_proline": 0.003904037537489786,
+        "to_cysteine": 0.00182147289796666,
+        "from_cysteine": 0.0014011318754009357,
+        "to_glycine": 0.0010982998126741804
+      }
+    },
+    "xgboost": {
+      "model": "xgboost",
+      "features": [
+        "blosum62",
+        "hydropathy_change",
+        "volume_change",
+        "abs_volume_change",
+        "charge_change",
+        "to_proline",
+        "from_proline",
+        "to_glycine",
+        "from_glycine",
+        "from_cysteine",
+        "to_cysteine",
+        "plddt",
+        "plddt_window",
+        "rsa",
+        "neighbor_count",
+        "ss_helix",
+        "ss_strand"
+      ],
+      "per_fold": [
+        {
+          "fold": 0,
+          "n_test": 1000,
+          "accuracy": 0.828,
+          "precision": 0.854978354978355,
+          "recall": 0.79,
+          "f1": 0.8212058212058212,
+          "roc_auc": 0.8917400000000001,
+          "pr_auc": 0.8952315933872399,
+          "mcc": 0.6579027747994753,
+          "brier": 0.13153133931057015
+        },
+        {
+          "fold": 1,
+          "n_test": 1000,
+          "accuracy": 0.823,
+          "precision": 0.8148148148148148,
+          "recall": 0.836,
+          "f1": 0.8252714708785784,
+          "roc_auc": 0.9046320000000001,
+          "pr_auc": 0.9037809155563807,
+          "mcc": 0.6462184587648353,
+          "brier": 0.12279305723804022
+        },
+        {
+          "fold": 2,
+          "n_test": 1000,
+          "accuracy": 0.781,
+          "precision": 0.7531531531531531,
+          "recall": 0.836,
+          "f1": 0.7924170616113744,
+          "roc_auc": 0.847488,
+          "pr_auc": 0.8456235949206252,
+          "mcc": 0.5654312703682688,
+          "brier": 0.16248152020474968
+        },
+        {
+          "fold": 3,
+          "n_test": 1000,
+          "accuracy": 0.819,
+          "precision": 0.8261758691206544,
+          "recall": 0.808,
+          "f1": 0.8169868554095046,
+          "roc_auc": 0.9015519999999999,
+          "pr_auc": 0.8953543896070861,
+          "mcc": 0.6381544520683627,
+          "brier": 0.12620226759937803
+        },
+        {
+          "fold": 4,
+          "n_test": 1000,
+          "accuracy": 0.807,
+          "precision": 0.8003913894324853,
+          "recall": 0.818,
+          "f1": 0.8090999010880316,
+          "roc_auc": 0.8846639999999999,
+          "pr_auc": 0.885051874173471,
+          "mcc": 0.614148641959208,
+          "brier": 0.13684542249453235
+        }
+      ],
+      "summary": {
+        "accuracy": {
+          "mean": 0.8116,
+          "std": 0.018782971010998198
+        },
+        "precision": {
+          "mean": 0.8099027162998926,
+          "std": 0.03752244552579127
+        },
+        "recall": {
+          "mean": 0.8175999999999999,
+          "std": 0.01956527536223292
+        },
+        "f1": {
+          "mean": 0.8129962220386622,
+          "std": 0.012968110580479093
+        },
+        "roc_auc": {
+          "mean": 0.8860151999999999,
+          "std": 0.022950607904802876
+        },
+        "pr_auc": {
+          "mean": 0.8850084735289606,
+          "std": 0.022995245624989898
+        },
+        "mcc": {
+          "mean": 0.6243711195920301,
+          "std": 0.03664035773402386
+        },
+        "brier": {
+          "mean": 0.1359707213694541,
+          "std": 0.015750945932125227
+        }
+      },
+      "pooled_out_of_fold": {
+        "accuracy": 0.8116,
+        "precision": 0.807905138339921,
+        "recall": 0.8176,
+        "f1": 0.8127236580516899,
+        "roc_auc": 0.8845979200000001,
+        "pr_auc": 0.881748273233135,
+        "mcc": 0.6232448752465848,
+        "brier": 0.1359707213694541
+      },
+      "confusion_matrix": {
+        "tn": 2014,
+        "fp": 486,
+        "fn": 456,
+        "tp": 2044
+      },
+      "feature_importance": {
+        "from_glycine": 0.24351346492767334,
+        "blosum62": 0.12473892420530319,
+        "rsa": 0.12281986325979233,
+        "neighbor_count": 0.08340515196323395,
+        "from_proline": 0.047499287873506546,
+        "abs_volume_change": 0.04439719021320343,
+        "to_proline": 0.04388536885380745,
+        "plddt": 0.038789428770542145,
+        "plddt_window": 0.03657275065779686,
+        "charge_change": 0.03441935405135155,
+        "hydropathy_change": 0.03224792331457138,
+        "ss_helix": 0.030202791094779968,
+        "ss_strand": 0.02881135419011116,
+        "volume_change": 0.027756216004490852,
+        "from_cysteine": 0.022539475932717323,
+        "to_cysteine": 0.02246258780360222,
+        "to_glycine": 0.015938956290483475
+      }
+    }
+  }
+}

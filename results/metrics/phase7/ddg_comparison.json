@@ -1,0 +1,842 @@
+{
+  "primary_model": "random_forest",
+  "bootstrap": "1000 gene-level resamples of pooled out-of-fold predictions",
+  "comparisons": {
+    "baseline": {
+      "logistic_regression": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.913,
+            "with_ddg": 0.9154,
+            "delta_mean": 0.002400000000000002,
+            "delta_std": 0.003911521443121593,
+            "folds_improved": 3
+          },
+          "precision": {
+            "reference": 0.9091157946964067,
+            "with_ddg": 0.9131292128989488,
+            "delta_mean": 0.004013418202542108,
+            "delta_std": 0.002577233805886009,
+            "folds_improved": 5
+          },
+          "recall": {
+            "reference": 0.9183999999999999,
+            "with_ddg": 0.9188000000000001,
+            "delta_mean": 0.00040000000000002257,
+            "delta_std": 0.006542170893518412,
+            "folds_improved": 3
+          },
+          "f1": {
+            "reference": 0.9135453043876292,
+            "with_ddg": 0.9157774099647368,
+            "delta_mean": 0.0022321055771076016,
+            "delta_std": 0.004041391156459985,
+            "folds_improved": 3
+          },
+          "roc_auc": {
+            "reference": 0.9738048000000001,
+            "with_ddg": 0.9746392,
+            "delta_mean": 0.0008343999999999907,
+            "delta_std": 0.000760208392481963,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.97316109413403,
+            "with_ddg": 0.9742702868379818,
+            "delta_mean": 0.0011091927039517334,
+            "delta_std": 0.0013561378237993888,
+            "folds_improved": 4
+          },
+          "mcc": {
+            "reference": 0.8263955105327255,
+            "with_ddg": 0.8311443744141483,
+            "delta_mean": 0.004748863881422705,
+            "delta_std": 0.007965693649248741,
+            "folds_improved": 4
+          },
+          "brier": {
+            "reference": 0.062289141789164525,
+            "with_ddg": 0.06127037639623373,
+            "delta_mean": -0.0010187653929308038,
+            "delta_std": 0.0013138322477446423,
+            "folds_improved": 3
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0007615999999999179,
+          "ci95_low": -6.639999999999146e-05,
+          "ci95_high": 0.0015635240000001437,
+          "fraction_bootstrap_improved": 0.964
+        },
+        "ddg_importance": 0.6567474261253261,
+        "ddg_importance_rank": 6,
+        "n_features": 20
+      },
+      "random_forest": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.9252,
+            "with_ddg": 0.9262,
+            "delta_mean": 0.0010000000000000009,
+            "delta_std": 0.0014142135623730963,
+            "folds_improved": 2
+          },
+          "precision": {
+            "reference": 0.9280941027005974,
+            "with_ddg": 0.928565835016746,
+            "delta_mean": 0.00047173231614869857,
+            "delta_std": 0.002401216072845642,
+            "folds_improved": 3
+          },
+          "recall": {
+            "reference": 0.9224,
+            "with_ddg": 0.924,
+            "delta_mean": 0.0016000000000000014,
+            "delta_std": 0.0026076809620810618,
+            "folds_improved": 3
+          },
+          "f1": {
+            "reference": 0.9249688509655447,
+            "with_ddg": 0.9260203658140069,
+            "delta_mean": 0.0010515148484622427,
+            "delta_std": 0.0014033163441023672,
+            "folds_improved": 3
+          },
+          "roc_auc": {
+            "reference": 0.9775024,
+            "with_ddg": 0.9780728,
+            "delta_mean": 0.0005703999999999932,
+            "delta_std": 0.0006725628595156923,
+            "folds_improved": 4
+          },
+          "pr_auc": {
+            "reference": 0.97428984659701,
+            "with_ddg": 0.9757321609301238,
+            "delta_mean": 0.0014423143331138144,
+            "delta_std": 0.0015019528154618308,
+            "folds_improved": 4
+          },
+          "mcc": {
+            "reference": 0.8509075957417181,
+            "with_ddg": 0.8528840232993058,
+            "delta_mean": 0.0019764275575876013,
+            "delta_std": 0.002892447121228683,
+            "folds_improved": 3
+          },
+          "brier": {
+            "reference": 0.05773491732455903,
+            "with_ddg": 0.05647261786260942,
+            "delta_mean": -0.001262299461949616,
+            "delta_std": 0.0007237386182549541,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0007654400000001171,
+          "ci95_low": 1.0976000000070822e-05,
+          "ci95_high": 0.001525635999999908,
+          "fraction_bootstrap_improved": 0.976
+        },
+        "ddg_importance": 0.04000280174905026,
+        "ddg_importance_rank": 8,
+        "n_features": 20
+      },
+      "xgboost": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.9189999999999999,
+            "with_ddg": 0.9212,
+            "delta_mean": 0.002200000000000002,
+            "delta_std": 0.002774887385102324,
+            "folds_improved": 3
+          },
+          "precision": {
+            "reference": 0.9148986328831539,
+            "with_ddg": 0.9172939863956884,
+            "delta_mean": 0.002395353512534437,
+            "delta_std": 0.00264543960754862,
+            "folds_improved": 4
+          },
+          "recall": {
+            "reference": 0.9252,
+            "with_ddg": 0.9272,
+            "delta_mean": 0.0020000000000000018,
+            "delta_std": 0.0040000000000000036,
+            "folds_improved": 3
+          },
+          "f1": {
+            "reference": 0.9195437934476729,
+            "with_ddg": 0.9217647295350566,
+            "delta_mean": 0.002220936087383718,
+            "delta_std": 0.00284529043094501,
+            "folds_improved": 3
+          },
+          "roc_auc": {
+            "reference": 0.9737912000000002,
+            "with_ddg": 0.9760648,
+            "delta_mean": 0.0022735999999999646,
+            "delta_std": 0.0011944424640810477,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.9724934384971462,
+            "with_ddg": 0.9753034497280367,
+            "delta_mean": 0.002810011230890663,
+            "delta_std": 0.0024040892330760622,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.8389539895754041,
+            "with_ddg": 0.8433123627020181,
+            "delta_mean": 0.004358373126614223,
+            "delta_std": 0.005632354306569352,
+            "folds_improved": 3
+          },
+          "brier": {
+            "reference": 0.06278089286835868,
+            "with_ddg": 0.05971869004814464,
+            "delta_mean": -0.003062202820214048,
+            "delta_std": 0.001656382728261914,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0023560799999997606,
+          "ci95_low": 0.0010776719999999267,
+          "ci95_high": 0.0037431300000001135,
+          "fraction_bootstrap_improved": 1.0
+        },
+        "ddg_importance": 0.02612582966685295,
+        "ddg_importance_rank": 8,
+        "n_features": 20
+      }
+    },
+    "baseline_structure": {
+      "logistic_regression": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.9170000000000001,
+            "with_ddg": 0.9166000000000001,
+            "delta_mean": -0.00040000000000000034,
+            "delta_std": 0.002073644135332774,
+            "folds_improved": 2
+          },
+          "precision": {
+            "reference": 0.9120552843027854,
+            "with_ddg": 0.9129725258789486,
+            "delta_mean": 0.0009172415761631747,
+            "delta_std": 0.0014768907974341693,
+            "folds_improved": 3
+          },
+          "recall": {
+            "reference": 0.9236000000000001,
+            "with_ddg": 0.9216000000000001,
+            "delta_mean": -0.0019999999999999797,
+            "delta_std": 0.00399999999999999,
+            "folds_improved": 1
+          },
+          "f1": {
+            "reference": 0.9176192269792001,
+            "with_ddg": 0.9170887266534183,
+            "delta_mean": -0.0005305003257816354,
+            "delta_std": 0.0022033811468717334,
+            "folds_improved": 2
+          },
+          "roc_auc": {
+            "reference": 0.9746392,
+            "with_ddg": 0.9749791999999999,
+            "delta_mean": 0.0003400000000000292,
+            "delta_std": 0.00034377899877683,
+            "folds_improved": 3
+          },
+          "pr_auc": {
+            "reference": 0.9735028961010219,
+            "with_ddg": 0.9742683222552785,
+            "delta_mean": 0.000765426154256632,
+            "delta_std": 0.0008835214301433855,
+            "folds_improved": 4
+          },
+          "mcc": {
+            "reference": 0.8343885493742785,
+            "with_ddg": 0.8335645682421602,
+            "delta_mean": -0.0008239811321184565,
+            "delta_std": 0.004033990849244389,
+            "folds_improved": 2
+          },
+          "brier": {
+            "reference": 0.060922565810652494,
+            "with_ddg": 0.06056552682573559,
+            "delta_mean": -0.00035703898491690894,
+            "delta_std": 0.0004473243793725393,
+            "folds_improved": 4
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0003078400000002812,
+          "ci95_low": -0.00018122000000002914,
+          "ci95_high": 0.0007448039999999906,
+          "fraction_bootstrap_improved": 0.899
+        },
+        "ddg_importance": 0.4273829187064539,
+        "ddg_importance_rank": 6,
+        "n_features": 26
+      },
+      "random_forest": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.9246000000000001,
+            "with_ddg": 0.9279999999999999,
+            "delta_mean": 0.003400000000000003,
+            "delta_std": 0.0023021728866442696,
+            "folds_improved": 5
+          },
+          "precision": {
+            "reference": 0.9276085102258953,
+            "with_ddg": 0.9311380223081918,
+            "delta_mean": 0.00352951208229626,
+            "delta_std": 0.0021333024280004464,
+            "folds_improved": 5
+          },
+          "recall": {
+            "reference": 0.9216,
+            "with_ddg": 0.9248,
+            "delta_mean": 0.0032000000000000028,
+            "delta_std": 0.0033466401061363056,
+            "folds_improved": 4
+          },
+          "f1": {
+            "reference": 0.9243794434378179,
+            "with_ddg": 0.9277574802761718,
+            "delta_mean": 0.0033780368383539592,
+            "delta_std": 0.0023669420150566694,
+            "folds_improved": 5
+          },
+          "roc_auc": {
+            "reference": 0.977816,
+            "with_ddg": 0.9781632,
+            "delta_mean": 0.0003472000000000586,
+            "delta_std": 0.000504550493013407,
+            "folds_improved": 3
+          },
+          "pr_auc": {
+            "reference": 0.9752318222660661,
+            "with_ddg": 0.9745687391323985,
+            "delta_mean": -0.0006630831336674525,
+            "delta_std": 0.0018473936066902127,
+            "folds_improved": 1
+          },
+          "mcc": {
+            "reference": 0.8496057523588402,
+            "with_ddg": 0.8563844742828686,
+            "delta_mean": 0.006778721924028263,
+            "delta_std": 0.004609259656331361,
+            "folds_improved": 5
+          },
+          "brier": {
+            "reference": 0.05602074622302233,
+            "with_ddg": 0.055646953249073296,
+            "delta_mean": -0.00037379297394903586,
+            "delta_std": 0.0003796548998101757,
+            "folds_improved": 4
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0003900799999998483,
+          "ci95_low": -5.998800000000802e-05,
+          "ci95_high": 0.0008846520000001023,
+          "fraction_bootstrap_improved": 0.951
+        },
+        "ddg_importance": 0.02034660875231325,
+        "ddg_importance_rank": 11,
+        "n_features": 26
+      },
+      "xgboost": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.9232000000000001,
+            "with_ddg": 0.923,
+            "delta_mean": -0.00020000000000000017,
+            "delta_std": 0.0020493901531919213,
+            "folds_improved": 2
+          },
+          "precision": {
+            "reference": 0.9186329775636282,
+            "with_ddg": 0.9194424854470571,
+            "delta_mean": 0.0008095078834288838,
+            "delta_std": 0.004503273469881195,
+            "folds_improved": 2
+          },
+          "recall": {
+            "reference": 0.9296,
+            "with_ddg": 0.9284000000000001,
+            "delta_mean": -0.0011999999999999789,
+            "delta_std": 0.001095445115010313,
+            "folds_improved": 0
+          },
+          "f1": {
+            "reference": 0.92374681661531,
+            "with_ddg": 0.9235115884560638,
+            "delta_mean": -0.00023522815924630346,
+            "delta_std": 0.0018380780105803195,
+            "folds_improved": 2
+          },
+          "roc_auc": {
+            "reference": 0.9765080000000002,
+            "with_ddg": 0.9766320000000001,
+            "delta_mean": 0.000124000000000013,
+            "delta_std": 0.0008355644798577898,
+            "folds_improved": 3
+          },
+          "pr_auc": {
+            "reference": 0.975763019631232,
+            "with_ddg": 0.9757444742134856,
+            "delta_mean": -1.8545417746440585e-05,
+            "delta_std": 0.0014759356286124178,
+            "folds_improved": 3
+          },
+          "mcc": {
+            "reference": 0.8470983882443932,
+            "with_ddg": 0.8467723393419309,
+            "delta_mean": -0.0003260489024621505,
+            "delta_std": 0.004027362794008731,
+            "folds_improved": 2
+          },
+          "brier": {
+            "reference": 0.058800767195741774,
+            "with_ddg": 0.05835259409352191,
+            "delta_mean": -0.00044817310221987455,
+            "delta_std": 0.0014561196541588153,
+            "folds_improved": 2
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0001419200000001286,
+          "ci95_low": -0.0006003519999999652,
+          "ci95_high": 0.0008610920000000215,
+          "fraction_bootstrap_improved": 0.632
+        },
+        "ddg_importance": 0.019978072494268417,
+        "ddg_importance_rank": 10,
+        "n_features": 26
+      }
+    },
+    "intrinsic": {
+      "logistic_regression": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.7944,
+            "with_ddg": 0.7964,
+            "delta_mean": 0.0019999999999999797,
+            "delta_std": 0.00463680924774782,
+            "folds_improved": 3
+          },
+          "precision": {
+            "reference": 0.7862870413259049,
+            "with_ddg": 0.7934078793878355,
+            "delta_mean": 0.007120838061930623,
+            "delta_std": 0.006871699224400998,
+            "folds_improved": 4
+          },
+          "recall": {
+            "reference": 0.8112,
+            "with_ddg": 0.8032,
+            "delta_mean": -0.008000000000000007,
+            "delta_std": 0.006782329983125275,
+            "folds_improved": 0
+          },
+          "f1": {
+            "reference": 0.79792810348234,
+            "with_ddg": 0.7978808423571717,
+            "delta_mean": -4.7261125168263084e-05,
+            "delta_std": 0.004211285507571587,
+            "folds_improved": 2
+          },
+          "roc_auc": {
+            "reference": 0.8734216,
+            "with_ddg": 0.874884,
+            "delta_mean": 0.001462399999999997,
+            "delta_std": 0.001125104795119147,
+            "folds_improved": 4
+          },
+          "pr_auc": {
+            "reference": 0.8677440758440313,
+            "with_ddg": 0.8730040206351216,
+            "delta_mean": 0.005259944791090243,
+            "delta_std": 0.0025971357737851882,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.5901094571093489,
+            "with_ddg": 0.5934574939558237,
+            "delta_mean": 0.003348036846474778,
+            "delta_std": 0.008941266038944039,
+            "folds_improved": 3
+          },
+          "brier": {
+            "reference": 0.14422205217054396,
+            "with_ddg": 0.14353918599614146,
+            "delta_mean": -0.0006828661744024966,
+            "delta_std": 0.0005462078796321819,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.0015588799999999292,
+          "ci95_low": -0.00036045199999975295,
+          "ci95_high": 0.0034615279999999876,
+          "fraction_bootstrap_improved": 0.942
+        },
+        "ddg_importance": 0.5115353193212918,
+        "ddg_importance_rank": 5,
+        "n_features": 18
+      },
+      "random_forest": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.8088000000000001,
+            "with_ddg": 0.8082,
+            "delta_mean": -0.0006000000000000227,
+            "delta_std": 0.006066300355241229,
+            "folds_improved": 2
+          },
+          "precision": {
+            "reference": 0.8015566658979099,
+            "with_ddg": 0.8039771937662163,
+            "delta_mean": 0.0024205278683063327,
+            "delta_std": 0.007723163526021431,
+            "folds_improved": 4
+          },
+          "recall": {
+            "reference": 0.8231999999999999,
+            "with_ddg": 0.8183999999999999,
+            "delta_mean": -0.004800000000000004,
+            "delta_std": 0.0060991802727907675,
+            "folds_improved": 1
+          },
+          "f1": {
+            "reference": 0.8116278229757772,
+            "with_ddg": 0.8103366992806439,
+            "delta_mean": -0.0012911236951332894,
+            "delta_std": 0.005387511859484455,
+            "folds_improved": 2
+          },
+          "roc_auc": {
+            "reference": 0.8855192000000001,
+            "with_ddg": 0.8878336000000001,
+            "delta_mean": 0.002314400000000072,
+            "delta_std": 0.0009488628984211122,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.8814712334113743,
+            "with_ddg": 0.8875500453485415,
+            "delta_mean": 0.0060788119371671945,
+            "delta_std": 0.0056435683538233585,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.6188156607302517,
+            "with_ddg": 0.6177540356203652,
+            "delta_mean": -0.0010616251098865437,
+            "delta_std": 0.011822252505472695,
+            "folds_improved": 2
+          },
+          "brier": {
+            "reference": 0.13657945841463093,
+            "with_ddg": 0.13574895575700938,
+            "delta_mean": -0.0008305026576215346,
+            "delta_std": 0.0005863302121929128,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.002161280000000043,
+          "ci95_low": -8.049999999994173e-05,
+          "ci95_high": 0.004486304000000034,
+          "fraction_bootstrap_improved": 0.968
+        },
+        "ddg_importance": 0.139761313892429,
+        "ddg_importance_rank": 2,
+        "n_features": 18
+      },
+      "xgboost": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.8116,
+            "with_ddg": 0.808,
+            "delta_mean": -0.0036000000000000034,
+            "delta_std": 0.009555103348473011,
+            "folds_improved": 2
+          },
+          "precision": {
+            "reference": 0.8099027162998926,
+            "with_ddg": 0.8118471639111103,
+            "delta_mean": 0.001944447611217881,
+            "delta_std": 0.01191030436786659,
+            "folds_improved": 2
+          },
+          "recall": {
+            "reference": 0.8175999999999999,
+            "with_ddg": 0.8056000000000001,
+            "delta_mean": -0.011999999999999988,
+            "delta_std": 0.007999999999999986,
+            "folds_improved": 1
+          },
+          "f1": {
+            "reference": 0.8129962220386622,
+            "with_ddg": 0.8079342881258921,
+            "delta_mean": -0.005061933912770033,
+            "delta_std": 0.009140879336619797,
+            "folds_improved": 1
+          },
+          "roc_auc": {
+            "reference": 0.8860151999999999,
+            "with_ddg": 0.8863888,
+            "delta_mean": 0.00037359999999997395,
+            "delta_std": 0.0013424741338291062,
+            "folds_improved": 4
+          },
+          "pr_auc": {
+            "reference": 0.8850084735289606,
+            "with_ddg": 0.8876669519783909,
+            "delta_mean": 0.002658478449430213,
+            "delta_std": 0.004862700656252865,
+            "folds_improved": 4
+          },
+          "mcc": {
+            "reference": 0.6243711195920301,
+            "with_ddg": 0.6171826233575097,
+            "delta_mean": -0.0071884962345202695,
+            "delta_std": 0.019291310494320556,
+            "folds_improved": 2
+          },
+          "brier": {
+            "reference": 0.1359707213694541,
+            "with_ddg": 0.1361854991459041,
+            "delta_mean": 0.0002147777764499842,
+            "delta_std": 0.0011848382871399654,
+            "folds_improved": 2
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.00026463999999992716,
+          "ci95_low": -0.0020577639999999177,
+          "ci95_high": 0.0027672559999999177,
+          "fraction_bootstrap_improved": 0.608
+        },
+        "ddg_importance": 0.05033284053206444,
+        "ddg_importance_rank": 5,
+        "n_features": 18
+      }
+    },
+    "substitution": {
+      "logistic_regression": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.68,
+            "with_ddg": 0.7215999999999999,
+            "delta_mean": 0.04159999999999997,
+            "delta_std": 0.015241391012633967,
+            "folds_improved": 5
+          },
+          "precision": {
+            "reference": 0.6986317873975831,
+            "with_ddg": 0.7658025831225463,
+            "delta_mean": 0.06717079572496318,
+            "delta_std": 0.013946353152594421,
+            "folds_improved": 5
+          },
+          "recall": {
+            "reference": 0.6324,
+            "with_ddg": 0.6392,
+            "delta_mean": 0.006800000000000028,
+            "delta_std": 0.031164081889251904,
+            "folds_improved": 4
+          },
+          "f1": {
+            "reference": 0.6636818671888133,
+            "with_ddg": 0.696520874348072,
+            "delta_mean": 0.032839007159258714,
+            "delta_std": 0.020128649476321894,
+            "folds_improved": 4
+          },
+          "roc_auc": {
+            "reference": 0.7297428000000001,
+            "with_ddg": 0.7911072000000001,
+            "delta_mean": 0.061364399999999986,
+            "delta_std": 0.014238620677579666,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.7326624651210555,
+            "with_ddg": 0.8104828909419297,
+            "delta_mean": 0.07782042582087431,
+            "delta_std": 0.014770382663089257,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.36173861919990224,
+            "with_ddg": 0.4496342507848673,
+            "delta_mean": 0.08789563158496508,
+            "delta_std": 0.029805232651203408,
+            "folds_improved": 5
+          },
+          "brier": {
+            "reference": 0.20832969041974342,
+            "with_ddg": 0.18476942459121104,
+            "delta_mean": -0.02356026582853236,
+            "delta_std": 0.004354929370497307,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.062033920000000076,
+          "ci95_low": 0.04855049999999991,
+          "ci95_high": 0.07610793000000012,
+          "fraction_bootstrap_improved": 1.0
+        },
+        "ddg_importance": 1.6406931939709137,
+        "ddg_importance_rank": 1,
+        "n_features": 12
+      },
+      "random_forest": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.6746000000000001,
+            "with_ddg": 0.7298,
+            "delta_mean": 0.05519999999999996,
+            "delta_std": 0.004494441010848874,
+            "folds_improved": 5
+          },
+          "precision": {
+            "reference": 0.6887281669484357,
+            "with_ddg": 0.7479366433400971,
+            "delta_mean": 0.05920847639166136,
+            "delta_std": 0.016219316650679633,
+            "folds_improved": 5
+          },
+          "recall": {
+            "reference": 0.6376,
+            "with_ddg": 0.6936,
+            "delta_mean": 0.05599999999999998,
+            "delta_std": 0.03206243908376278,
+            "folds_improved": 5
+          },
+          "f1": {
+            "reference": 0.6620563311381762,
+            "with_ddg": 0.7194163757849037,
+            "delta_mean": 0.057360044646727545,
+            "delta_std": 0.010666817319261489,
+            "folds_improved": 5
+          },
+          "roc_auc": {
+            "reference": 0.7423339999999998,
+            "with_ddg": 0.8093183999999999,
+            "delta_mean": 0.06698440000000003,
+            "delta_std": 0.01326069699525641,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.745104413916556,
+            "with_ddg": 0.8257264482144524,
+            "delta_mean": 0.08062203429789642,
+            "delta_std": 0.012455486871376731,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.3502760681797886,
+            "with_ddg": 0.4611496457113523,
+            "delta_mean": 0.11087357753156364,
+            "delta_std": 0.009308919793748302,
+            "folds_improved": 5
+          },
+          "brier": {
+            "reference": 0.20593600256317215,
+            "with_ddg": 0.1778272645240122,
+            "delta_mean": -0.028108738039159954,
+            "delta_std": 0.004187026171875708,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.06797848000000017,
+          "ci95_low": 0.053185349999999965,
+          "ci95_high": 0.08285357199999986,
+          "fraction_bootstrap_improved": 1.0
+        },
+        "ddg_importance": 0.5504016938110788,
+        "ddg_importance_rank": 1,
+        "n_features": 12
+      },
+      "xgboost": {
+        "metrics": {
+          "accuracy": {
+            "reference": 0.6758000000000001,
+            "with_ddg": 0.74,
+            "delta_mean": 0.06419999999999997,
+            "delta_std": 0.011166915420114897,
+            "folds_improved": 5
+          },
+          "precision": {
+            "reference": 0.6935851255913484,
+            "with_ddg": 0.7668473872876678,
+            "delta_mean": 0.07326226169631933,
+            "delta_std": 0.021843437419271774,
+            "folds_improved": 5
+          },
+          "recall": {
+            "reference": 0.63,
+            "with_ddg": 0.6900000000000001,
+            "delta_mean": 0.059999999999999984,
+            "delta_std": 0.024657656011875903,
+            "folds_improved": 5
+          },
+          "f1": {
+            "reference": 0.6601953854742464,
+            "with_ddg": 0.7261417672157032,
+            "delta_mean": 0.06594638174145669,
+            "delta_std": 0.01168640869280882,
+            "folds_improved": 5
+          },
+          "roc_auc": {
+            "reference": 0.7426739999999998,
+            "with_ddg": 0.8162124000000001,
+            "delta_mean": 0.07353840000000011,
+            "delta_std": 0.012926008927739437,
+            "folds_improved": 5
+          },
+          "pr_auc": {
+            "reference": 0.7460133318321953,
+            "with_ddg": 0.8332976673903012,
+            "delta_mean": 0.08728433555810595,
+            "delta_std": 0.013698789423560091,
+            "folds_improved": 5
+          },
+          "mcc": {
+            "reference": 0.3531469073196277,
+            "with_ddg": 0.48267573729300456,
+            "delta_mean": 0.12952882997337684,
+            "delta_std": 0.023339677413335,
+            "folds_improved": 5
+          },
+          "brier": {
+            "reference": 0.20551815564862214,
+            "with_ddg": 0.17466348177868493,
+            "delta_mean": -0.030854673869937177,
+            "delta_std": 0.004222335969277068,
+            "folds_improved": 5
+          }
+        },
+        "roc_auc_gene_bootstrap": {
+          "delta_roc_auc": 0.07448463999999999,
+          "ci95_low": 0.060294396000000104,
+          "ci95_high": 0.08765817599999992,
+          "fraction_bootstrap_improved": 1.0
+        },
+        "ddg_importance": 0.14224520325660706,
+        "ddg_importance_rank": 2,
+        "n_features": 12
+      }
+    }
+  }
+}
