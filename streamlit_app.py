@@ -58,7 +58,10 @@ st.caption(
 with st.sidebar:
     gene = st.selectbox("Gene", app_data.gene_list(), index=app_data.gene_list().index("TP53"))
     variants = app_data.variants_for(gene)
-    typed = st.text_input("Protein change (e.g. Y220C)", "")
+    example = variants[0].split(":p.")[1]
+    # Keyed by gene so the box clears when the gene changes; a change typed for
+    # one gene would otherwise be looked up in the next gene.
+    typed = st.text_input(f"Protein change (e.g. {example})", "", key=f"change_{gene}")
     if typed:
         variant_id = app_data.parse_variant(gene, typed)
         if variant_id is None:

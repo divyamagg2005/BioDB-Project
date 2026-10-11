@@ -48,3 +48,12 @@ def test_app_handles_unknown_variant(monkeypatch):
     app = _run(monkeypatch, text_input="R175H")
     assert not app.exception
     assert any("not in the 5,000-variant cohort" in e.value for e in app.error)
+
+
+def test_typed_change_clears_when_gene_changes(monkeypatch):
+    app = _run(monkeypatch, text_input="Y220C")
+    assert "TP53 p.Y220C" in app.subheader[0].value
+    app.sidebar.selectbox[0].set_value("SOX9").run()
+    assert not app.error, "a TP53 change must not be looked up in SOX9"
+    assert app.subheader[0].value.startswith("SOX9 p.")
+    assert app.text_input[0].value == ""
