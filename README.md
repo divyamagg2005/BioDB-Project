@@ -54,7 +54,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 | 2 | VEP annotation | Done |
 | 3 | AlphaFold structures and residue mapping | Done |
 | 4 | FoldX ΔΔG | Done |
-| 5 | Final ML dataset | Not started |
+| 5 | Final ML dataset | Done |
 | 6 | Baseline model (conventional features) | Not started |
 | 7 | Stability-enhanced model | Not started |
 | 8 | Scientific comparison | Not started |

@@ -1,0 +1,77 @@
+{
+  "id_columns": [
+    "variant_id",
+    "gene",
+    "uniprot_accession",
+    "protein_position",
+    "wt_aa",
+    "mut_aa",
+    "label"
+  ],
+  "target": "label (1 = pathogenic/likely pathogenic, 0 = benign/likely benign)",
+  "group_column": "gene (for gene-grouped cross-validation; not a feature)",
+  "feature_groups": {
+    "conventional": [
+      "cadd_phred",
+      "revel",
+      "alphamissense",
+      "sift_score",
+      "polyphen_score",
+      "gerp_conservation",
+      "gnomad_af_max",
+      "gnomad_absent"
+    ],
+    "substitution": [
+      "blosum62",
+      "hydropathy_change",
+      "volume_change",
+      "abs_volume_change",
+      "charge_change",
+      "to_proline",
+      "from_proline",
+      "to_glycine",
+      "from_glycine",
+      "from_cysteine",
+      "to_cysteine"
+    ],
+    "structure": [
+      "plddt",
+      "plddt_window",
+      "rsa",
+      "neighbor_count",
+      "ss_helix",
+      "ss_strand"
+    ],
+    "stability": [
+      "ddg"
+    ]
+  },
+  "descriptions": {
+    "cadd_phred": "CADD v1.7 PHRED-scaled deleteriousness (VEP)",
+    "revel": "REVEL ensemble missense score, 0-1 (VEP)",
+    "alphamissense": "AlphaMissense pathogenicity, 0-1 (VEP)",
+    "sift_score": "SIFT score, 0-1, low = deleterious (VEP)",
+    "polyphen_score": "PolyPhen-2 HumVar score, 0-1 (VEP)",
+    "gerp_conservation": "GERP++ conservation score (VEP Conservation plugin)",
+    "gnomad_af_max": "Max of gnomAD exome/genome allele frequency for the exact allele; empty if absent",
+    "gnomad_absent": "1 if the allele has no gnomAD frequency, else 0",
+    "blosum62": "BLOSUM62 substitution score (wild type to mutant)",
+    "hydropathy_change": "Kyte-Doolittle hydropathy, mutant minus wild type",
+    "volume_change": "Residue volume (A^3, Zamyatnin), mutant minus wild type",
+    "abs_volume_change": "Absolute residue volume change",
+    "charge_change": "Side-chain charge, mutant minus wild type (D/E -1, K/R +1)",
+    "to_proline": "1 if the mutant residue is proline",
+    "from_proline": "1 if the wild-type residue is proline",
+    "to_glycine": "1 if the mutant residue is glycine",
+    "from_glycine": "1 if the wild-type residue is glycine",
+    "from_cysteine": "1 if the wild-type residue is cysteine",
+    "to_cysteine": "1 if the mutant residue is cysteine",
+    "plddt": "AlphaFold per-residue confidence, 0-100",
+    "plddt_window": "Mean pLDDT over residues i-5..i+5",
+    "rsa": "Relative solvent accessibility (Shrake-Rupley SASA / Tien 2013 max)",
+    "neighbor_count": "Residues with CB within 10 A of this residue's CB",
+    "ss_helix": "1 if the residue is in a helix (DSSP, AlphaFold mmCIF)",
+    "ss_strand": "1 if the residue is in a strand",
+    "ddg": "FoldX 5.1 BuildModel \u0394\u0394G, kcal/mol, mean of 3 runs (positive = destabilising)"
+  }
+}

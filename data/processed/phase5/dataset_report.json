@@ -1,0 +1,155 @@
+{
+  "phase": 5,
+  "created_utc": "2026-10-11T05:41:41+00:00",
+  "inputs": {
+    "data/processed/phase1/cohort.csv": "41b674ec82dda2f50e1551d7298cc7776b56ff4d6ed4efb2eb88b55da5c3af27",
+    "data/processed/phase2/vep_annotations.csv": "a5f7d936414fca29f807f003b33888d257722831c09364e3e922dec7757dfb37",
+    "data/processed/phase3/variant_structure_features.csv": "bca25b44671cb9fcc1bd8ba8c8bde2c68c314e1cc20ca1f4fcd3f5306744699e",
+    "data/processed/phase4/foldx_ddg.csv": "53bd4db8144903a0fe708757e8a51508962dc2eb43b6a5147c5b142ea2bb8af3"
+  },
+  "rows": 5000,
+  "genes": 100,
+  "labels": {
+    "0": 2500,
+    "1": 2500
+  },
+  "features": 26,
+  "merge_losses": {
+    "vep": 0,
+    "structure": 0,
+    "foldx": 0
+  },
+  "missingness": {
+    "cadd_phred": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "revel": {
+      "missing": 52,
+      "missing_pathogenic": 27,
+      "missing_benign": 25
+    },
+    "alphamissense": {
+      "missing": 51,
+      "missing_pathogenic": 26,
+      "missing_benign": 25
+    },
+    "sift_score": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "polyphen_score": {
+      "missing": 151,
+      "missing_pathogenic": 69,
+      "missing_benign": 82
+    },
+    "gerp_conservation": {
+      "missing": 30,
+      "missing_pathogenic": 16,
+      "missing_benign": 14
+    },
+    "gnomad_af_max": {
+      "missing": 2415,
+      "missing_pathogenic": 2044,
+      "missing_benign": 371
+    },
+    "gnomad_absent": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "blosum62": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "hydropathy_change": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "volume_change": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "abs_volume_change": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "charge_change": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "to_proline": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "from_proline": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "to_glycine": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "from_glycine": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "from_cysteine": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "to_cysteine": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "plddt": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "plddt_window": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "rsa": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "neighbor_count": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "ss_helix": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "ss_strand": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    },
+    "ddg": {
+      "missing": 0,
+      "missing_pathogenic": 0,
+      "missing_benign": 0
+    }
+  },
+  "dataset_sha256": "b98f8a942c251fd2cb8774dd4063de04127045f03730741a52efd653f113c2d4"
+}

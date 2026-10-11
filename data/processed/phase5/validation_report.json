@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "row_per_cohort_variant",
+      "passed": true,
+      "detail": 5000
+    },
+    {
+      "check": "unique_variant_id",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gene_count",
+      "passed": true,
+      "detail": 100
+    },
+    {
+      "check": "class_balance",
+      "passed": true,
+      "detail": {
+        "0": 2500,
+        "1": 2500
+      }
+    },
+    {
+      "check": "no_label_derived_features",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "features_numeric_or_missing",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "ddg_present_for_all",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "gnomad_absent_consistent",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no_merge_losses",
+      "passed": true,
+      "detail": {
+        "vep": 0,
+        "structure": 0,
+        "foldx": 0
+      }
+    }
+  ]
+}
