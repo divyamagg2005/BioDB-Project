@@ -23,7 +23,9 @@ def structure_viewer(cif: str, position: int, height: int = 480) -> None:
     """3Dmol.js cartoon coloured by AlphaFold pLDDT, with the mutated residue highlighted."""
     # Escape "</" so the structure text can never close the <script> element.
     cif_json = json.dumps(cif).replace("</", "<\\/")
+    # Zero the iframe body margin and hide overflow; the default 8px margin made the frame scroll.
     html = f"""
+    <style>html, body {{ margin: 0; padding: 0; overflow: hidden; }}</style>
     <div id="viewer" style="width:100%;height:{height}px;position:relative;"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js"></script>
     <script>
