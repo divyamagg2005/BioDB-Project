@@ -15,5 +15,8 @@ seaborn>=0.13,<1
 biopython>=1.83,<2
 requests>=2.31,<3
 
+# Web application
+streamlit>=1.38,<2
+
 # Testing
 pytest>=8,<10

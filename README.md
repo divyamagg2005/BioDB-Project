@@ -58,7 +58,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 | 6 | Baseline model (conventional features) | Done |
 | 7 | Stability-enhanced model | Done |
 | 8 | Scientific comparison | Done |
-| 9 | Streamlit application | Not started |
+| 9 | Streamlit application | Done |
 | 10 | Deployment and documentation | Not started |
 
 Shared settings (paths, random seed, assembly GRCh38, cohort size) live in `src/biodb/config.py`.
@@ -94,3 +94,18 @@ python -c "import Bio, matplotlib, numpy, pandas, requests, scipy, seaborn, skle
 ```
 
 Run the test suite with `python -m pytest`.
+
+## Variant Explorer App
+
+```bash
+streamlit run streamlit_app.py
+```
+
+Pick a gene and one of its 50 cohort variants, or type a change such as `Y220C`. The app shows:
+- the out-of-fold pathogenicity probability from the baseline model and from the baseline + ΔΔG model;
+- the FoldX ΔΔG;
+- the AlphaFold structure, coloured by pLDDT, with the mutated residue highlighted;
+- the VEP features.
+
+It reads saved project outputs only and never retrains. Structures are fetched from AlphaFold DB when needed. See `docs/phase9_app.md`.
+
