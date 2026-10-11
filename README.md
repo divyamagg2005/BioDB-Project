@@ -57,7 +57,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 | 5 | Final ML dataset | Done |
 | 6 | Baseline model (conventional features) | Done |
 | 7 | Stability-enhanced model | Done |
-| 8 | Scientific comparison | Not started |
+| 8 | Scientific comparison | Done |
 | 9 | Streamlit application | Not started |
 | 10 | Deployment and documentation | Not started |
 

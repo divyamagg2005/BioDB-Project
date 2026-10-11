@@ -1,0 +1,258 @@
+{
+  "single_feature_auc": {
+    "alphamissense": {
+      "group": "conventional",
+      "auc": 0.9523345826902819,
+      "direction": "higher = pathogenic"
+    },
+    "revel": {
+      "group": "conventional",
+      "auc": 0.9281751604193982,
+      "direction": "higher = pathogenic"
+    },
+    "cadd_phred": {
+      "group": "conventional",
+      "auc": 0.8784281600000001,
+      "direction": "higher = pathogenic"
+    },
+    "polyphen_score": {
+      "group": "conventional",
+      "auc": 0.8535948676439113,
+      "direction": "higher = pathogenic"
+    },
+    "sift_score": {
+      "group": "conventional",
+      "auc": 0.8392688800000001,
+      "direction": "lower = pathogenic"
+    },
+    "gnomad_absent": {
+      "group": "conventional",
+      "auc": 0.8346000000000001,
+      "direction": "higher = pathogenic"
+    },
+    "rsa": {
+      "group": "structure",
+      "auc": 0.80622352,
+      "direction": "lower = pathogenic"
+    },
+    "gnomad_af_max": {
+      "group": "conventional",
+      "auc": 0.8057850856591926,
+      "direction": "lower = pathogenic"
+    },
+    "neighbor_count": {
+      "group": "structure",
+      "auc": 0.80172872,
+      "direction": "higher = pathogenic"
+    },
+    "plddt": {
+      "group": "structure",
+      "auc": 0.7520656,
+      "direction": "higher = pathogenic"
+    },
+    "plddt_window": {
+      "group": "structure",
+      "auc": 0.74673128,
+      "direction": "higher = pathogenic"
+    },
+    "ddg": {
+      "group": "stability",
+      "auc": 0.73274912,
+      "direction": "higher = pathogenic"
+    },
+    "gerp_conservation": {
+      "group": "conventional",
+      "auc": 0.731437191590135,
+      "direction": "higher = pathogenic"
+    },
+    "blosum62": {
+      "group": "substitution",
+      "auc": 0.6857516,
+      "direction": "lower = pathogenic"
+    },
+    "abs_volume_change": {
+      "group": "substitution",
+      "auc": 0.6477528800000001,
+      "direction": "higher = pathogenic"
+    },
+    "ss_helix": {
+      "group": "structure",
+      "auc": 0.5955999999999999,
+      "direction": "higher = pathogenic"
+    },
+    "hydropathy_change": {
+      "group": "substitution",
+      "auc": 0.5794296800000001,
+      "direction": "lower = pathogenic"
+    },
+    "from_glycine": {
+      "group": "substitution",
+      "auc": 0.5656,
+      "direction": "higher = pathogenic"
+    },
+    "ss_strand": {
+      "group": "structure",
+      "auc": 0.5422,
+      "direction": "higher = pathogenic"
+    },
+    "volume_change": {
+      "group": "substitution",
+      "auc": 0.53942376,
+      "direction": "higher = pathogenic"
+    },
+    "from_cysteine": {
+      "group": "substitution",
+      "auc": 0.5307999999999999,
+      "direction": "higher = pathogenic"
+    },
+    "to_proline": {
+      "group": "substitution",
+      "auc": 0.5272,
+      "direction": "higher = pathogenic"
+    },
+    "from_proline": {
+      "group": "substitution",
+      "auc": 0.5268,
+      "direction": "lower = pathogenic"
+    },
+    "to_cysteine": {
+      "group": "substitution",
+      "auc": 0.5142,
+      "direction": "higher = pathogenic"
+    },
+    "to_glycine": {
+      "group": "substitution",
+      "auc": 0.5066,
+      "direction": "higher = pathogenic"
+    },
+    "charge_change": {
+      "group": "substitution",
+      "auc": 0.5016362400000001,
+      "direction": "lower = pathogenic"
+    }
+  },
+  "ddg_strata": {
+    "pLDDT >= 70": {
+      "n": 3095,
+      "pathogenic": 2054,
+      "ddg_auc": 0.7549408057378728,
+      "median_ddg_pathogenic": 2.566575,
+      "median_ddg_benign": 0.571724
+    },
+    "pLDDT < 70": {
+      "n": 1905,
+      "pathogenic": 446,
+      "ddg_auc": 0.5353519364882268,
+      "median_ddg_pathogenic": 0.254013,
+      "median_ddg_benign": 0.187305
+    },
+    "buried (RSA < 0.25)": {
+      "n": 1981,
+      "pathogenic": 1570,
+      "ddg_auc": 0.7614796906721217,
+      "median_ddg_pathogenic": 3.452215,
+      "median_ddg_benign": 1.08079
+    },
+    "exposed (RSA >= 0.25)": {
+      "n": 3019,
+      "pathogenic": 930,
+      "ddg_auc": 0.5772283903910396,
+      "median_ddg_pathogenic": 0.49862700000000004,
+      "median_ddg_benign": 0.23487
+    },
+    "pLDDT >= 70 and buried": {
+      "n": 1903,
+      "pathogenic": 1514,
+      "ddg_auc": 0.7698634509785278,
+      "median_ddg_pathogenic": 3.52682,
+      "median_ddg_benign": 1.07905
+    },
+    "pLDDT >= 70 and exposed": {
+      "n": 1192,
+      "pathogenic": 540,
+      "ddg_auc": 0.6132981140649854,
+      "median_ddg_pathogenic": 0.780654,
+      "median_ddg_benign": 0.379487
+    }
+  },
+  "ddg_spearman_with": {
+    "plddt": 0.3979814408865115,
+    "plddt_window": 0.37460296713990787,
+    "rsa": -0.5144897815552874,
+    "neighbor_count": 0.4969696319159319,
+    "blosum62": -0.3090210331328365,
+    "abs_volume_change": 0.2318898895757317,
+    "alphamissense": 0.42541446466284044,
+    "revel": 0.3943460858402839,
+    "cadd_phred": 0.322973637137584
+  },
+  "per_gene_ddg_auc_summary": {
+    "genes": 100,
+    "median": 0.7527999999999999,
+    "above_0.7": 64,
+    "below_0.5": 6,
+    "spearman_with_median_plddt": 0.5306223484594543
+  },
+  "hard_cases": {
+    "baseline": {
+      "all": {
+        "n": 5000,
+        "auc_without_ddg": 0.9766231999999999,
+        "auc_with_ddg": 0.97738864,
+        "accuracy_without_ddg": 0.9252,
+        "accuracy_with_ddg": 0.9262
+      },
+      "baseline uncertain (0.2 <= p <= 0.8)": {
+        "n": 900,
+        "auc_without_ddg": 0.7685990004148475,
+        "auc_with_ddg": 0.7867782145749788,
+        "accuracy_without_ddg": 0.7177777777777777,
+        "accuracy_with_ddg": 0.7233333333333334
+      },
+      "AlphaMissense ambiguous": {
+        "n": 293,
+        "auc_without_ddg": 0.8509453244762392,
+        "auc_with_ddg": 0.8498211548288196,
+        "accuracy_without_ddg": 0.8054607508532423,
+        "accuracy_with_ddg": 0.8054607508532423
+      },
+      "AlphaMissense missing": {
+        "n": 51,
+        "auc_without_ddg": 0.9892307692307692,
+        "auc_with_ddg": 0.9815384615384616,
+        "accuracy_without_ddg": 0.9215686274509803,
+        "accuracy_with_ddg": 0.9215686274509803
+      }
+    },
+    "baseline_structure": {
+      "all": {
+        "n": 5000,
+        "auc_without_ddg": 0.9772436800000001,
+        "auc_with_ddg": 0.9776337599999999,
+        "accuracy_without_ddg": 0.9246,
+        "accuracy_with_ddg": 0.928
+      },
+      "baseline uncertain (0.2 <= p <= 0.8)": {
+        "n": 878,
+        "auc_without_ddg": 0.7663291796469367,
+        "auc_with_ddg": 0.769055036344756,
+        "accuracy_without_ddg": 0.6981776765375854,
+        "accuracy_with_ddg": 0.7175398633257403
+      },
+      "AlphaMissense ambiguous": {
+        "n": 293,
+        "auc_without_ddg": 0.8683699540112417,
+        "auc_with_ddg": 0.8593765968318856,
+        "accuracy_without_ddg": 0.8088737201365188,
+        "accuracy_with_ddg": 0.8088737201365188
+      },
+      "AlphaMissense missing": {
+        "n": 51,
+        "auc_without_ddg": 0.9861538461538462,
+        "auc_with_ddg": 0.9861538461538462,
+        "accuracy_without_ddg": 0.9411764705882353,
+        "accuracy_with_ddg": 0.9215686274509803
+      }
+    }
+  }
+}
