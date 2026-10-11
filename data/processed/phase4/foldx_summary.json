@@ -1,0 +1,12 @@
+{
+  "phase": 4,
+  "created_utc": "2026-10-10T23:28:22+00:00",
+  "foldx_command": "BuildModel --numberOfRuns=3 on RepairPDB-repaired AlphaFold models",
+  "variants": 5000,
+  "ok": 5000,
+  "not_ok": {
+    "error": 0,
+    "missing": 0
+  },
+  "ddg_sha256": "53bd4db8144903a0fe708757e8a51508962dc2eb43b6a5147c5b142ea2bb8af3"
+}

@@ -1,2 +1,3 @@
 # Keep generated data byte-exact so recorded SHA-256 checksums stay valid
 data/processed/** -text
+tests/fixtures/** -text

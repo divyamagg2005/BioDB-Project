@@ -53,7 +53,7 @@ Each phase ends with validation, tests, a reviewed diff, one commit, and a push.
 | 1 | 100-gene cohort (25 pathogenic + 25 benign missense per gene) | Done |
 | 2 | VEP annotation | Done |
 | 3 | AlphaFold structures and residue mapping | Done |
-| 4 | FoldX ΔΔG | Not started |
+| 4 | FoldX ΔΔG | Done |
 | 5 | Final ML dataset | Not started |
 | 6 | Baseline model (conventional features) | Not started |
 | 7 | Stability-enhanced model | Not started |

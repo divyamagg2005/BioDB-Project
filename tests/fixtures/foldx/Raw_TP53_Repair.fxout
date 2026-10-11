@@ -1,0 +1,15 @@
+FoldX 5.1 (2011)
+by the FoldX Consortium 
+Jesper Borg, Frederic Rousseau, Joost Schymkowitz,
+Luis Serrano and Francois Stricher
+------------------------------------------------------
+
+PDB file analysed: batch
+Output type: BuildModel
+Pdb	total energy	Backbone Hbond	Sidechain Hbond	Van der Waals	Electrostatics	Solvation Polar	Solvation Hydrophobic	Van der Waals clashes	entropy sidechain	entropy mainchain	sloop_entropy	mloop_entropy	cis_bond	torsional clash	backbone clash	helix dipole	water bridge	disulfide	electrostatic kon	partial covalent bonds	energy Ionisation	Entropy Complex
+TP53_Repair_1_0.pdb	217.788	-185.345	-113.249	-260.659	-20.2372	373.934	-324.437	12.7309	173.31	555.507	0	0	0	5.30812	115.879	-0.329656	0	0	0	0	1.25321	0
+TP53_Repair_1_1.pdb	217.913	-185.336	-113.245	-260.645	-20.2372	373.992	-324.379	12.7294	173.31	555.495	0	0	0	5.30566	115.882	-0.329656	0	0	0	0	1.25321	0
+TP53_Repair_1_2.pdb	217.892	-185.343	-113.253	-260.652	-20.2372	373.988	-324.395	12.7294	173.31	555.507	0	0	0	5.31333	115.879	-0.329656	0	0	0	0	1.25321	0
+WT_TP53_Repair_1_0.pdb	214.358	-185.358	-113.249	-262.506	-20.2372	375.184	-327.419	12.7507	173.645	555.315	0	0	0	5.30815	115.879	-0.329656	0	0	0	0	1.25321	0
+WT_TP53_Repair_1_1.pdb	214.422	-185.354	-113.245	-262.527	-20.2372	375.238	-327.42	12.7627	173.65	555.307	0	0	0	5.32533	115.882	-0.329656	0	0	0	0	1.25321	0
+WT_TP53_Repair_1_2.pdb	214.373	-185.37	-113.253	-262.551	-20.2372	375.249	-327.47	12.8227	173.632	555.313	0	0	0	5.31346	115.879	-0.329656	0	0	0	0	1.25321	0

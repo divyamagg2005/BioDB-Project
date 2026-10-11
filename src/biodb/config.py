@@ -43,3 +43,6 @@ PHASE2_RAW_DIR = RAW_DIR / "phase2_vep"
 
 PHASE3_DIR = PROCESSED_DIR / "phase3"
 PHASE3_STRUCTURE_DIR = RAW_DIR / "alphafold"
+
+PHASE4_DIR = PROCESSED_DIR / "phase4"
+PHASE4_WORK_DIR = RAW_DIR / "phase4_foldx"
