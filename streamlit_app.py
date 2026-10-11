@@ -31,8 +31,7 @@ def structure_viewer(cif: str, position: int, height: int = 480) -> None:
       viewer.setStyle({{}}, {{cartoon: {{colorfunc: plddt}}}});
       viewer.addStyle({{resi: {position}}}, {{stick: {{colorscheme: "magentaCarbon", radius: 0.3}}}});
       viewer.addStyle({{resi: {position}, atom: "CA"}}, {{sphere: {{color: "magenta", radius: 1.2}}}});
-      viewer.zoomTo({{resi: {position}}}, 0);
-      viewer.zoom(0.35);
+      viewer.zoomTo({{within: {{distance: 20, sel: {{resi: {position}}}}}}});
       viewer.render();
     </script>"""
     components.html(html, height=height + 10)
@@ -47,13 +46,14 @@ st.caption(
 with st.sidebar:
     gene = st.selectbox("Gene", app_data.gene_list(), index=app_data.gene_list().index("TP53"))
     variants = app_data.variants_for(gene)
-    typed = st.text_input("Protein change (e.g. R175H)", "")
+    typed = st.text_input("Protein change (e.g. Y220C)", "")
     if typed:
         variant_id = app_data.parse_variant(gene, typed)
         if variant_id is None:
             st.error(f"{gene} p.{typed.strip().removeprefix('p.').upper()} is not in the 5,000-variant cohort. "
-                     "Only cohort variants have precomputed VEP and FoldX features.")
-            variant_id = variants[0]
+                     "Only cohort variants have precomputed VEP and FoldX features. "
+                     "Clear the box to pick a variant from the list.")
+            st.stop()
     else:
         variant_id = st.selectbox("Variant", variants, format_func=lambda v: v.split(":")[1])
     st.markdown(
