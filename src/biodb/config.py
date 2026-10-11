@@ -48,3 +48,6 @@ PHASE4_DIR = PROCESSED_DIR / "phase4"
 PHASE4_WORK_DIR = RAW_DIR / "phase4_foldx"
 
 PHASE5_DIR = PROCESSED_DIR / "phase5"
+
+METRICS_DIR = RESULTS_DIR / "metrics"
+FIGURES_DIR = RESULTS_DIR / "figures"

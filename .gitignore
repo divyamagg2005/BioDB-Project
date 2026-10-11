@@ -36,6 +36,12 @@ results/metrics/*
 
 # Small derived phase outputs are versioned for review and reproducibility
 !data/processed/phase*/
+!results/metrics/folds.csv
+!results/metrics/phase*/
+!results/figures/phase*/
+!models/phase*/
+# Random forest models are large (~14 MB each) and quick to refit
+models/**/*random_forest*.joblib
 
 # Keep directory placeholders in version control
 !.gitkeep
