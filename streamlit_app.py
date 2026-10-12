@@ -56,13 +56,21 @@ def inject_css() -> None:
            hamburger stays reachable on mobile. */
         #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {{ display: none !important; }}
         header[data-testid="stHeader"] {{ background: transparent; }}
-        /* Sidebar open/close controls (hamburger shows when the sidebar is collapsed).
-           Styling only here; mobile visibility/position is forced in the media query. */
-        [data-testid="stSidebarCollapsedControl"] button,
+        /* Button that re-opens a COLLAPSED sidebar. Streamlit 1.6x renders it in the
+           header as data-testid="stExpandSidebarButton" but with faint (fadedText60)
+           colour, so it is invisible on our dark theme. Make it a clear, fixed button
+           on BOTH desktop and mobile so a collapsed sidebar can always be reopened. */
+        [data-testid="stExpandSidebarButton"] {{
+            display: inline-flex !important; visibility: visible !important; opacity: 1 !important;
+            position: fixed !important; z-index: 1000000 !important;
+            top: calc(.6rem + env(safe-area-inset-top)); left: .7rem; }}
+        [data-testid="stExpandSidebarButton"] button,
         [data-testid="stSidebarCollapseButton"] button {{
-            background: {CARD} !important; border: 1px solid rgba(255,255,255,.14) !important;
-            color: {TEXT} !important; border-radius: 12px; }}
-        [data-testid="stSidebarCollapsedControl"] svg {{ color: {TEXT} !important; fill: {TEXT} !important; }}
+            background: {CARD} !important; border: 1px solid rgba(255,255,255,.18) !important;
+            color: {TEXT} !important; border-radius: 12px; width: 42px; height: 42px;
+            box-shadow: 0 6px 18px rgba(0,0,0,.5); }}
+        [data-testid="stExpandSidebarButton"] *,
+        [data-testid="stSidebarCollapseButton"] * {{ color: {TEXT} !important; fill: {TEXT} !important; }}
         .stApp {{
             background:
                 radial-gradient(1100px 520px at 12% -8%, #16203A 0%, rgba(22,32,58,0) 55%),
@@ -158,13 +166,8 @@ def inject_css() -> None:
             .biodb-kpi {{ margin-bottom: 10px; }}
             .biodb-stat-grid {{ grid-template-columns: 1fr; }}
             .biodb-hero-title {{ font-size: 2.1rem; }}
-            /* Force the sidebar hamburger visible and clear of the status/URL bar */
-            [data-testid="stSidebarCollapsedControl"] {{
-                display: flex !important; visibility: visible !important; opacity: 1 !important;
-                position: fixed !important; z-index: 1000000 !important;
-                top: calc(.55rem + env(safe-area-inset-top)) !important; left: .7rem !important; }}
-            [data-testid="stSidebarCollapsedControl"] button {{
-                width: 44px; height: 44px; box-shadow: 0 6px 18px rgba(0,0,0,.5); }}
+            /* Slightly larger tap target for the expand-sidebar button on phones. */
+            [data-testid="stExpandSidebarButton"] button {{ width: 46px; height: 46px; }}
         }}
         </style>
         """,
