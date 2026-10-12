@@ -52,23 +52,30 @@ def inject_css() -> None:
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
         html, body, .stApp, [class*="css"] {{ font-family: 'Inter', system-ui, sans-serif; }}
-        /* Hide the menu/toolbar/footer but KEEP the header so the sidebar
-           hamburger stays reachable on mobile. */
-        #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {{ display: none !important; }}
+        /* Hide the menu/deploy/status clutter and footer, but KEEP the toolbar and
+           header — the sidebar-expand button lives inside the toolbar, and hiding the
+           toolbar (display:none) would remove even its fixed-positioned descendants. */
+        #MainMenu, footer, [data-testid="stDecoration"], [data-testid="stToolbarActions"],
+        [data-testid="stStatusWidget"], [data-testid="stAppDeployButton"],
+        [data-testid="stMainMenu"] {{ display: none !important; }}
         header[data-testid="stHeader"] {{ background: transparent; }}
         /* Button that re-opens a COLLAPSED sidebar. Streamlit 1.6x renders it in the
            header as data-testid="stExpandSidebarButton" but with faint (fadedText60)
            colour, so it is invisible on our dark theme. Make it a clear, fixed button
            on BOTH desktop and mobile so a collapsed sidebar can always be reopened. */
+        /* The expand control IS the button element (the test-id sits on the button
+           itself, with no child <button>), so size and paint it directly. */
         [data-testid="stExpandSidebarButton"] {{
-            display: inline-flex !important; visibility: visible !important; opacity: 1 !important;
+            display: inline-flex !important; align-items: center; justify-content: center;
+            visibility: visible !important; opacity: 1 !important;
             position: fixed !important; z-index: 1000000 !important;
-            top: calc(.6rem + env(safe-area-inset-top)); left: .7rem; }}
-        [data-testid="stExpandSidebarButton"] button,
+            top: calc(.6rem + env(safe-area-inset-top)); left: .7rem;
+            width: 42px; height: 42px; border-radius: 12px;
+            background: {CARD} !important; border: 1px solid rgba(255,255,255,.18) !important;
+            box-shadow: 0 6px 18px rgba(0,0,0,.5); color: {TEXT} !important; }}
         [data-testid="stSidebarCollapseButton"] button {{
             background: {CARD} !important; border: 1px solid rgba(255,255,255,.18) !important;
-            color: {TEXT} !important; border-radius: 12px; width: 42px; height: 42px;
-            box-shadow: 0 6px 18px rgba(0,0,0,.5); }}
+            color: {TEXT} !important; border-radius: 12px; }}
         [data-testid="stExpandSidebarButton"] *,
         [data-testid="stSidebarCollapseButton"] * {{ color: {TEXT} !important; fill: {TEXT} !important; }}
         .stApp {{
@@ -167,7 +174,7 @@ def inject_css() -> None:
             .biodb-stat-grid {{ grid-template-columns: 1fr; }}
             .biodb-hero-title {{ font-size: 2.1rem; }}
             /* Slightly larger tap target for the expand-sidebar button on phones. */
-            [data-testid="stExpandSidebarButton"] button {{ width: 46px; height: 46px; }}
+            [data-testid="stExpandSidebarButton"] {{ width: 46px; height: 46px; }}
         }}
         </style>
         """,
@@ -241,6 +248,8 @@ def render_chart(options: dict, key: str, height: str = "300px") -> None:
     if st_echarts is None:
         st.info("Install `streamlit-echarts` to see this chart.")
         return
+    # Transparent canvas so the chart blends with the dark card in any environment.
+    options.setdefault("backgroundColor", "transparent")
     try:
         st_echarts(options=options, height=height, key=key)
     except Exception as error:  # noqa: BLE001 - a chart hiccup must not break the page
