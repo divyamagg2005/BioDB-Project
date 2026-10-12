@@ -102,7 +102,7 @@ def inject_css() -> None:
 
         /* KPI chips (value font size is set inline so long text never clips) */
         .biodb-kpi {{ background: {CARD}; border: 1px solid rgba(255,255,255,.06);
-            border-radius: 16px; padding: 14px 18px; height: 100%;
+            border-radius: 16px; padding: 14px 18px; height: 100%; margin-bottom: 22px;
             box-shadow: 0 10px 28px rgba(0,0,0,.38); }}
         .biodb-kpi .k {{ color: {MUTED}; font-size: .78rem; letter-spacing: .04em;
             text-transform: uppercase; }}
