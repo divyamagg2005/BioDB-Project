@@ -56,12 +56,13 @@ def inject_css() -> None:
            hamburger stays reachable on mobile. */
         #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {{ display: none !important; }}
         header[data-testid="stHeader"] {{ background: transparent; }}
-        /* Sidebar open/close controls (hamburger shows when collapsed, e.g. on phones) */
-        [data-testid="stSidebarCollapsedControl"] {{ display: block !important; }}
+        /* Sidebar open/close controls (hamburger shows when the sidebar is collapsed).
+           Styling only here; mobile visibility/position is forced in the media query. */
         [data-testid="stSidebarCollapsedControl"] button,
         [data-testid="stSidebarCollapseButton"] button {{
-            background: {CARD}; border: 1px solid rgba(255,255,255,.12);
-            color: {TEXT}; border-radius: 10px; }}
+            background: {CARD} !important; border: 1px solid rgba(255,255,255,.14) !important;
+            color: {TEXT} !important; border-radius: 12px; }}
+        [data-testid="stSidebarCollapsedControl"] svg {{ color: {TEXT} !important; fill: {TEXT} !important; }}
         .stApp {{
             background:
                 radial-gradient(1100px 520px at 12% -8%, #16203A 0%, rgba(22,32,58,0) 55%),
@@ -78,9 +79,9 @@ def inject_css() -> None:
             color: #fff; margin: 0; }}
         .biodb-hero-title .accent {{ color: {BENIGN}; }}
 
-        /* Variant subheader styled into the hero */
-        [data-testid="stHeading"] h3 {{ color: {MUTED} !important; font-weight: 500;
-            font-size: 1.05rem; letter-spacing: .02em; }}
+        /* The hero already shows "GENE p.Change"; the real st.subheader is kept for
+           programmatic tests but hidden so it isn't shown twice. */
+        [data-testid="stHeading"] {{ display: none !important; }}
 
         /* Links */
         .stApp a {{ color: {BENIGN} !important; text-decoration: none; }}
@@ -99,7 +100,7 @@ def inject_css() -> None:
         /* Glass cards from st.container(border=True) */
         [data-testid="stVerticalBlockBorderWrapper"] {{
             background: {CARD}; border: 1px solid rgba(255,255,255,.06) !important;
-            border-radius: 22px; padding: 12px 18px 20px;
+            border-radius: 22px; padding: 12px 18px 20px; margin-bottom: 16px;
             box-shadow: 0 16px 40px rgba(0,0,0,.45);
             animation: fadeInUp .55s cubic-bezier(.2,.7,.2,1) both;
             transition: border-color .25s ease, transform .25s ease; }}
@@ -145,13 +146,25 @@ def inject_css() -> None:
         ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
         ::-webkit-scrollbar-thumb {{ background: {TRACK}; border-radius: 8px; }}
 
-        /* Phones: stack columns, tighten padding, relax the KPI grid */
+        /* Phones: stack columns, breathing room clear of the notch/URL bar, and a
+           always-visible sidebar hamburger. */
         @media (max-width: 640px) {{
-            .block-container {{ padding: 1rem .8rem 2rem; }}
-            [data-testid="stHorizontalBlock"] {{ flex-direction: column; gap: .6rem; }}
+            .block-container {{
+                padding: calc(3.8rem + env(safe-area-inset-top)) 1rem
+                         calc(3rem + env(safe-area-inset-bottom)); }}
+            [data-testid="stHorizontalBlock"] {{ flex-direction: column; gap: .9rem; }}
             [data-testid="stColumn"] {{ width: 100% !important; flex: 1 1 100% !important; }}
-            .biodb-kpi {{ margin-bottom: 8px; }}
+            [data-testid="stVerticalBlockBorderWrapper"] {{ margin-bottom: 12px; }}
+            .biodb-kpi {{ margin-bottom: 10px; }}
             .biodb-stat-grid {{ grid-template-columns: 1fr; }}
+            .biodb-hero-title {{ font-size: 2.1rem; }}
+            /* Force the sidebar hamburger visible and clear of the status/URL bar */
+            [data-testid="stSidebarCollapsedControl"] {{
+                display: flex !important; visibility: visible !important; opacity: 1 !important;
+                position: fixed !important; z-index: 1000000 !important;
+                top: calc(.55rem + env(safe-area-inset-top)) !important; left: .7rem !important; }}
+            [data-testid="stSidebarCollapsedControl"] button {{
+                width: 44px; height: 44px; box-shadow: 0 6px 18px rgba(0,0,0,.5); }}
         }}
         </style>
         """,
@@ -250,12 +263,13 @@ def gauge_option(prob: float, label: str) -> dict:
             "axisTick": {"show": False},
             "splitLine": {"show": False},
             "axisLabel": {"show": False},
-            "pointer": {"length": "58%", "width": 5, "itemStyle": {"color": colour}},
-            "anchor": {"show": True, "showAbove": True, "size": 12,
+            "pointer": {"length": "52%", "width": 5, "itemStyle": {"color": colour}},
+            "anchor": {"show": True, "showAbove": True, "size": 11,
                        "itemStyle": {"color": CARD, "borderColor": colour, "borderWidth": 3}},
-            "title": {"offsetCenter": [0, "32%"], "color": MUTED, "fontSize": 12},
+            "title": {"show": False},
+            # The number sits in the dial's bottom opening so the needle/hub never overlaps it.
             "detail": {"valueAnimation": True, "formatter": "{value}%", "color": TEXT,
-                       "fontSize": 30, "fontWeight": "bolder", "offsetCenter": [0, "-8%"]},
+                       "fontSize": 26, "fontWeight": "bolder", "offsetCenter": [0, "40%"]},
             "data": [{"value": pct, "name": label}],
         }],
     }
@@ -467,7 +481,8 @@ with left:
                 st.metric(prediction.label, prediction.predicted_class,
                           help="Threshold 0.5 on the out-of-fold probability")
                 render_chart(gauge_option(prediction.out_of_fold, "pathogenic"),
-                             key=f"gauge_{prediction.experiment}", height="190px")
+                             key=f"gauge_{prediction.experiment}", height="200px")
+                st.caption("pathogenic probability")
         with st.expander("Final model (trained on all 5,000 variants, including this one)"):
             for prediction in preds:
                 st.write(f"{prediction.label}: pathogenic probability {prediction.final_model:.3f}")
