@@ -162,8 +162,18 @@ def inject_css() -> None:
         ::-webkit-scrollbar-thumb {{ background: {TRACK}; border-radius: 8px; }}
 
         /* "Results loaded" toast: a glass pill pinned top-center that slides in and
-           fades itself out. Shown only when the sidebar selection changes. */
-        @keyframes biodbToast {{
+           fades itself out. Shown only when the sidebar selection changes.
+           Two identical keyframes (A/B) are alternated on every render: Streamlit
+           reuses the toast's DOM node across reruns, and a CSS animation only
+           (re)starts when the animation-name changes — so flipping A<->B forces the
+           entrance to replay for every gene/variant/mutation change. */
+        @keyframes biodbToastA {{
+            0%   {{ opacity: 0; transform: translate(-50%, -14px); }}
+            10%  {{ opacity: 1; transform: translate(-50%, 0); }}
+            82%  {{ opacity: 1; transform: translate(-50%, 0); }}
+            100% {{ opacity: 0; transform: translate(-50%, -14px); visibility: hidden; }}
+        }}
+        @keyframes biodbToastB {{
             0%   {{ opacity: 0; transform: translate(-50%, -14px); }}
             10%  {{ opacity: 1; transform: translate(-50%, 0); }}
             82%  {{ opacity: 1; transform: translate(-50%, 0); }}
@@ -176,11 +186,29 @@ def inject_css() -> None:
             color: {TEXT}; padding: 10px 18px; border-radius: 12px;
             font-size: .9rem; font-weight: 500; white-space: nowrap;
             box-shadow: 0 12px 34px rgba(0,0,0,.55);
-            animation: biodbToast 3.4s cubic-bezier(.2,.7,.2,1) forwards;
+            animation-duration: 3.4s; animation-timing-function: cubic-bezier(.2,.7,.2,1);
+            animation-fill-mode: forwards;
         }}
+        .biodb-toast.tA {{ animation-name: biodbToastA; }}
+        .biodb-toast.tB {{ animation-name: biodbToastB; }}
         .biodb-toast .dot {{ width: 8px; height: 8px; border-radius: 50%;
             background: {BENIGN}; box-shadow: 0 0 10px {BENIGN}; }}
         .biodb-toast .muted {{ color: {MUTED}; font-weight: 400; }}
+
+        /* Full-screen loading veil shown while a newly selected variant's data and
+           AlphaFold structure load, before the results render. */
+        @keyframes biodbSpin {{ to {{ transform: rotate(360deg); }} }}
+        @keyframes biodbVeilIn {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}
+        .biodb-loading {{
+            position: fixed; inset: 0; z-index: 1500000;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 14px; background: rgba(10,15,30,.72); backdrop-filter: blur(3px);
+            animation: biodbVeilIn .15s ease both; }}
+        .biodb-loading .ring {{
+            width: 46px; height: 46px; border-radius: 50%;
+            border: 4px solid {TRACK}; border-top-color: {THIS};
+            animation: biodbSpin .8s linear infinite; }}
+        .biodb-loading .msg {{ color: {MUTED}; font-size: .85rem; letter-spacing: .04em; }}
 
         /* Phones: stack columns, breathing room clear of the notch/URL bar, and a
            always-visible sidebar hamburger. */
@@ -222,13 +250,16 @@ def kpi(label: str, value: str) -> None:
 def notify(message: str) -> None:
     """Top-center glass toast that slides in and fades itself out via CSS.
 
-    The variant id is embedded as a data attribute so the markup differs on every
-    change; otherwise Streamlit would reuse the identical DOM node and the entrance
-    animation would not replay.
+    Streamlit reuses this markdown element's DOM node across reruns, so the entrance
+    animation would only ever play once. Alternating the tA/tB class (and thus the
+    CSS animation-name) on each call forces the browser to restart the animation, so
+    the toast re-appears for every sidebar change.
     """
+    n = st.session_state.get("_toast_n", 0) + 1
+    st.session_state["_toast_n"] = n
+    cls = "tA" if n % 2 else "tB"
     st.markdown(
-        f'<div class="biodb-toast" data-v="{html.escape(st.session_state.get("_last_variant", ""))}">'
-        f'<span class="dot"></span>{message}</div>',
+        f'<div class="biodb-toast {cls}"><span class="dot"></span>{message}</div>',
         unsafe_allow_html=True,
     )
 
@@ -456,7 +487,6 @@ def predictor_bars_option(row, cohort) -> dict:
 inject_css()
 
 with st.sidebar:
-    st.markdown('<div class="biodb-card-title">BioDB</div>', unsafe_allow_html=True)
     gene = st.selectbox("Gene", app_data.gene_list(), index=app_data.gene_list().index("TP53"))
     variants = app_data.variants_for(gene)
     example = variants[0].split(":p.")[1]
@@ -476,6 +506,17 @@ with st.sidebar:
         "**Colour key:** pLDDT > 90 dark blue, 70–90 light blue, 50–70 yellow, < 50 orange. "
         "The mutated residue is shown in cyan."
     )
+
+# Full-screen loading veil: a fixed overlay (high z-index) that covers the page
+# while this run fetches data and the AlphaFold structure and renders the charts.
+# It stays up as the script runs top-to-bottom and is cleared at the very end
+# (_veil.empty()), so the finished results are revealed all at once.
+_veil = st.empty()
+_veil.markdown(
+    '<div class="biodb-loading"><div class="ring"></div>'
+    '<div class="msg">Loading variant…</div></div>',
+    unsafe_allow_html=True,
+)
 
 details = app_data.variant_details(variant_id)
 row = details["row"]
@@ -608,3 +649,6 @@ with pred:
         card_title("Predictor scores vs cohort")
         st.caption("Min-max scaled so higher = more damaging.")
         render_chart(predictor_bars_option(row, cohort), key="predictor_bars", height="300px")
+
+# Everything is rendered: drop the loading veil to reveal the results.
+_veil.empty()
