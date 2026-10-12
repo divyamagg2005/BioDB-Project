@@ -32,15 +32,16 @@ except Exception:  # noqa: BLE001
 
 st.set_page_config(page_title="BioDB Variant Explorer", layout="wide")
 
-# --- Semantic neon palette -------------------------------------------------
-BG = "#0E0F13"
-CARD = "#16181F"
-BENIGN = "#9EE84B"       # benign / stabilising
-PATHOGENIC = "#FF6A3D"   # pathogenic / destabilising
-THIS = "#D81B9A"         # the selected variant / mutated residue
-TEXT = "#E8EAED"
-MUTED = "#8A8F98"
-TRACK = "#2A2E37"        # inactive gauge/axis track
+# --- Biological palette: "AlphaFold blues" ---------------------------------
+BG = "#0A0F1E"           # deep navy
+CARD = "#131A2B"         # navy card
+INSET = "#1A2338"        # inset cells (stat grid, expanders)
+BENIGN = "#4ADE80"       # benign / stabilising
+PATHOGENIC = "#FB7185"   # pathogenic / destabilising
+THIS = "#38BDF8"         # the selected variant / mutated residue (cyan)
+TEXT = "#E8EDF7"
+MUTED = "#8893A8"
+TRACK = "#2A3350"        # inactive gauge/axis track
 
 
 def inject_css() -> None:
@@ -63,8 +64,8 @@ def inject_css() -> None:
             color: {TEXT}; border-radius: 10px; }}
         .stApp {{
             background:
-                radial-gradient(1100px 520px at 12% -8%, #1A1D26 0%, rgba(26,29,38,0) 55%),
-                radial-gradient(900px 500px at 100% 0%, #15202a 0%, rgba(21,32,42,0) 50%),
+                radial-gradient(1100px 520px at 12% -8%, #16203A 0%, rgba(22,32,58,0) 55%),
+                radial-gradient(900px 500px at 100% 0%, #10243E 0%, rgba(16,36,62,0) 50%),
                 {BG};
         }}
         .block-container {{ padding-top: 2.2rem; padding-bottom: 3rem; }}
@@ -103,7 +104,7 @@ def inject_css() -> None:
             animation: fadeInUp .55s cubic-bezier(.2,.7,.2,1) both;
             transition: border-color .25s ease, transform .25s ease; }}
         [data-testid="stVerticalBlockBorderWrapper"]:hover {{
-            border-color: rgba(158,232,75,.35) !important; transform: translateY(-2px); }}
+            border-color: rgba(56,189,248,.40) !important; transform: translateY(-2px); }}
         @keyframes fadeInUp {{ from {{ opacity: 0; transform: translateY(16px); }}
             to {{ opacity: 1; transform: translateY(0); }} }}
 
@@ -123,7 +124,7 @@ def inject_css() -> None:
         /* Structural-context / VEP stat grid */
         .biodb-stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
             margin-top: 6px; margin-bottom: 4px; }}
-        .biodb-stat {{ background: #1C1F28; border: 1px solid rgba(255,255,255,.05);
+        .biodb-stat {{ background: {INSET}; border: 1px solid rgba(255,255,255,.05);
             border-radius: 12px; padding: 10px 12px; }}
         .biodb-stat .k {{ color: {MUTED}; font-size: .72rem; text-transform: uppercase;
             letter-spacing: .04em; }}
@@ -131,18 +132,18 @@ def inject_css() -> None:
             font-weight: 600; font-size: 1.05rem; margin-top: 2px; }}
 
         /* Sidebar */
-        section[data-testid="stSidebar"] {{ background: #111318;
+        section[data-testid="stSidebar"] {{ background: #0D1424;
             border-right: 1px solid rgba(255,255,255,.06); }}
         section[data-testid="stSidebar"] .stSelectbox label,
         section[data-testid="stSidebar"] .stTextInput label {{ color: {MUTED}; }}
 
         /* Expanders */
         [data-testid="stExpander"] {{ border: 1px solid rgba(255,255,255,.06);
-            border-radius: 14px; background: #1C1F28; }}
+            border-radius: 14px; background: {INSET}; }}
 
         /* Scrollbars */
         ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
-        ::-webkit-scrollbar-thumb {{ background: #2A2E37; border-radius: 8px; }}
+        ::-webkit-scrollbar-thumb {{ background: {TRACK}; border-radius: 8px; }}
 
         /* Phones: stack columns, tighten padding, relax the KPI grid */
         @media (max-width: 640px) {{
@@ -197,7 +198,7 @@ def structure_viewer(cif: str, position: int, height: int = 420) -> None:
       viewer.addModel({cif_json}, "cif");
       const plddt = (atom) => atom.b > 90 ? "#0053D6" : atom.b > 70 ? "#65CBF3" : atom.b > 50 ? "#FFDB13" : "#FF7D45";
       viewer.setStyle({{}}, {{cartoon: {{colorfunc: plddt}}}});
-      viewer.addStyle({{resi: {position}}}, {{stick: {{colorscheme: "magentaCarbon", radius: 0.3}}}});
+      viewer.addStyle({{resi: {position}}}, {{stick: {{colorscheme: "cyanCarbon", radius: 0.3}}}});
       viewer.addStyle({{resi: {position}, atom: "CA"}}, {{sphere: {{color: "{THIS}", radius: 1.2}}}});
       viewer.zoomTo({{within: {{distance: 20, sel: {{resi: {position}}}}}}});
       viewer.render();
@@ -294,8 +295,8 @@ def gene_bars_option(gene_rows, sel_position: int) -> dict:
             "splitLine": {"lineStyle": {"color": "rgba(255,255,255,.05)"}},
         },
         "dataZoom": ([{"type": "inside"}, {"type": "slider", "height": 14, "bottom": 10,
-                      "borderColor": TRACK, "fillerColor": "rgba(158,232,75,.15)",
-                      "handleStyle": {"color": BENIGN}, "textStyle": {"color": MUTED}}]
+                      "borderColor": TRACK, "fillerColor": "rgba(56,189,248,.15)",
+                      "handleStyle": {"color": THIS}, "textStyle": {"color": MUTED}}]
                      if many else []),
         "series": [{"type": "bar", "data": data, "barMaxWidth": 26,
                     "markLine": {"silent": True, "symbol": "none",
@@ -412,7 +413,7 @@ with st.sidebar:
         variant_id = st.selectbox("Variant", variants, format_func=lambda v: v.split(":")[1])
     st.markdown(
         "**Colour key:** pLDDT > 90 dark blue, 70–90 light blue, 50–70 yellow, < 50 orange. "
-        "The mutated residue is shown in magenta."
+        "The mutated residue is shown in cyan."
     )
 
 details = app_data.variant_details(variant_id)
