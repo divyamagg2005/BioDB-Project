@@ -9,7 +9,10 @@ import json
 import sys
 from pathlib import Path
 
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+import seaborn as sns
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
@@ -146,3 +149,107 @@ show_table({
     "gnomAD AF": "absent from gnomAD" if row["gnomad_absent"] else fmt(row["gnomad_af_max"]),
     "BLOSUM62": int(row["blosum62"]),
 })
+
+# ---------------------------------------------------------------------------
+# Graphs: where this induced mutation sits relative to the rest of the cohort.
+# Read-only; everything comes from the data app_data already loaded.
+# ---------------------------------------------------------------------------
+BENIGN, PATHOGENIC, THIS = "#9E9E9E", "#C62828", "#D81B9A"
+sns.set_theme(style="whitegrid", context="notebook")
+
+cohort = app_data.tables()["dataset"]
+gene_rows = cohort[cohort["gene"] == gene]
+
+
+def ddg_landscape() -> plt.Figure:
+    """FoldX ΔΔG for every variant in this gene by position; this mutation starred."""
+    fig, ax = plt.subplots(figsize=(8, 3.2))
+    for mask, colour, label in ((gene_rows["label"] == 0, BENIGN, "Benign"),
+                                (gene_rows["label"] == 1, PATHOGENIC, "Pathogenic")):
+        pts = gene_rows[mask]
+        ax.scatter(pts["protein_position"], pts["ddg"], c=colour, s=28, alpha=0.7,
+                   edgecolor="white", linewidth=0.4, label=f"{label} ({len(pts)})")
+    ax.scatter([position], [row["ddg"]], c=THIS, s=320, marker="*", zorder=5,
+               edgecolor="black", linewidth=0.6, label="This variant")
+    ax.axhline(0, color="black", lw=0.6, ls="--")
+    ax.set_xlabel("Protein position")
+    ax.set_ylabel("ΔΔG (kcal/mol)")
+    ax.set_title(f"Stability change across {gene}")
+    ax.legend(loc="best", fontsize=8, framealpha=0.9)
+    fig.tight_layout()
+    return fig
+
+
+def ddg_distribution() -> plt.Figure:
+    """ΔΔG distribution for benign vs pathogenic across the whole cohort, with this variant marked."""
+    fig, ax = plt.subplots(figsize=(8, 3.2))
+    clip = (cohort["ddg"].quantile(0.01), cohort["ddg"].quantile(0.99))
+    for value, colour, label in ((0, BENIGN, "Benign"), (1, PATHOGENIC, "Pathogenic")):
+        sns.kdeplot(cohort.loc[cohort["label"] == value, "ddg"], ax=ax, fill=True,
+                    alpha=0.4, color=colour, clip=clip, label=label)
+    ax.axvline(float(row["ddg"]), color=THIS, lw=2.2, label=f"This variant ({row['ddg']:+.2f})")
+    ax.set_xlabel("ΔΔG (kcal/mol)")
+    ax.set_ylabel("Density")
+    ax.set_title("ΔΔG: benign vs pathogenic (5,000 variants)")
+    ax.legend(loc="best", fontsize=8, framealpha=0.9)
+    fig.tight_layout()
+    return fig
+
+
+def predictor_comparison() -> plt.Figure:
+    """This variant's predictor scores vs cohort means, each min-max scaled so higher = more damaging."""
+    features = [("AlphaMissense", "alphamissense", False), ("REVEL", "revel", False),
+                ("PolyPhen-2", "polyphen_score", False), ("CADD", "cadd_phred", False),
+                ("SIFT (1−score)", "sift_score", True)]
+    names, var_v, ben_v, path_v = [], [], [], []
+    for name, col, invert in features:
+        series = cohort[col].dropna()
+        lo, hi = series.min(), series.max()
+
+        def scale(v: float) -> float:
+            if v != v:  # NaN
+                return np.nan
+            s = 0.5 if hi <= lo else (v - lo) / (hi - lo)
+            return 1 - s if invert else s
+
+        names.append(name)
+        var_v.append(scale(row[col]))
+        ben_v.append(scale(cohort.loc[cohort["label"] == 0, col].mean()))
+        path_v.append(scale(cohort.loc[cohort["label"] == 1, col].mean()))
+
+    y = np.arange(len(names))
+    height = 0.26
+    fig, ax = plt.subplots(figsize=(8, 3.2))
+    ax.barh(y + height, var_v, height, color=THIS, label="This variant")
+    ax.barh(y, path_v, height, color=PATHOGENIC, alpha=0.8, label="Pathogenic mean")
+    ax.barh(y - height, ben_v, height, color=BENIGN, alpha=0.8, label="Benign mean")
+    ax.set_yticks(y)
+    ax.set_yticklabels(names)
+    ax.set_xlim(0, 1)
+    ax.set_xlabel("Scaled score (higher = more damaging)")
+    ax.set_title("Predictor scores vs cohort")
+    ax.legend(loc="lower right", fontsize=8, framealpha=0.9)
+    fig.tight_layout()
+    return fig
+
+
+st.markdown("---")
+st.markdown("### Graphs: this mutation in context")
+st.caption(
+    "How this variant compares with the rest of the gene and the 5,000-variant cohort. "
+    "Magenta marks the variant selected above."
+)
+
+figure = ddg_landscape()
+st.pyplot(figure)
+plt.close(figure)
+
+graph_left, graph_right = st.columns(2)
+with graph_left:
+    figure = ddg_distribution()
+    st.pyplot(figure)
+    plt.close(figure)
+with graph_right:
+    figure = predictor_comparison()
+    st.pyplot(figure)
+    plt.close(figure)
