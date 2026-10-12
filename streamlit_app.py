@@ -9,6 +9,7 @@ here trains a model or touches the Phase 1-8 pipeline, ``data/``, ``models/`` or
 
 from __future__ import annotations
 
+import html
 import json
 import sys
 from pathlib import Path
@@ -99,6 +100,16 @@ def inject_css() -> None:
         .biodb-card-title {{ font-family: 'Space Grotesk', sans-serif; font-weight: 600;
             font-size: 1.05rem; color: {TEXT}; margin: .2rem 0 .1rem; }}
 
+        /* KPI chips (value font size is set inline so long text never clips) */
+        .biodb-kpi {{ background: {CARD}; border: 1px solid rgba(255,255,255,.06);
+            border-radius: 16px; padding: 14px 18px; height: 100%;
+            box-shadow: 0 10px 28px rgba(0,0,0,.38); }}
+        .biodb-kpi .k {{ color: {MUTED}; font-size: .78rem; letter-spacing: .04em;
+            text-transform: uppercase; }}
+        .biodb-kpi .v {{ font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            color: {TEXT}; line-height: 1.12; margin-top: 4px;
+            white-space: normal; overflow-wrap: anywhere; }}
+
         /* Structural-context / VEP stat grid */
         .biodb-stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }}
         .biodb-stat {{ background: #1C1F28; border: 1px solid rgba(255,255,255,.05);
@@ -129,6 +140,18 @@ def inject_css() -> None:
 
 def card_title(text: str) -> None:
     st.markdown(f'<div class="biodb-card-title">{text}</div>', unsafe_allow_html=True)
+
+
+def kpi(label: str, value: str) -> None:
+    """A KPI chip whose value font shrinks for long text (e.g. 'Uncertain significance') so it never clips."""
+    value = str(value)
+    budget = 11  # characters that comfortably fit at the base size
+    size = 30 if len(value) <= budget else max(14, int(30 * budget / len(value)))
+    st.markdown(
+        f'<div class="biodb-kpi"><div class="k">{html.escape(label)}</div>'
+        f'<div class="v" style="font-size:{size}px">{html.escape(value)}</div></div>',
+        unsafe_allow_html=True,
+    )
 
 
 def stat_grid(values: dict[str, str]) -> None:
@@ -402,13 +425,13 @@ st.caption(
 headline = preds[-1]  # Baseline + FoldX ΔΔG, the experiment this project is about
 k1, k2, k3, k4 = st.columns(4)
 with k1:
-    st.metric("Pathogenic prob (OOF)", f"{headline.out_of_fold:.0%}")
+    kpi("Pathogenic prob (OOF)", f"{headline.out_of_fold:.0%}")
 with k2:
-    st.metric("ΔΔG (kcal/mol)", f"{float(row['ddg']):+.2f}")
+    kpi("ΔΔG (kcal/mol)", f"{float(row['ddg']):+.2f}")
 with k3:
-    st.metric("pLDDT", f"{row['plddt']:.0f}")
+    kpi("pLDDT", f"{row['plddt']:.0f}")
 with k4:
-    st.metric("ClinVar", details["clinvar_significance"])
+    kpi("ClinVar", details["clinvar_significance"])
 
 # --- Row 1: predictions (gauges) | structure ------------------------------
 left, right = st.columns([1, 1])
