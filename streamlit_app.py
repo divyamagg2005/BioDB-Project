@@ -161,6 +161,27 @@ def inject_css() -> None:
         ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
         ::-webkit-scrollbar-thumb {{ background: {TRACK}; border-radius: 8px; }}
 
+        /* "Results loaded" toast: a glass pill pinned top-center that slides in and
+           fades itself out. Shown only when the sidebar selection changes. */
+        @keyframes biodbToast {{
+            0%   {{ opacity: 0; transform: translate(-50%, -14px); }}
+            10%  {{ opacity: 1; transform: translate(-50%, 0); }}
+            82%  {{ opacity: 1; transform: translate(-50%, 0); }}
+            100% {{ opacity: 0; transform: translate(-50%, -14px); visibility: hidden; }}
+        }}
+        .biodb-toast {{
+            position: fixed; top: calc(.9rem + env(safe-area-inset-top)); left: 50%;
+            z-index: 2000000; display: inline-flex; align-items: center; gap: .55rem;
+            background: {CARD}; border: 1px solid rgba(74,222,128,.42);
+            color: {TEXT}; padding: 10px 18px; border-radius: 12px;
+            font-size: .9rem; font-weight: 500; white-space: nowrap;
+            box-shadow: 0 12px 34px rgba(0,0,0,.55);
+            animation: biodbToast 3.4s cubic-bezier(.2,.7,.2,1) forwards;
+        }}
+        .biodb-toast .dot {{ width: 8px; height: 8px; border-radius: 50%;
+            background: {BENIGN}; box-shadow: 0 0 10px {BENIGN}; }}
+        .biodb-toast .muted {{ color: {MUTED}; font-weight: 400; }}
+
         /* Phones: stack columns, breathing room clear of the notch/URL bar, and a
            always-visible sidebar hamburger. */
         @media (max-width: 640px) {{
@@ -194,6 +215,20 @@ def kpi(label: str, value: str) -> None:
     st.markdown(
         f'<div class="biodb-kpi"><div class="k">{html.escape(label)}</div>'
         f'<div class="v" style="font-size:{size}px">{html.escape(value)}</div></div>',
+        unsafe_allow_html=True,
+    )
+
+
+def notify(message: str) -> None:
+    """Top-center glass toast that slides in and fades itself out via CSS.
+
+    The variant id is embedded as a data attribute so the markup differs on every
+    change; otherwise Streamlit would reuse the identical DOM node and the entrance
+    animation would not replay.
+    """
+    st.markdown(
+        f'<div class="biodb-toast" data-v="{html.escape(st.session_state.get("_last_variant", ""))}">'
+        f'<span class="dot"></span>{message}</div>',
         unsafe_allow_html=True,
     )
 
@@ -451,6 +486,15 @@ gene_rows = cohort[cohort["gene"] == gene]
 
 # --- Hero ------------------------------------------------------------------
 change = f"{row['wt_aa']}{position}{row['mut_aa']}"
+
+# Any sidebar change (gene, variant, or a typed mutation) lands on a different
+# variant_id and reruns the script. When the new results are ready, flash a toast —
+# skipping the very first load, which is not a "change".
+_prev_variant = st.session_state.get("_last_variant")
+if _prev_variant is not None and _prev_variant != variant_id:
+    notify(f'Results loaded <span class="muted">· {gene} p.{change}</span>')
+st.session_state["_last_variant"] = variant_id
+
 st.markdown(
     f'<p class="biodb-eyebrow">BioDB Variant Explorer</p>'
     f'<h1 class="biodb-hero-title">{gene} <span class="accent">p.{change}</span></h1>',
