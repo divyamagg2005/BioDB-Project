@@ -157,6 +157,19 @@ def inject_css() -> None:
         [data-testid="stExpander"] {{ border: 1px solid rgba(255,255,255,.06);
             border-radius: 14px; background: {INSET}; }}
 
+        /* Sidebar colour-key legend: a coloured dot followed by its meaning. */
+        .biodb-legend {{ background: {INSET}; border: 1px solid rgba(255,255,255,.06);
+            border-radius: 14px; padding: 12px 14px; margin-top: 8px; }}
+        .biodb-legend .title {{ color: {MUTED}; font-size: .72rem; text-transform: uppercase;
+            letter-spacing: .12em; margin: 0 0 10px; }}
+        .biodb-legend .row {{ display: flex; align-items: center; gap: 10px;
+            margin: 7px 0; font-size: .82rem; color: {TEXT}; }}
+        .biodb-legend .sw {{ flex: 0 0 auto; width: 12px; height: 12px; border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(255,255,255,.04); }}
+        .biodb-legend .row.mut {{ margin-top: 11px; padding-top: 11px;
+            border-top: 1px solid rgba(255,255,255,.07); }}
+        .biodb-legend .sub {{ color: {MUTED}; }}
+
         /* Scrollbars */
         ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
         ::-webkit-scrollbar-thumb {{ background: {TRACK}; border-radius: 8px; }}
@@ -502,9 +515,23 @@ with st.sidebar:
             st.stop()
     else:
         variant_id = st.selectbox("Variant", variants, format_func=lambda v: v.split(":")[1])
+    # Colour key as a legend: a coloured dot followed by its meaning. The pLDDT
+    # swatch colours mirror the thresholds used by the 3Dmol viewer (structure_viewer).
     st.markdown(
-        "**Colour key:** pLDDT > 90 dark blue, 70–90 light blue, 50–70 yellow, < 50 orange. "
-        "The mutated residue is shown in cyan."
+        '<div class="biodb-legend">'
+        '<p class="title">Colour key · pLDDT</p>'
+        '<div class="row"><span class="sw" style="background:#0053D6"></span>'
+        'Very high <span class="sub">(&gt; 90)</span></div>'
+        '<div class="row"><span class="sw" style="background:#65CBF3"></span>'
+        'Confident <span class="sub">(70–90)</span></div>'
+        '<div class="row"><span class="sw" style="background:#FFDB13"></span>'
+        'Low <span class="sub">(50–70)</span></div>'
+        '<div class="row"><span class="sw" style="background:#FF7D45"></span>'
+        'Very low <span class="sub">(&lt; 50)</span></div>'
+        f'<div class="row mut"><span class="sw" style="background:{THIS}"></span>'
+        'Mutated residue</div>'
+        '</div>',
+        unsafe_allow_html=True,
     )
 
 # Full-screen loading veil: a fixed overlay (high z-index) that covers the page
