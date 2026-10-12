@@ -51,7 +51,16 @@ def inject_css() -> None:
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
         html, body, .stApp, [class*="css"] {{ font-family: 'Inter', system-ui, sans-serif; }}
-        #MainMenu, header[data-testid="stHeader"], footer {{ display: none !important; }}
+        /* Hide the menu/toolbar/footer but KEEP the header so the sidebar
+           hamburger stays reachable on mobile. */
+        #MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] {{ display: none !important; }}
+        header[data-testid="stHeader"] {{ background: transparent; }}
+        /* Sidebar open/close controls (hamburger shows when collapsed, e.g. on phones) */
+        [data-testid="stSidebarCollapsedControl"] {{ display: block !important; }}
+        [data-testid="stSidebarCollapsedControl"] button,
+        [data-testid="stSidebarCollapseButton"] button {{
+            background: {CARD}; border: 1px solid rgba(255,255,255,.12);
+            color: {TEXT}; border-radius: 10px; }}
         .stApp {{
             background:
                 radial-gradient(1100px 520px at 12% -8%, #1A1D26 0%, rgba(26,29,38,0) 55%),
@@ -64,7 +73,8 @@ def inject_css() -> None:
         .biodb-eyebrow {{ color: {MUTED}; font-size: .8rem; letter-spacing: .22em;
             text-transform: uppercase; margin: 0 0 .35rem; }}
         .biodb-hero-title {{ font-family: 'Space Grotesk', sans-serif; font-weight: 700;
-            font-size: 3.1rem; line-height: 1.02; letter-spacing: -1.5px; color: #fff; margin: 0; }}
+            font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.02; letter-spacing: -1.5px;
+            color: #fff; margin: 0; }}
         .biodb-hero-title .accent {{ color: {BENIGN}; }}
 
         /* Variant subheader styled into the hero */
@@ -88,7 +98,7 @@ def inject_css() -> None:
         /* Glass cards from st.container(border=True) */
         [data-testid="stVerticalBlockBorderWrapper"] {{
             background: {CARD}; border: 1px solid rgba(255,255,255,.06) !important;
-            border-radius: 22px; padding: 6px 10px;
+            border-radius: 22px; padding: 12px 18px 20px;
             box-shadow: 0 16px 40px rgba(0,0,0,.45);
             animation: fadeInUp .55s cubic-bezier(.2,.7,.2,1) both;
             transition: border-color .25s ease, transform .25s ease; }}
@@ -111,7 +121,8 @@ def inject_css() -> None:
             white-space: normal; overflow-wrap: anywhere; }}
 
         /* Structural-context / VEP stat grid */
-        .biodb-stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }}
+        .biodb-stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+            margin-top: 6px; margin-bottom: 4px; }}
         .biodb-stat {{ background: #1C1F28; border: 1px solid rgba(255,255,255,.05);
             border-radius: 12px; padding: 10px 12px; }}
         .biodb-stat .k {{ color: {MUTED}; font-size: .72rem; text-transform: uppercase;
@@ -132,6 +143,15 @@ def inject_css() -> None:
         /* Scrollbars */
         ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
         ::-webkit-scrollbar-thumb {{ background: #2A2E37; border-radius: 8px; }}
+
+        /* Phones: stack columns, tighten padding, relax the KPI grid */
+        @media (max-width: 640px) {{
+            .block-container {{ padding: 1rem .8rem 2rem; }}
+            [data-testid="stHorizontalBlock"] {{ flex-direction: column; gap: .6rem; }}
+            [data-testid="stColumn"] {{ width: 100% !important; flex: 1 1 100% !important; }}
+            .biodb-kpi {{ margin-bottom: 8px; }}
+            .biodb-stat-grid {{ grid-template-columns: 1fr; }}
+        }}
         </style>
         """,
         unsafe_allow_html=True,
