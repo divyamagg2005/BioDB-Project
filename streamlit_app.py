@@ -1,6 +1,10 @@
 """BioDB variant explorer: pathogenicity predictions with AlphaFold structure and FoldX ΔΔG.
 
 Run locally with ``streamlit run streamlit_app.py``.
+
+This module is the frontend only. All data comes through ``biodb.app_data``; nothing
+here trains a model or touches the Phase 1-8 pipeline, ``data/``, ``models/`` or
+``results/``. The look is a dark, glass-card dashboard with animated ECharts.
 """
 
 from __future__ import annotations
@@ -9,35 +13,149 @@ import json
 import sys
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
-import seaborn as sns
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
 from biodb import app_data  # noqa: E402
 
+# streamlit-echarts powers the animated gauges/bars/distribution. It is a new
+# dependency (see requirements.txt); if it is missing the page still renders and
+# each chart degrades to a small notice instead of crashing.
+try:
+    from streamlit_echarts import JsCode, st_echarts
+except Exception:  # noqa: BLE001
+    st_echarts = None
+    JsCode = None
+
 st.set_page_config(page_title="BioDB Variant Explorer", layout="wide")
 
+# --- Semantic neon palette -------------------------------------------------
+BG = "#0E0F13"
+CARD = "#16181F"
+BENIGN = "#9EE84B"       # benign / stabilising
+PATHOGENIC = "#FF6A3D"   # pathogenic / destabilising
+THIS = "#D81B9A"         # the selected variant / mutated residue
+TEXT = "#E8EAED"
+MUTED = "#8A8F98"
+TRACK = "#2A2E37"        # inactive gauge/axis track
 
-def structure_viewer(cif: str, position: int, height: int = 480) -> None:
-    """3Dmol.js cartoon coloured by AlphaFold pLDDT, with the mutated residue highlighted."""
+
+def inject_css() -> None:
+    """Dark glassmorphism theme, hidden Streamlit chrome, and a fade-in for cards."""
+    st.markdown(
+        f"""
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+        html, body, .stApp, [class*="css"] {{ font-family: 'Inter', system-ui, sans-serif; }}
+        #MainMenu, header[data-testid="stHeader"], footer {{ display: none !important; }}
+        .stApp {{
+            background:
+                radial-gradient(1100px 520px at 12% -8%, #1A1D26 0%, rgba(26,29,38,0) 55%),
+                radial-gradient(900px 500px at 100% 0%, #15202a 0%, rgba(21,32,42,0) 50%),
+                {BG};
+        }}
+        .block-container {{ padding-top: 2.2rem; padding-bottom: 3rem; }}
+
+        /* Hero */
+        .biodb-eyebrow {{ color: {MUTED}; font-size: .8rem; letter-spacing: .22em;
+            text-transform: uppercase; margin: 0 0 .35rem; }}
+        .biodb-hero-title {{ font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+            font-size: 3.1rem; line-height: 1.02; letter-spacing: -1.5px; color: #fff; margin: 0; }}
+        .biodb-hero-title .accent {{ color: {BENIGN}; }}
+
+        /* Variant subheader styled into the hero */
+        [data-testid="stHeading"] h3 {{ color: {MUTED} !important; font-weight: 500;
+            font-size: 1.05rem; letter-spacing: .02em; }}
+
+        /* Links */
+        .stApp a {{ color: {BENIGN} !important; text-decoration: none; }}
+        .stApp a:hover {{ text-decoration: underline; }}
+
+        /* Metric cards (KPI chips + prediction cards) */
+        [data-testid="stMetric"] {{
+            background: {CARD}; border: 1px solid rgba(255,255,255,.06);
+            border-radius: 16px; padding: 14px 18px;
+            box-shadow: 0 10px 28px rgba(0,0,0,.38); }}
+        [data-testid="stMetricLabel"] p {{ color: {MUTED} !important;
+            font-size: .78rem !important; letter-spacing: .04em; text-transform: uppercase; }}
+        [data-testid="stMetricValue"] {{ font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700; color: {TEXT}; }}
+
+        /* Glass cards from st.container(border=True) */
+        [data-testid="stVerticalBlockBorderWrapper"] {{
+            background: {CARD}; border: 1px solid rgba(255,255,255,.06) !important;
+            border-radius: 22px; padding: 6px 10px;
+            box-shadow: 0 16px 40px rgba(0,0,0,.45);
+            animation: fadeInUp .55s cubic-bezier(.2,.7,.2,1) both;
+            transition: border-color .25s ease, transform .25s ease; }}
+        [data-testid="stVerticalBlockBorderWrapper"]:hover {{
+            border-color: rgba(158,232,75,.35) !important; transform: translateY(-2px); }}
+        @keyframes fadeInUp {{ from {{ opacity: 0; transform: translateY(16px); }}
+            to {{ opacity: 1; transform: translateY(0); }} }}
+
+        .biodb-card-title {{ font-family: 'Space Grotesk', sans-serif; font-weight: 600;
+            font-size: 1.05rem; color: {TEXT}; margin: .2rem 0 .1rem; }}
+
+        /* Structural-context / VEP stat grid */
+        .biodb-stat-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; }}
+        .biodb-stat {{ background: #1C1F28; border: 1px solid rgba(255,255,255,.05);
+            border-radius: 12px; padding: 10px 12px; }}
+        .biodb-stat .k {{ color: {MUTED}; font-size: .72rem; text-transform: uppercase;
+            letter-spacing: .04em; }}
+        .biodb-stat .v {{ color: {TEXT}; font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600; font-size: 1.05rem; margin-top: 2px; }}
+
+        /* Sidebar */
+        section[data-testid="stSidebar"] {{ background: #111318;
+            border-right: 1px solid rgba(255,255,255,.06); }}
+        section[data-testid="stSidebar"] .stSelectbox label,
+        section[data-testid="stSidebar"] .stTextInput label {{ color: {MUTED}; }}
+
+        /* Expanders */
+        [data-testid="stExpander"] {{ border: 1px solid rgba(255,255,255,.06);
+            border-radius: 14px; background: #1C1F28; }}
+
+        /* Scrollbars */
+        ::-webkit-scrollbar {{ width: 10px; height: 10px; }}
+        ::-webkit-scrollbar-thumb {{ background: #2A2E37; border-radius: 8px; }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def card_title(text: str) -> None:
+    st.markdown(f'<div class="biodb-card-title">{text}</div>', unsafe_allow_html=True)
+
+
+def stat_grid(values: dict[str, str]) -> None:
+    """Small two-column stat grid used for structural context and VEP scores."""
+    cells = "".join(
+        f'<div class="biodb-stat"><div class="k">{k}</div><div class="v">{v}</div></div>'
+        for k, v in values.items()
+    )
+    st.markdown(f'<div class="biodb-stat-grid">{cells}</div>', unsafe_allow_html=True)
+
+
+def structure_viewer(cif: str, position: int, height: int = 420) -> None:
+    """3Dmol.js cartoon coloured by AlphaFold pLDDT, mutated residue highlighted, dark background."""
     # Escape "</" so the structure text can never close the <script> element.
     cif_json = json.dumps(cif).replace("</", "<\\/")
     # Zero the iframe body margin and hide overflow; the default 8px margin made the frame scroll.
     html = f"""
-    <style>html, body {{ margin: 0; padding: 0; overflow: hidden; }}</style>
+    <style>html, body {{ margin: 0; padding: 0; overflow: hidden; background: {BG}; }}</style>
     <div id="viewer" style="width:100%;height:{height}px;position:relative;"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/3Dmol/2.4.0/3Dmol-min.js"></script>
     <script>
-      const viewer = $3Dmol.createViewer("viewer", {{backgroundColor: "white"}});
+      const viewer = $3Dmol.createViewer("viewer", {{backgroundColor: "{BG}"}});
       viewer.addModel({cif_json}, "cif");
       const plddt = (atom) => atom.b > 90 ? "#0053D6" : atom.b > 70 ? "#65CBF3" : atom.b > 50 ? "#FFDB13" : "#FF7D45";
       viewer.setStyle({{}}, {{cartoon: {{colorfunc: plddt}}}});
       viewer.addStyle({{resi: {position}}}, {{stick: {{colorscheme: "magentaCarbon", radius: 0.3}}}});
-      viewer.addStyle({{resi: {position}, atom: "CA"}}, {{sphere: {{color: "magenta", radius: 1.2}}}});
+      viewer.addStyle({{resi: {position}, atom: "CA"}}, {{sphere: {{color: "{THIS}", radius: 1.2}}}});
       viewer.zoomTo({{within: {{distance: 20, sel: {{resi: {position}}}}}}});
       viewer.render();
     </script>"""
@@ -49,18 +167,191 @@ def structure_viewer(cif: str, position: int, height: int = 480) -> None:
         components.html(html, height=height + 10)
 
 
-def show_table(values: dict) -> None:
-    """Two-column table with every value as text, so Arrow serialisation never sees mixed types."""
-    st.table(pd.DataFrame({"Value": [str(v) for v in values.values()]}, index=list(values)))
+# ---------------------------------------------------------------------------
+# Animated ECharts helpers. Each returns an options dict; render_chart draws it.
+# ---------------------------------------------------------------------------
+def _stagger(step_ms: int) -> object:
+    """Per-element entrance delay (JsCode) so bars grow in one after another."""
+    if JsCode is None:
+        return 0
+    return JsCode(f"function (idx) {{ return idx * {step_ms}; }}").js_code
 
 
-st.title("BioDB Variant Explorer")
-st.caption(
-    "Class project: does protein stability (FoldX ΔΔG on AlphaFold structures) improve pathogenicity "
-    "prediction for ClinVar missense variants? Research demonstration only, not for clinical use."
-)
+def render_chart(options: dict, key: str, height: str = "300px") -> None:
+    if st_echarts is None:
+        st.info("Install `streamlit-echarts` to see this chart.")
+        return
+    try:
+        st_echarts(options=options, height=height, key=key)
+    except Exception as error:  # noqa: BLE001 - a chart hiccup must not break the page
+        st.warning(f"Chart unavailable ({error}).")
+
+
+def gauge_option(prob: float, label: str) -> dict:
+    """Animated gauge with a needle: pathogenic probability as a 0-100% dial."""
+    pct = round(prob * 100, 1)
+    colour = PATHOGENIC if prob >= 0.5 else BENIGN
+    return {
+        "animationDuration": 1600,
+        "animationEasing": "cubicOut",
+        "series": [{
+            "type": "gauge",
+            "startAngle": 210,
+            "endAngle": -30,
+            "min": 0,
+            "max": 100,
+            "radius": "92%",
+            "progress": {"show": True, "width": 13, "roundCap": True, "itemStyle": {"color": colour}},
+            "axisLine": {"roundCap": True, "lineStyle": {"width": 13, "color": [[1, TRACK]]}},
+            "axisTick": {"show": False},
+            "splitLine": {"show": False},
+            "axisLabel": {"show": False},
+            "pointer": {"length": "58%", "width": 5, "itemStyle": {"color": colour}},
+            "anchor": {"show": True, "showAbove": True, "size": 12,
+                       "itemStyle": {"color": CARD, "borderColor": colour, "borderWidth": 3}},
+            "title": {"offsetCenter": [0, "32%"], "color": MUTED, "fontSize": 12},
+            "detail": {"valueAnimation": True, "formatter": "{value}%", "color": TEXT,
+                       "fontSize": 30, "fontWeight": "bolder", "offsetCenter": [0, "-8%"]},
+            "data": [{"value": pct, "name": label}],
+        }],
+    }
+
+
+def gene_bars_option(gene_rows, sel_position: int) -> dict:
+    """ΔΔG of every variant in this gene by position; selected one highlighted magenta."""
+    rows = gene_rows.sort_values("protein_position")
+    categories, data = [], []
+    for pos, lab, ddg, wt, mut in zip(
+        rows["protein_position"], rows["label"], rows["ddg"], rows["wt_aa"], rows["mut_aa"]
+    ):
+        selected = int(pos) == sel_position
+        colour = THIS if selected else (PATHOGENIC if lab == 1 else BENIGN)
+        categories.append(f"{wt}{int(pos)}{mut}")
+        data.append({
+            "value": round(float(ddg), 2),
+            "itemStyle": {"color": colour, "borderRadius": [5, 5, 0, 0],
+                          "shadowBlur": 10 if selected else 0, "shadowColor": THIS},
+        })
+    many = len(data) > 22
+    return {
+        "animationDuration": 1200,
+        "animationDelay": _stagger(35),
+        "grid": {"left": 44, "right": 16, "top": 20, "bottom": 70 if many else 54},
+        "tooltip": {"trigger": "axis", "backgroundColor": CARD,
+                    "borderColor": "rgba(255,255,255,.1)", "textStyle": {"color": TEXT}},
+        "xAxis": {
+            "type": "category", "data": categories,
+            "axisLabel": {"color": MUTED, "fontSize": 10, "rotate": 60, "interval": 0 if not many else "auto"},
+            "axisLine": {"lineStyle": {"color": TRACK}},
+            "axisTick": {"show": False},
+        },
+        "yAxis": {
+            "type": "value", "name": "ΔΔG",
+            "nameTextStyle": {"color": MUTED}, "axisLabel": {"color": MUTED},
+            "splitLine": {"lineStyle": {"color": "rgba(255,255,255,.05)"}},
+        },
+        "dataZoom": ([{"type": "inside"}, {"type": "slider", "height": 14, "bottom": 10,
+                      "borderColor": TRACK, "fillerColor": "rgba(158,232,75,.15)",
+                      "handleStyle": {"color": BENIGN}, "textStyle": {"color": MUTED}}]
+                     if many else []),
+        "series": [{"type": "bar", "data": data, "barMaxWidth": 26,
+                    "markLine": {"silent": True, "symbol": "none",
+                                 "lineStyle": {"color": "rgba(255,255,255,.25)", "type": "dashed"},
+                                 "data": [{"yAxis": 0}]}}],
+    }
+
+
+def distribution_option(cohort, this_ddg: float) -> dict:
+    """Smooth ΔΔG density for benign vs pathogenic, with a marker at this variant."""
+    lo, hi = float(cohort["ddg"].quantile(0.01)), float(cohort["ddg"].quantile(0.99))
+    grid = np.linspace(lo, hi, 140)
+    series = []
+    from scipy.stats import gaussian_kde
+
+    for value, colour, name in ((0, BENIGN, "Benign"), (1, PATHOGENIC, "Pathogenic")):
+        vals = cohort.loc[cohort["label"] == value, "ddg"].dropna().to_numpy()
+        density = gaussian_kde(vals)(grid)
+        series.append({
+            "name": name, "type": "line", "smooth": True, "showSymbol": False,
+            "lineStyle": {"color": colour, "width": 2},
+            "areaStyle": {"color": colour, "opacity": 0.18},
+            "data": [[round(float(x), 3), round(float(y), 4)] for x, y in zip(grid, density)],
+        })
+    series[0]["markLine"] = {
+        "silent": True, "symbol": "none",
+        "label": {"formatter": f"This variant ({this_ddg:+.2f})", "color": THIS, "position": "insideEndTop"},
+        "lineStyle": {"color": THIS, "width": 2.4},
+        "data": [{"xAxis": round(float(this_ddg), 3)}],
+    }
+    return {
+        "animationDuration": 1400,
+        "legend": {"data": ["Benign", "Pathogenic"], "textStyle": {"color": MUTED}, "top": 2},
+        "grid": {"left": 44, "right": 18, "top": 36, "bottom": 40},
+        "tooltip": {"trigger": "axis", "backgroundColor": CARD,
+                    "borderColor": "rgba(255,255,255,.1)", "textStyle": {"color": TEXT}},
+        "xAxis": {"type": "value", "name": "ΔΔG (kcal/mol)", "nameLocation": "middle", "nameGap": 26,
+                  "nameTextStyle": {"color": MUTED}, "axisLabel": {"color": MUTED},
+                  "axisLine": {"lineStyle": {"color": TRACK}},
+                  "splitLine": {"lineStyle": {"color": "rgba(255,255,255,.04)"}}},
+        "yAxis": {"type": "value", "name": "density", "nameTextStyle": {"color": MUTED},
+                  "axisLabel": {"color": MUTED},
+                  "splitLine": {"lineStyle": {"color": "rgba(255,255,255,.05)"}}},
+        "series": series,
+    }
+
+
+def predictor_bars_option(row, cohort) -> dict:
+    """This variant vs cohort means for five predictors, each min-max scaled (higher = more damaging)."""
+    features = [("AlphaMissense", "alphamissense", False), ("REVEL", "revel", False),
+                ("PolyPhen-2", "polyphen_score", False), ("CADD", "cadd_phred", False),
+                ("SIFT (1−score)", "sift_score", True)]
+    names, var_v, ben_v, path_v = [], [], [], []
+    for name, col, invert in features:
+        s = cohort[col].dropna()
+        lo, hi = s.min(), s.max()
+
+        def scale(v: float) -> float | None:
+            if v != v:  # NaN
+                return None
+            x = 0.5 if hi <= lo else (v - lo) / (hi - lo)
+            x = 1 - x if invert else x
+            return round(float(x), 3)
+
+        names.append(name)
+        var_v.append(scale(row[col]))
+        ben_v.append(scale(cohort.loc[cohort["label"] == 0, col].mean()))
+        path_v.append(scale(cohort.loc[cohort["label"] == 1, col].mean()))
+
+    def bar(name, values, colour):
+        return {"name": name, "type": "bar", "data": values,
+                "barMaxWidth": 11, "itemStyle": {"color": colour, "borderRadius": [0, 4, 4, 0]},
+                "animationDelay": _stagger(60)}
+
+    return {
+        "animationDuration": 1200,
+        "legend": {"data": ["This variant", "Pathogenic mean", "Benign mean"],
+                   "textStyle": {"color": MUTED}, "top": 2},
+        "grid": {"left": 110, "right": 20, "top": 40, "bottom": 20},
+        "tooltip": {"trigger": "axis", "backgroundColor": CARD,
+                    "borderColor": "rgba(255,255,255,.1)", "textStyle": {"color": TEXT}},
+        "xAxis": {"type": "value", "min": 0, "max": 1, "axisLabel": {"color": MUTED},
+                  "splitLine": {"lineStyle": {"color": "rgba(255,255,255,.05)"}}},
+        "yAxis": {"type": "category", "data": names, "inverse": True,
+                  "axisLabel": {"color": TEXT}, "axisLine": {"lineStyle": {"color": TRACK}},
+                  "axisTick": {"show": False}},
+        "series": [bar("This variant", var_v, THIS),
+                   bar("Pathogenic mean", path_v, PATHOGENIC),
+                   bar("Benign mean", ben_v, BENIGN)],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Page
+# ---------------------------------------------------------------------------
+inject_css()
 
 with st.sidebar:
+    st.markdown('<div class="biodb-card-title">BioDB</div>', unsafe_allow_html=True)
     gene = st.selectbox("Gene", app_data.gene_list(), index=app_data.gene_list().index("TP53"))
     variants = app_data.variants_for(gene)
     example = variants[0].split(":p.")[1]
@@ -84,172 +375,121 @@ with st.sidebar:
 details = app_data.variant_details(variant_id)
 row = details["row"]
 position = int(row["protein_position"])
+preds = app_data.predictions(variant_id)
+cohort = app_data.tables()["dataset"]
+gene_rows = cohort[cohort["gene"] == gene]
 
+# --- Hero ------------------------------------------------------------------
+change = f"{row['wt_aa']}{position}{row['mut_aa']}"
+st.markdown(
+    f'<p class="biodb-eyebrow">BioDB Variant Explorer</p>'
+    f'<h1 class="biodb-hero-title">{gene} <span class="accent">p.{change}</span></h1>',
+    unsafe_allow_html=True,
+)
+# Kept as a real st.subheader so AppTest can assert the variant string renders.
 st.subheader(f"{gene} p.{row['wt_aa']}{position}{row['mut_aa']}")
 st.write(
     f"UniProt [{details['uniprot']}](https://www.uniprot.org/uniprotkb/{details['uniprot']}) · "
     f"AlphaFold [{details['alphafold_entry']}](https://alphafold.ebi.ac.uk/entry/{details['uniprot']}) · "
     f"ClinVar [VCV{details['variation_id']:09d}](https://www.ncbi.nlm.nih.gov/clinvar/variation/{details['variation_id']}/)"
 )
-
-st.markdown("### Machine learning: pathogenicity prediction")
-columns = st.columns(2)
-for column, prediction in zip(columns, app_data.predictions(variant_id)):
-    with column:
-        st.metric(prediction.label, prediction.predicted_class, help="Threshold 0.5 on the out-of-fold probability")
-        st.write(f"Pathogenic probability **{prediction.out_of_fold:.3f}** · benign probability **{1 - prediction.out_of_fold:.3f}**")
 st.caption(
-    "Probabilities are out-of-fold: they come from XGBoost models trained in gene-grouped cross-validation "
-    f"without any {gene} variants, so they show how the model performs on an unseen gene."
+    "Class project: does protein stability (FoldX ΔΔG on AlphaFold structures) improve pathogenicity "
+    "prediction for ClinVar missense variants? Research demonstration only, not for clinical use."
 )
-with st.expander("Final model (trained on all 5,000 variants, including this one)"):
-    for prediction in app_data.predictions(variant_id):
-        st.write(f"{prediction.label}: pathogenic probability {prediction.final_model:.3f}")
-    st.caption("This variant was in the training data, so these numbers are optimistic. Use the out-of-fold values above.")
-with st.expander("ClinVar classification (the training label)"):
-    st.write(f"{details['clinvar_significance']} ({details['review_status']})")
-    st.caption(details["hgvs"])
 
-left, right = st.columns([3, 2])
+# --- KPI chips -------------------------------------------------------------
+headline = preds[-1]  # Baseline + FoldX ΔΔG, the experiment this project is about
+k1, k2, k3, k4 = st.columns(4)
+with k1:
+    st.metric("Pathogenic prob (OOF)", f"{headline.out_of_fold:.0%}")
+with k2:
+    st.metric("ΔΔG (kcal/mol)", f"{float(row['ddg']):+.2f}")
+with k3:
+    st.metric("pLDDT", f"{row['plddt']:.0f}")
+with k4:
+    st.metric("ClinVar", details["clinvar_significance"])
+
+# --- Row 1: predictions (gauges) | structure ------------------------------
+left, right = st.columns([1, 1])
 with left:
-    st.markdown("### AlphaFold: predicted structure")
-    try:
-        structure_viewer(app_data.fetch_structure(details["cif_url"]), position)
-    except Exception as error:  # noqa: BLE001 - network problems should not break the page
-        st.warning(f"Could not load the AlphaFold structure ({error}).")
+    with st.container(border=True):
+        card_title("Pathogenicity prediction")
+        st.caption("Out-of-fold: each probability is from an XGBoost model that never saw this gene.")
+        gcols = st.columns(2)
+        for col, prediction in zip(gcols, preds):
+            with col:
+                # st.metric value is the predicted class — AppTest asserts a "Pathogenic" metric exists.
+                st.metric(prediction.label, prediction.predicted_class,
+                          help="Threshold 0.5 on the out-of-fold probability")
+                render_chart(gauge_option(prediction.out_of_fold, "pathogenic"),
+                             key=f"gauge_{prediction.experiment}", height="190px")
+        with st.expander("Final model (trained on all 5,000 variants, including this one)"):
+            for prediction in preds:
+                st.write(f"{prediction.label}: pathogenic probability {prediction.final_model:.3f}")
+            st.caption("This variant was in the training data, so these numbers are optimistic.")
+        with st.expander("ClinVar classification (the training label)"):
+            st.write(f"{details['clinvar_significance']} ({details['review_status']})")
+            st.caption(details["hgvs"])
+
 with right:
-    st.markdown("### FoldX: estimated stability change")
-    ddg = float(row["ddg"])
-    st.metric("ΔΔG (kcal/mol)", f"{ddg:+.2f}",
-              help="FoldX 5.1 BuildModel on the repaired AlphaFold model, mean of 3 runs. Positive = destabilising.")
-    if row["plddt"] < 70:
-        st.warning(f"pLDDT {row['plddt']:.0f} < 70: the structure is low-confidence here, so ΔΔG is unreliable.")
-    st.markdown("### Structural context")
-    show_table({
-        "pLDDT": f"{row['plddt']:.1f}",
-        "Relative solvent accessibility": f"{row['rsa']:.2f}",
-        "Neighbour count (10 Å)": int(row["neighbor_count"]),
-        "Secondary structure": "helix" if row["ss_helix"] else "strand" if row["ss_strand"] else "coil",
-    })
+    with st.container(border=True):
+        card_title("AlphaFold predicted structure")
+        try:
+            structure_viewer(app_data.fetch_structure(details["cif_url"]), position)
+        except Exception as error:  # noqa: BLE001 - network problems should not break the page
+            st.warning(f"Could not load the AlphaFold structure ({error}).")
 
-st.markdown("### Conventional features (VEP)")
+# --- Row 2: FoldX stability + context | VEP features ----------------------
+low, vep = st.columns([1, 1])
+with low:
+    with st.container(border=True):
+        card_title("FoldX: estimated stability change")
+        st.metric("ΔΔG (kcal/mol)", f"{float(row['ddg']):+.2f}",
+                  help="FoldX 5.1 BuildModel on the repaired AlphaFold model, mean of 3 runs. Positive = destabilising.")
+        if row["plddt"] < 70:
+            st.warning(f"pLDDT {row['plddt']:.0f} < 70: the structure is low-confidence here, so ΔΔG is unreliable.")
+        card_title("Structural context")
+        stat_grid({
+            "pLDDT": f"{row['plddt']:.1f}",
+            "Rel. solvent acc.": f"{row['rsa']:.2f}",
+            "Neighbours (10 Å)": str(int(row["neighbor_count"])),
+            "Secondary structure": "helix" if row["ss_helix"] else "strand" if row["ss_strand"] else "coil",
+        })
 
+with vep:
+    with st.container(border=True):
+        card_title("Conventional features (VEP)")
 
-def fmt(value, digits: int = 3) -> str:
-    return "missing" if value != value else f"{value:.{digits}g}"
+        def fmt(value, digits: int = 3) -> str:
+            return "missing" if value != value else f"{value:.{digits}g}"
 
+        stat_grid({
+            "AlphaMissense": fmt(row["alphamissense"]),
+            "REVEL": fmt(row["revel"]),
+            "CADD (phred)": fmt(row["cadd_phred"]),
+            "SIFT": fmt(row["sift_score"]),
+            "PolyPhen-2": fmt(row["polyphen_score"]),
+            "GERP": fmt(row["gerp_conservation"]),
+            "gnomAD AF": "absent" if row["gnomad_absent"] else fmt(row["gnomad_af_max"]),
+            "BLOSUM62": str(int(row["blosum62"])),
+        })
 
-show_table({
-    "AlphaMissense": fmt(row["alphamissense"]),
-    "REVEL": fmt(row["revel"]),
-    "CADD (phred)": fmt(row["cadd_phred"]),
-    "SIFT": fmt(row["sift_score"]),
-    "PolyPhen-2": fmt(row["polyphen_score"]),
-    "GERP": fmt(row["gerp_conservation"]),
-    "gnomAD AF": "absent from gnomAD" if row["gnomad_absent"] else fmt(row["gnomad_af_max"]),
-    "BLOSUM62": int(row["blosum62"]),
-})
+# --- Row 3: stability across the gene (full width) ------------------------
+with st.container(border=True):
+    card_title(f"Stability change across {gene}")
+    st.caption("FoldX ΔΔG for every cohort variant in this gene. Magenta is the selected variant.")
+    render_chart(gene_bars_option(gene_rows, position), key="gene_bars", height="320px")
 
-# ---------------------------------------------------------------------------
-# Graphs: where this induced mutation sits relative to the rest of the cohort.
-# Read-only; everything comes from the data app_data already loaded.
-# ---------------------------------------------------------------------------
-BENIGN, PATHOGENIC, THIS = "#9E9E9E", "#C62828", "#D81B9A"
-sns.set_theme(style="whitegrid", context="notebook")
-
-cohort = app_data.tables()["dataset"]
-gene_rows = cohort[cohort["gene"] == gene]
-
-
-def ddg_landscape() -> plt.Figure:
-    """FoldX ΔΔG for every variant in this gene by position; this mutation starred."""
-    fig, ax = plt.subplots(figsize=(8, 3.2))
-    for mask, colour, label in ((gene_rows["label"] == 0, BENIGN, "Benign"),
-                                (gene_rows["label"] == 1, PATHOGENIC, "Pathogenic")):
-        pts = gene_rows[mask]
-        ax.scatter(pts["protein_position"], pts["ddg"], c=colour, s=28, alpha=0.7,
-                   edgecolor="white", linewidth=0.4, label=f"{label} ({len(pts)})")
-    ax.scatter([position], [row["ddg"]], c=THIS, s=320, marker="*", zorder=5,
-               edgecolor="black", linewidth=0.6, label="This variant")
-    ax.axhline(0, color="black", lw=0.6, ls="--")
-    ax.set_xlabel("Protein position")
-    ax.set_ylabel("ΔΔG (kcal/mol)")
-    ax.set_title(f"Stability change across {gene}")
-    ax.legend(loc="best", fontsize=8, framealpha=0.9)
-    fig.tight_layout()
-    return fig
-
-
-def ddg_distribution() -> plt.Figure:
-    """ΔΔG distribution for benign vs pathogenic across the whole cohort, with this variant marked."""
-    fig, ax = plt.subplots(figsize=(8, 3.2))
-    clip = (cohort["ddg"].quantile(0.01), cohort["ddg"].quantile(0.99))
-    for value, colour, label in ((0, BENIGN, "Benign"), (1, PATHOGENIC, "Pathogenic")):
-        sns.kdeplot(cohort.loc[cohort["label"] == value, "ddg"], ax=ax, fill=True,
-                    alpha=0.4, color=colour, clip=clip, label=label)
-    ax.axvline(float(row["ddg"]), color=THIS, lw=2.2, label=f"This variant ({row['ddg']:+.2f})")
-    ax.set_xlabel("ΔΔG (kcal/mol)")
-    ax.set_ylabel("Density")
-    ax.set_title("ΔΔG: benign vs pathogenic (5,000 variants)")
-    ax.legend(loc="best", fontsize=8, framealpha=0.9)
-    fig.tight_layout()
-    return fig
-
-
-def predictor_comparison() -> plt.Figure:
-    """This variant's predictor scores vs cohort means, each min-max scaled so higher = more damaging."""
-    features = [("AlphaMissense", "alphamissense", False), ("REVEL", "revel", False),
-                ("PolyPhen-2", "polyphen_score", False), ("CADD", "cadd_phred", False),
-                ("SIFT (1−score)", "sift_score", True)]
-    names, var_v, ben_v, path_v = [], [], [], []
-    for name, col, invert in features:
-        series = cohort[col].dropna()
-        lo, hi = series.min(), series.max()
-
-        def scale(v: float) -> float:
-            if v != v:  # NaN
-                return np.nan
-            s = 0.5 if hi <= lo else (v - lo) / (hi - lo)
-            return 1 - s if invert else s
-
-        names.append(name)
-        var_v.append(scale(row[col]))
-        ben_v.append(scale(cohort.loc[cohort["label"] == 0, col].mean()))
-        path_v.append(scale(cohort.loc[cohort["label"] == 1, col].mean()))
-
-    y = np.arange(len(names))
-    height = 0.26
-    fig, ax = plt.subplots(figsize=(8, 3.2))
-    ax.barh(y + height, var_v, height, color=THIS, label="This variant")
-    ax.barh(y, path_v, height, color=PATHOGENIC, alpha=0.8, label="Pathogenic mean")
-    ax.barh(y - height, ben_v, height, color=BENIGN, alpha=0.8, label="Benign mean")
-    ax.set_yticks(y)
-    ax.set_yticklabels(names)
-    ax.set_xlim(0, 1)
-    ax.set_xlabel("Scaled score (higher = more damaging)")
-    ax.set_title("Predictor scores vs cohort")
-    ax.legend(loc="lower right", fontsize=8, framealpha=0.9)
-    fig.tight_layout()
-    return fig
-
-
-st.markdown("---")
-st.markdown("### Graphs: this mutation in context")
-st.caption(
-    "How this variant compares with the rest of the gene and the 5,000-variant cohort. "
-    "Magenta marks the variant selected above."
-)
-
-figure = ddg_landscape()
-st.pyplot(figure)
-plt.close(figure)
-
-graph_left, graph_right = st.columns(2)
-with graph_left:
-    figure = ddg_distribution()
-    st.pyplot(figure)
-    plt.close(figure)
-with graph_right:
-    figure = predictor_comparison()
-    st.pyplot(figure)
-    plt.close(figure)
+# --- Row 4: distribution | predictor comparison ---------------------------
+dist, pred = st.columns([1, 1])
+with dist:
+    with st.container(border=True):
+        card_title("ΔΔG: benign vs pathogenic")
+        st.caption("Density across all 5,000 variants; the line marks this variant.")
+        render_chart(distribution_option(cohort, float(row["ddg"])), key="ddg_dist", height="300px")
+with pred:
+    with st.container(border=True):
+        card_title("Predictor scores vs cohort")
+        st.caption("Min-max scaled so higher = more damaging.")
+        render_chart(predictor_bars_option(row, cohort), key="predictor_bars", height="300px")
